@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://etgbegh8cwj6"
+path="res://.godot/imported/Dialogos Elfi zona 1.dialogue-6f1f9d6347c77bba8b7ce69cd4a310f9.tres"
+
+[deps]
+
+source_file="res://Dialogos/Dialogos Elfi zona 1.dialogue"
+dest_files=["res://.godot/imported/Dialogos Elfi zona 1.dialogue-6f1f9d6347c77bba8b7ce69cd4a310f9.tres"]
+
+[params]
+
+defaults=true
