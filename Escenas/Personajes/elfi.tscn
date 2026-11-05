@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://ce5tt8dewa43d"]
+
+[ext_resource type="Texture2D" uid="uid://kbxqfayeg62" path="res://Arte/Elfa_01.png" id="1_6hu4c"]
+[ext_resource type="Script" uid="uid://bp58egftogacn" path="res://Elfi.gd" id="2_jedto"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hu4c"]
+size = Vector2(75, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wanek"]
+atlas = ExtResource("1_6hu4c")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ub3bs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wanek")
+}],
+"loop": true,
+"name": &"Quieta",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jedto"]
+radius = 9.0
+height = 52.0
+
+[node name="Elfi" type="CharacterBody2D" unique_id=1274919514]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2070288785]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1291376565]
+position = Vector2(35, 33)
+shape = SubResource("RectangleShape2D_6hu4c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=601603227]
+position = Vector2(33, 30)
+scale = Vector2(1.1458334, 1.3593751)
+sprite_frames = SubResource("SpriteFrames_ub3bs")
+animation = &"Quieta"
+script = ExtResource("2_jedto")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=518860750]
+position = Vector2(32, 31)
+shape = SubResource("CapsuleShape2D_jedto")
+
+[connection signal="body_entered" from="Area2D" to="AnimatedSprite2D" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="AnimatedSprite2D" method="_on_area_2d_body_exited"]

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="2_3k4r6"]
 [ext_resource type="Script" uid="uid://4ey0hthet6ip" path="res://Script/TP.gd" id="2_y5prj"]
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="4_ghi11"]
+[ext_resource type="PackedScene" uid="uid://ce5tt8dewa43d" path="res://Escenas/Personajes/elfi.tscn" id="5_5eu46"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ly0wt"]
 texture = ExtResource("1_5sfon")
@@ -276,5 +277,8 @@ position = Vector2(72, 360)
 
 [node name="Enemigo2" parent="." unique_id=909781914 instance=ExtResource("4_ghi11")]
 position = Vector2(981, 296)
+
+[node name="Elfi" parent="." unique_id=1274919514 instance=ExtResource("5_5eu46")]
+position = Vector2(455, 233)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
