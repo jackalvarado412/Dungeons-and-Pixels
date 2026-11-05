@@ -18,6 +18,8 @@ config/icon="res://Arte/icon.svg"
 [autoload]
 
 DialogueManager="*uid://c3rodes2l3gxb"
+Inventario="*uid://bt6h5lmvkgfrj"
+Recolecciondeobjetos="*uid://diuejb6dlnqcq"
 
 [display]
 

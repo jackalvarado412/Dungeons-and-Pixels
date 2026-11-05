@@ -4,6 +4,8 @@ var enemy_inattack_range = false
 var enemy_attack_cooldown = true
 var player_alive = true
 var attack_ip = false
+# INVENTARIO
+
 # MOVIMIENTO
 const speed = 100
 var current_dir = "down"
@@ -75,6 +77,9 @@ func recibir_daño(cantidad):
 	print("Vida restante:", vida)
 	if vida <= 0:
 		morir()
+func curar(cantidad):
+	vida += cantidad
+	print("Vida restante:", vida)
 func morir():
 	player_alive = false
 	print("GAME OVER")
@@ -118,3 +123,14 @@ func _on_animated_sprite_2d_animation_finished():
 			play_anim(1)
 		else:
 			play_anim(0)
+# INVENTARIO
+func usar_pocion() -> void:
+	if Inventario.cantidad_item("pocion") > 0:
+		Inventario.eliminar_item("pocion", 1)
+		curar(25)
+		print("Usaste una poción")
+	else:
+		print("No tienes pociones")
+func _process(_delta):
+	if Input.is_action_just_pressed("usar_pocion"):
+		usar_pocion()
