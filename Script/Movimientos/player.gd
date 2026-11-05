@@ -1,150 +1,155 @@
 extends CharacterBody2D
-# VARIABLES DEL COMBATE
-var enemy_inattack_range = false
-var enemy_attack_cooldown = true
-var player_alive = true
-var attack_ip = false
-@export var daño_ataque := 20
-# INVENTARIO
-
 # MOVIMIENTO
-const speed = 100
-var current_dir = "down"
+const SPEED := 100.0
+var current_dir := "down"
 # VIDA
-var vida_maxima := 100
+@export var vida_maxima := 100
 var vida := 100
-func _ready() -> void:
+var player_alive := true
+# COMBATE
+@export var daño_ataque := 20
+var attack_ip := false
+var enemy_inattack_range := false
+var enemy_attack_cooldown := true
+# INVENTARIO SIMPLE
+var pociones := 0
+func _ready():
+	add_to_group("jugador")
 	$AttackArea.monitoring = false
 func _process(_delta):
 	if Input.is_action_just_pressed("usar_pocion"):
 		usar_pocion()
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta):
+	if !player_alive:
+		return
 	player_movement()
 	attack()
 	enemy_attack()
-# MOVIMIENTO DEL JUGADOR
-func player_movement() -> void:
+# MOVIMIENTO
+func player_movement():
+	var input_vector := Vector2.ZERO
 	if Input.is_action_pressed("ui_right"):
+		input_vector.x = 1
 		current_dir = "right"
-		velocity.x = speed
-		velocity.y = 0
 	elif Input.is_action_pressed("ui_left"):
+		input_vector.x = -1
 		current_dir = "left"
-		velocity.x = -speed
-		velocity.y = 0
-	elif Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("ui_down"):
+		input_vector.y = 1
 		current_dir = "down"
-		velocity.x = 0
-		velocity.y = speed
 	elif Input.is_action_pressed("ui_up"):
+		input_vector.y = -1
 		current_dir = "up"
-		velocity.x = 0
-		velocity.y = -speed
-	else:
-		velocity.x = 0
-		velocity.y = 0
+	velocity = input_vector.normalized() * SPEED
 	move_and_slide()
-	if attack_ip == false:
-		if velocity.x != 0 or velocity.y != 0:
+	if !attack_ip:
+		if velocity.length() > 0:
 			play_anim(1)
 		else:
 			play_anim(0)
-# ANIMACIONES DE MOVIMIENTO
+# ANIMACIONES
 func play_anim(movement):
-	var dir = current_dir
 	var anim = $AnimatedSprite2D
-	if dir == "right":
-		anim.flip_h = false
-		if movement == 1:
-			anim.play("Costado")
-		elif movement == 0:
-			anim.play("Quieta derecha")
-	elif dir == "left":
-		anim.flip_h = true
-		if movement == 1:
-			anim.play("Costado")
-		elif movement == 0:
-			anim.play("Quieta derecha")
-	elif dir == "down":
-		anim.flip_h = false
-		if movement == 1:
-			anim.play("Caminar")
-		elif movement == 0:
-			anim.play("Quieta")
-	elif dir == "up":
-		anim.flip_h = false
-		if movement == 1:
-			anim.play("Caminar atras")
-		elif movement == 0:
-			anim.play("Quieta arriba")
-# SISTEMA DE VIDA
-func recibir_daño(cantidad):
+	match current_dir:
+		"right":
+			anim.flip_h = false
+			if movement == 1:
+				anim.play("Costado")
+			else:
+				anim.play("Quieta derecha")
+		"left":
+			anim.flip_h = true
+			if movement == 1:
+				anim.play("Costado")
+			else:
+				anim.play("Quieta derecha")
+		"down":
+			anim.flip_h = false
+			if movement == 1:
+				anim.play("Caminar")
+			else:
+				anim.play("Quieta")
+		"up":
+			anim.flip_h = false
+			if movement == 1:
+				anim.play("Caminar atras")
+			else:
+				anim.play("Quieta arriba")
+# VIDA
+func recibir_daño(cantidad:int):
+	if !player_alive:
+		return
 	vida -= cantidad
-	print("Vida restante:", vida)
+	print("Vida:", vida)
 	if vida <= 0:
 		morir()
-func curar(cantidad):
+func curar(cantidad:int):
 	vida += cantidad
 	if vida > vida_maxima:
 		vida = vida_maxima
-	print("Vida restante:", vida)
+	print("Vida:", vida)
 func morir():
 	player_alive = false
 	print("GAME OVER")
-# IDENTIFICAR AL JUGADOR
-func player():
-	pass
-# DETECTAR ENEMIGOS
-func _on_hit_box_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Enemigo"):
-		enemy_inattack_range = true
-func _on_hit_box_body_exited(body: Node2D) -> void:
-	if body.is_in_group("Enemigo"):
-		enemy_inattack_range = false
-# ATAQUE DEL ENEMIGO
+	queue_free()
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown:
 		recibir_daño(10)
 		enemy_attack_cooldown = false
 		$"Tiempo daño".start()
-func _on_tiempo_daño_timeout() -> void:
+func _on_tiempo_daño_timeout():
 	enemy_attack_cooldown = true
+func _on_hit_box_body_entered(body):
+	if body.is_in_group("Enemigo"):
+		enemy_inattack_range = true
+func _on_hit_box_body_exited(body):
+	if body.is_in_group("Enemigo"):
+		enemy_inattack_range = false
 # ATAQUE DEL JUGADOR
 func attack():
-	if Input.is_action_just_pressed("attack") and attack_ip == false:
+	if Input.is_action_just_pressed("attack") and !attack_ip:
 		attack_ip = true
 		$AttackArea.monitoring = true
-		if current_dir == "right":
-			$AnimatedSprite2D.flip_h = false
-			$AnimatedSprite2D.play("ataque derecha")
-		elif current_dir == "left":
-			$AnimatedSprite2D.flip_h = false
-			$AnimatedSprite2D.play("ataque izquierda")
-		elif current_dir == "down":
-			$AnimatedSprite2D.flip_h = false
-			$AnimatedSprite2D.play("ataque abajo")
-		elif current_dir == "up":
-			$AnimatedSprite2D.flip_h = false
-			$AnimatedSprite2D.play("ataque arriba")
-# GOLPEAR ENEMIGOS
-func _on_attack_area_body_entered(body: Node2D) -> void:
+		match current_dir:
+			"right":
+				$AnimatedSprite2D.flip_h = false
+				$AnimatedSprite2D.play("ataque derecha")
+			"left":
+				$AnimatedSprite2D.flip_h = false
+				$AnimatedSprite2D.play("ataque izquierda")
+			"down":
+				$AnimatedSprite2D.flip_h = false
+				$AnimatedSprite2D.play("ataque abajo")
+			"up":
+				$AnimatedSprite2D.flip_h = false
+				$AnimatedSprite2D.play("ataque arriba")
+func _on_attack_area_body_entered(body):
+	if !attack_ip:
+		return
 	if body.is_in_group("Enemigo"):
 		if body.has_method("recibir_daño"):
 			body.recibir_daño(daño_ataque)
-# FINALIZAR ATAQUE
 func _on_animated_sprite_2d_animation_finished():
 	if $AnimatedSprite2D.animation.begins_with("ataque"):
 		attack_ip = false
 		$AttackArea.monitoring = false
-		if velocity.x != 0 or velocity.y != 0:
+		if velocity.length() > 0:
 			play_anim(1)
 		else:
 			play_anim(0)
 # INVENTARIO
-func usar_pocion() -> void:
-	if Inventario.cantidad_item("pocion") > 0:
-		Inventario.eliminar_item("pocion", 1)
-		curar(25)
-		print("Usaste una poción")
-	else:
+func recoger_pocion():
+	pociones += 1
+	print("Recogiste una poción")
+	print("Pociones:", pociones)
+func usar_pocion():
+	if pociones <= 0:
 		print("No tienes pociones")
+		return
+	pociones -= 1
+	curar(25)
+	print("Usaste una poción")
+	print("Pociones restantes:", pociones)
+# IDENTIFICADOR DE JUGADOR
+func player():
+	pass

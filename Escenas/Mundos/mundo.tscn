@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="1_5sfon"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="2_3k4r6"]
-[ext_resource type="Script" uid="uid://4ey0hthet6ip" path="res://Script/TP.gd" id="2_y5prj"]
+[ext_resource type="Script" path="res://Script/TP.gd" id="2_y5prj"]
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="4_ghi11"]
 [ext_resource type="PackedScene" uid="uid://ce5tt8dewa43d" path="res://Escenas/Personajes/elfi.tscn" id="5_5eu46"]
 
