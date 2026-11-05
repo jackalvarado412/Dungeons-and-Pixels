@@ -4,13 +4,20 @@ var enemy_inattack_range = false
 var enemy_attack_cooldown = true
 var player_alive = true
 var attack_ip = false
+@export var daño_ataque := 20
 # INVENTARIO
 
 # MOVIMIENTO
 const speed = 100
 var current_dir = "down"
 # VIDA
+var vida_maxima := 100
 var vida := 100
+func _ready() -> void:
+	$AttackArea.monitoring = false
+func _process(_delta):
+	if Input.is_action_just_pressed("usar_pocion"):
+		usar_pocion()
 func _physics_process(delta: float) -> void:
 	player_movement()
 	attack()
@@ -37,7 +44,6 @@ func player_movement() -> void:
 		velocity.x = 0
 		velocity.y = 0
 	move_and_slide()
-	# EVITAR QUE EL MOVIMIENTO INTERRUMPA EL ATAQUE
 	if attack_ip == false:
 		if velocity.x != 0 or velocity.y != 0:
 			play_anim(1)
@@ -79,6 +85,8 @@ func recibir_daño(cantidad):
 		morir()
 func curar(cantidad):
 	vida += cantidad
+	if vida > vida_maxima:
+		vida = vida_maxima
 	print("Vida restante:", vida)
 func morir():
 	player_alive = false
@@ -99,10 +107,13 @@ func enemy_attack():
 		recibir_daño(10)
 		enemy_attack_cooldown = false
 		$"Tiempo daño".start()
+func _on_tiempo_daño_timeout() -> void:
+	enemy_attack_cooldown = true
 # ATAQUE DEL JUGADOR
 func attack():
 	if Input.is_action_just_pressed("attack") and attack_ip == false:
 		attack_ip = true
+		$AttackArea.monitoring = true
 		if current_dir == "right":
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("ataque derecha")
@@ -115,10 +126,16 @@ func attack():
 		elif current_dir == "up":
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("ataque arriba")
+# GOLPEAR ENEMIGOS
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Enemigo"):
+		if body.has_method("recibir_daño"):
+			body.recibir_daño(daño_ataque)
 # FINALIZAR ATAQUE
 func _on_animated_sprite_2d_animation_finished():
 	if $AnimatedSprite2D.animation.begins_with("ataque"):
 		attack_ip = false
+		$AttackArea.monitoring = false
 		if velocity.x != 0 or velocity.y != 0:
 			play_anim(1)
 		else:
@@ -131,6 +148,3 @@ func usar_pocion() -> void:
 		print("Usaste una poción")
 	else:
 		print("No tienes pociones")
-func _process(_delta):
-	if Input.is_action_just_pressed("usar_pocion"):
-		usar_pocion()
