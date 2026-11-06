@@ -41,8 +41,9 @@ func atacar_jugador():
 	if player == null or !is_instance_valid(player):
 		return
 	if puede_atacar:
-		if global_position.distance_to(player.global_position) < 25:
+		if global_position.distance_to(player.global_position) < 35:
 			if player.has_method("recibir_daño"):
+				print("¡El enemigo golpeó al jugador!")
 				player.recibir_daño(daño)
 			puede_atacar = false
 			$TiempoAtaque.start()
