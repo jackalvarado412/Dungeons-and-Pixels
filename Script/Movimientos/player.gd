@@ -15,7 +15,6 @@ var enemy_attack_cooldown := true
 var pociones := 0
 func _ready():
 	add_to_group("jugador")
-	$AttackArea.monitoring = false
 func _process(_delta):
 	if Input.is_action_just_pressed("usar_pocion"):
 		usar_pocion()
@@ -109,7 +108,6 @@ func _on_hit_box_body_exited(body):
 func attack():
 	if Input.is_action_just_pressed("attack") and !attack_ip:
 		attack_ip = true
-		$AttackArea.monitoring = true
 		match current_dir:
 			"right":
 				$AnimatedSprite2D.flip_h = false
@@ -132,7 +130,6 @@ func _on_attack_area_body_entered(body):
 func _on_animated_sprite_2d_animation_finished():
 	if $AnimatedSprite2D.animation.begins_with("ataque"):
 		attack_ip = false
-		$AttackArea.monitoring = false
 		if velocity.length() > 0:
 			play_anim(1)
 		else:
