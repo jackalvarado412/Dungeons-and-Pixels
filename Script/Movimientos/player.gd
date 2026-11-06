@@ -9,12 +9,10 @@ var player_alive := true
 # COMBATE
 @export var daño_ataque := 20
 var attack_ip := false
-var enemy_inattack_range := false
-var enemy_attack_cooldown := true
 # INVENTARIO SIMPLE
 var pociones := 0
 func _ready():
-	add_to_group("jugador")
+	add_to_group("Jugador")
 func _process(_delta):
 	if Input.is_action_just_pressed("usar_pocion"):
 		usar_pocion()
@@ -92,18 +90,7 @@ func morir():
 	print("GAME OVER")
 	queue_free()
 func enemy_attack():
-	if enemy_inattack_range and enemy_attack_cooldown:
-		recibir_daño(10)
-		enemy_attack_cooldown = false
-		$"Tiempo daño".start()
-func _on_tiempo_daño_timeout():
-	enemy_attack_cooldown = true
-func _on_hit_box_body_entered(body):
-	if body.is_in_group("Enemigo"):
-		enemy_inattack_range = true
-func _on_hit_box_body_exited(body):
-	if body.is_in_group("Enemigo"):
-		enemy_inattack_range = false
+	pass
 # ATAQUE DEL JUGADOR
 func attack():
 	if Input.is_action_just_pressed("attack") and !attack_ip:
