@@ -94,10 +94,11 @@ func enemy_attack():
 	pass
 # ATAQUE DEL JUGADOR
 func aplicar_daño():
-	for body in $AttackArea.get_overlapping_bodies():
+	for body in $"Hit box".get_overlapping_bodies():
 		if body.is_in_group("Enemigo"):
 			if body not in enemigos_golpeados:
 				if body.has_method("recibir_daño"):
+					print("¡Golpeaste al enemigo!")
 					body.recibir_daño(daño_ataque)
 					enemigos_golpeados.append(body)
 func attack():
