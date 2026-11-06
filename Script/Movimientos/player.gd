@@ -9,6 +9,7 @@ var player_alive := true
 # COMBATE
 @export var daño_ataque := 20
 var attack_ip := false
+var enemigos_golpeados = []
 # INVENTARIO SIMPLE
 var pociones := 0
 func _ready():
@@ -92,9 +93,17 @@ func morir():
 func enemy_attack():
 	pass
 # ATAQUE DEL JUGADOR
+func aplicar_daño():
+	for body in $AttackArea.get_overlapping_bodies():
+		if body.is_in_group("Enemigo"):
+			if body not in enemigos_golpeados:
+				if body.has_method("recibir_daño"):
+					body.recibir_daño(daño_ataque)
+					enemigos_golpeados.append(body)
 func attack():
 	if Input.is_action_just_pressed("attack") and !attack_ip:
 		attack_ip = true
+		enemigos_golpeados.clear()
 		match current_dir:
 			"right":
 				$AnimatedSprite2D.flip_h = false
@@ -103,17 +112,19 @@ func attack():
 				$AnimatedSprite2D.flip_h = false
 				$AnimatedSprite2D.play("ataque izquierda")
 			"down":
-				$AnimatedSprite2D.flip_h = false
 				$AnimatedSprite2D.play("ataque abajo")
 			"up":
-				$AnimatedSprite2D.flip_h = false
 				$AnimatedSprite2D.play("ataque arriba")
+		aplicar_daño()
 func _on_attack_area_body_entered(body):
 	if !attack_ip:
 		return
+
 	if body.is_in_group("Enemigo"):
-		if body.has_method("recibir_daño"):
-			body.recibir_daño(daño_ataque)
+		if body not in enemigos_golpeados:
+			if body.has_method("recibir_daño"):
+				body.recibir_daño(daño_ataque)
+				enemigos_golpeados.append(body)
 func _on_animated_sprite_2d_animation_finished():
 	if $AnimatedSprite2D.animation.begins_with("ataque"):
 		attack_ip = false
