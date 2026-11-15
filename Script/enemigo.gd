@@ -45,8 +45,6 @@ func atacar_jugador():
 			if player.has_method("recibir_daño"):
 				print("¡El enemigo golpeó al jugador!")
 				player.recibir_daño(daño)
-			puede_atacar = false
-			$TiempoAtaque.start()
 func _on_tiempo_ataque_timeout():
 	puede_atacar = true
 func enemy():
