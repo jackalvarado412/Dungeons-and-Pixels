@@ -35,8 +35,9 @@ radius = 23.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j8qs0"]
 size = Vector2(59, 45)
 
-[node name="Enemigo" type="CharacterBody2D" unique_id=1821182143 groups=["enemigos"]]
+[node name="Enemigo" type="CharacterBody2D" unique_id=1821182143 node_paths=PackedStringArray("timer_ataque") groups=["enemigos"]]
 script = ExtResource("1_j8qs0")
+timer_ataque = NodePath("Tiempo ataque")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=24980551]
 position = Vector2(10, 7)
@@ -63,7 +64,10 @@ shape = SubResource("CircleShape2D_fhm17")
 position = Vector2(10.5, 0.5)
 shape = SubResource("RectangleShape2D_j8qs0")
 
+[node name="Tiempo ataque" type="Timer" parent="." unique_id=1309768952]
+
 [connection signal="body_entered" from="AnimatedSprite2D/detencion_area" to="." method="_on_detencion_area_body_entered"]
 [connection signal="body_exited" from="AnimatedSprite2D/detencion_area" to="." method="_on_detencion_area_body_exited"]
 [connection signal="body_entered" from="Impacto enemigo" to="." method="_on_impacto_enemigo_body_entered"]
 [connection signal="body_exited" from="Impacto enemigo" to="." method="_on_impacto_enemigo_body_exited"]
+[connection signal="timeout" from="Tiempo ataque" to="." method="_on_tiempo_ataque_timeout"]

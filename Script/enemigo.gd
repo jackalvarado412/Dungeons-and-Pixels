@@ -1,4 +1,5 @@
 extends CharacterBody2D
+@export var timer_ataque: Timer
 # MOVIMIENTO
 var speed = 50
 var player_chase = false
@@ -46,7 +47,7 @@ func atacar_jugador():
 				print("¡El enemigo golpeó al jugador!")
 				player.recibir_daño(daño)
 			puede_atacar = false
-			$TiempoAtaque.start()
+			timer_ataque.start()
 func _on_tiempo_ataque_timeout():
 	puede_atacar = true
 func enemy():
