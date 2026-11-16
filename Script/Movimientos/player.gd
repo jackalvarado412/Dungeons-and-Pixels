@@ -1,4 +1,6 @@
 extends CharacterBody2D
+func _ready():
+	add_to_group("Jugador")
 # MOVIMIENTO
 const SPEED := 100.0
 var current_dir := "down"
@@ -77,6 +79,7 @@ func recibir_daño(cantidad:int):
 		return
 	vida -= cantidad
 	print("Vida:", vida)
+	actualizar_barra_vida()
 	if vida <= 0:
 		morir()
 func curar(cantidad:int):
@@ -84,6 +87,18 @@ func curar(cantidad:int):
 	if vida > vida_maxima:
 		vida = vida_maxima
 	print("Vida:", vida)
+func actualizar_barra_vida():
+	var barra_nodo = get_tree().get_first_node_in_group("BarraDeVida")
+	if barra_nodo:
+		# Buscamos directamente el primer nodo de tipo TextureProgressBar que tenga dentro
+		var texture_progress = barra_nodo.find_child("TextureProgressBar", true, false)
+		if texture_progress:
+			texture_progress.value = vida
+			print("¡Barra actualizada a:", vida, "!")
+		else:
+			print("❌ No se encontró el TextureProgressBar hijo.")
+	else:
+		print("❌ No se encontró el nodo en el grupo BarraDeVida.")
 func morir():
 	player_alive = false
 	print("GAME OVER")
