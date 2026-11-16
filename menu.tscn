@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://ccoa0ioquiu7c"]
+
+[ext_resource type="Script" uid="uid://bx4cv0jn5t7mo" path="res://menu_pausa.gd" id="1_lti8b"]
+
+[node name="Menu" type="CanvasLayer" unique_id=1415445810]
+process_mode = 3
+script = ExtResource("1_lti8b")
+
+[node name="Control" type="Control" parent="." unique_id=1634740811]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=2009890402]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -19.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.23529412)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=939796774]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -10.0
+offset_right = 38.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Salir" type="Button" parent="Control/VBoxContainer" unique_id=1604205739]
+layout_mode = 2
+text = "Salir
+"
+
+[node name="Continuar" type="Button" parent="Control/VBoxContainer" unique_id=1626403853]
+layout_mode = 2
+text = "Continuar
+"
+
+[connection signal="pressed" from="Control/VBoxContainer/Salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]

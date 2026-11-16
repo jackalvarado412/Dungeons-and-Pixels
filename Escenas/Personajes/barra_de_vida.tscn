@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dbhjm366egx3a"]
+
+[ext_resource type="Texture2D" uid="uid://bu8fc0d8qu60a" path="res://Arte/Vida/vida vacio 3..png" id="1_5ecko"]
+[ext_resource type="Texture2D" uid="uid://do7oh7b5wieia" path="res://Arte/Vida/vida relleno 2.png" id="2_mbaea"]
+[ext_resource type="Texture2D" uid="uid://45sjmtowyxwi" path="res://Arte/Vida/vida recuadro 1.png" id="3_vv2o3"]
+
+[node name="barra de vida" type="CanvasLayer" unique_id=974127007 groups=["BarraDeVida"]]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1565342861]
+offset_right = 40.0
+offset_bottom = 40.0
+value = 100.0
+texture_under = ExtResource("1_5ecko")
+texture_progress = ExtResource("2_mbaea")
+
+[node name="TextureRect" type="TextureRect" parent="TextureProgressBar" unique_id=1098718210]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 32.0
+texture = ExtResource("3_vv2o3")

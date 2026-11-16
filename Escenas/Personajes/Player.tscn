@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://phk4nk0kbkkk"]
 
-[ext_resource type="Script" uid="uid://uer2kmg6dvpw" path="res://Script/Movimientos/player.gd" id="1_oockb"]
+[ext_resource type="Script" uid="uid://uer2kmg6dvpw" path="res://Script/Movimientos/player.gd" id="1_a0glk"]
 [ext_resource type="Texture2D" uid="uid://1are0uawet32" path="res://Arte/$Servi_Pj.png.png" id="2_cgvqe"]
 [ext_resource type="Texture2D" uid="uid://dik7nil56ayr3" path="res://Arte/Servi ataque.png" id="3_a0glk"]
 
@@ -303,7 +303,7 @@ size = Vector2(34, 57)
 [node name="Player" type="CharacterBody2D" unique_id=824008184]
 position = Vector2(0, 5)
 collision_layer = 3
-script = ExtResource("1_oockb")
+script = ExtResource("1_a0glk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1201231271]
 position = Vector2(-10, -45)
