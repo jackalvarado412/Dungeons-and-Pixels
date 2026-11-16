@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ce5tt8dewa43d"]
 
 [ext_resource type="Texture2D" uid="uid://kbxqfayeg62" path="res://Arte/Elfa_01.png" id="1_6hu4c"]
-[ext_resource type="Script" uid="uid://bp58egftogacn" path="res://Elfi.gd" id="2_jedto"]
+[ext_resource type="Script" uid="uid://bp58egftogacn" path="res://Script/Elfi.gd" id="2_jedto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6hu4c"]
 size = Vector2(75, 79)

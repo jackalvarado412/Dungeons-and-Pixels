@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://8hbqoltql8da"]
 
-[ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="1_8iv4i"]
-[ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="2_ifl8c"]
-[ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="3_2yya1"]
+[ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="1_ymaq0"]
+[ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="2_3nx07"]
+[ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="3_k8m6v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ifl8c"]
-texture = ExtResource("1_8iv4i")
+texture = ExtResource("1_ymaq0")
 texture_region_size = Vector2i(32, 32)
 25:0/0 = 0
 26:0/0 = 0
@@ -773,8 +773,11 @@ texture_region_size = Vector2i(32, 32)
 17:15/0 = 0
 17:16/0 = 0
 17:17/0 = 0
+17:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 18:17/0 = 0
+18:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 19:17/0 = 0
+19:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 19:16/0 = 0
 19:15/0 = 0
 19:14/0 = 0
@@ -783,6 +786,7 @@ texture_region_size = Vector2i(32, 32)
 18:16/0 = 0
 21:16/0 = 0
 21:17/0 = 0
+21:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 22:13/0 = 0
 22:14/0 = 0
 22:15/0 = 0
@@ -805,25 +809,44 @@ texture_region_size = Vector2i(32, 32)
 14:18/0 = 0
 24:11/0 = 0
 24:10/0 = 0
+24:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 24:9/0 = 0
+24:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 9:7/0 = 0
+9:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 9:8/0 = 0
+9:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 9:9/0 = 0
+9:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 9:10/0 = 0
+9:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 10:10/0 = 0
+10:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 10:11/0 = 0
+10:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 11:11/0 = 0
+11:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 11:10/0 = 0
+11:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 11:9/0 = 0
+11:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 11:8/0 = 0
+11:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 11:7/0 = 0
+11:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 10:7/0 = 0
+10:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 10:8/0 = 0
 9:11/0 = 0
+9:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 10:9/0 = 0
+10:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 13:7/0 = 0
+13:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 13:8/0 = 0
+13:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 13:9/0 = 0
+13:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:14/0 = 0
 1:14/0 = 0
 2:14/0 = 0
@@ -847,6 +870,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_2yya1"]
 tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ifl8c")
 
 [node name="izquierda" type="Node2D" unique_id=1642583362]
@@ -863,20 +887,20 @@ layer_2/tile_data = PackedInt32Array(851986, 1376256, 19, 1048594, 1376256, 19, 
 layer_3/name = "Pilares"
 layer_3/tile_data = PackedInt32Array(196635, 1572864, 9, 262171, 1572864, 10, 327707, 1572864, 11, 262154, 1572864, 9, 327690, 1572864, 10, 393226, 1572864, 11, 655378, 1572864, 9, 720914, 1572864, 10, 786450, 1572864, 11, 1114122, 1572864, 9, 1179658, 1572864, 10, 1245194, 1572864, 11, 1114130, 1572864, 9, 1179666, 1572864, 10, 1245202, 1572864, 11, 3342346, 1572864, 9, 3407882, 1572864, 10, 3473418, 1572864, 11, 3342354, 1572864, 9, 3407890, 1572864, 10, 3473426, 1572864, 11, 589854, 1572864, 9, 655390, 1572864, 10, 720926, 1572864, 11, 196625, 1572864, 9, 262161, 1572864, 10, 327697, 1572864, 11, 2818058, 1572864, 9, 2883594, 1572864, 10, 2949130, 1572864, 11, 2818066, 1572864, 9, 2883602, 1572864, 10, 2949138, 1572864, 11)
 
-[node name="Player" parent="." unique_id=824008184 instance=ExtResource("2_ifl8c")]
+[node name="Player" parent="." unique_id=824008184 instance=ExtResource("2_3nx07")]
 position = Vector2(1139, 303)
 
-[node name="Enemigo" parent="." unique_id=1821182143 instance=ExtResource("3_2yya1")]
+[node name="Enemigo" parent="." unique_id=1821182143 instance=ExtResource("3_k8m6v")]
 position = Vector2(171, 161)
 
-[node name="Enemigo2" parent="." unique_id=375582780 instance=ExtResource("3_2yya1")]
+[node name="Enemigo2" parent="." unique_id=375582780 instance=ExtResource("3_k8m6v")]
 position = Vector2(197, 926)
 
-[node name="Enemigo3" parent="." unique_id=836278926 instance=ExtResource("3_2yya1")]
+[node name="Enemigo3" parent="." unique_id=836278926 instance=ExtResource("3_k8m6v")]
 position = Vector2(729, 986)
 
-[node name="Enemigo4" parent="." unique_id=1516529210 instance=ExtResource("3_2yya1")]
+[node name="Enemigo4" parent="." unique_id=1516529210 instance=ExtResource("3_k8m6v")]
 position = Vector2(1050, 620)
 
-[node name="Enemigo5" parent="." unique_id=109057466 instance=ExtResource("3_2yya1")]
+[node name="Enemigo5" parent="." unique_id=109057466 instance=ExtResource("3_k8m6v")]
 position = Vector2(351, 1426)
