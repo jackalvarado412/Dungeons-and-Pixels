@@ -1,5 +1,10 @@
 extends Node
+
 var nivel_reparado: bool = false
+var vida_maxima: int = 100
+var vida_actual: int = 100
+var pociones: int = 0
+
 const MAPAS_NORMALES := {
 	"res://Escenas/Mundos/Corruptos/mundo.tscn": "res://Escenas/Mundos/normales/mundo_normal.tscn",
 	"res://Escenas/Mundos/Corruptos/cueva_interior.tscn": "res://Escenas/Mundos/normales/Cueva interior color.tscn",
@@ -7,18 +12,25 @@ const MAPAS_NORMALES := {
 	"res://Escenas/Mundos/Corruptos/nivel_1_izquierda.tscn": "res://Escenas/Mundos/normales/izquierda colores.tscn",
 	"res://Escenas/Mundos/Corruptos/arriba.tscn": "res://Escenas/Mundos/normales/arriba a color.tscn"
 }
+
 func _ready() -> void:
 	get_tree().scene_changed.connect(_al_cambiar_escena)
+
 func iniciar_partida() -> void:
 	nivel_reparado = false
+	vida_actual = vida_maxima
+	pociones = 0
+
 func derrotar_jefe() -> void:
 	if nivel_reparado:
 		return
 	nivel_reparado = true
 	reparar_mapa_actual()
+
 func _al_cambiar_escena() -> void:
 	if nivel_reparado:
 		reparar_mapa_actual()
+
 func reparar_mapa_actual() -> void:
 	var escena := get_tree().current_scene
 	if escena == null:
@@ -49,6 +61,7 @@ func reparar_mapa_actual() -> void:
 	padre.move_child(mapa_nuevo, indice)
 	mapa_actual.queue_free()
 	instancia_color.queue_free()
+
 func _buscar_tilemap(nodo: Node) -> TileMap:
 	if nodo is TileMap:
 		return nodo

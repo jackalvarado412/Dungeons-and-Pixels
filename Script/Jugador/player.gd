@@ -1,29 +1,44 @@
 extends CharacterBody2D
+
 const PANTALLA_MUERTE = preload("res://Escenas/Mundos/Menusgeneral/Pantalla de muerde.tscn")
-func _ready():
-	add_to_group("Jugador")
+
 # MOVIMIENTO
 const SPEED := 200
 var current_dir := "down"
+
 # VIDA
 @export var vida_maxima := 100
 var vida := 100
 var player_alive := true
+
 # COMBATE
 @export var daño_ataque := 20
 var attack_ip := false
 var enemigos_golpeados = []
+
 # INVENTARIO SIMPLE
 var pociones := 0
+
+func _ready():
+	add_to_group("Jugador")
+	# Cargamos la vida y pociones guardadas en el script global al cambiar de nivel
+	vida_maxima = GameState.vida_maxima
+	vida = GameState.vida_actual
+	pociones = GameState.pociones
+	# Actualizamos la barra de vida visualmente en el primer fotograma de la nueva escena
+	call_deferred("actualizar_barra_vida")
+
 func _process(_delta):
 	if Input.is_action_just_pressed("usar_pocion"):
 		usar_pocion()
+
 func _physics_process(_delta):
 	if !player_alive:
 		return
 	player_movement()
 	attack()
 	enemy_attack()
+
 # MOVIMIENTO
 func player_movement():
 	var input_vector := Vector2.ZERO
@@ -46,6 +61,7 @@ func player_movement():
 			play_anim(1)
 		else:
 			play_anim(0)
+
 # ANIMACIONES
 func play_anim(movement):
 	var anim = $AnimatedSprite2D
@@ -74,42 +90,52 @@ func play_anim(movement):
 				anim.play("Caminar atras")
 			else:
 				anim.play("Quieta arriba")
+
 # VIDA
-func recibir_daño(cantidad:int):
+func recibir_daño(cantidad: int):
 	if !player_alive:
 		return
-	vida -= cantidad
+	vida = max(vida - cantidad, 0)
+	GameState.vida_actual = vida # Guardamos la vida actual globalmente
 	print("Vida:", vida)
 	actualizar_barra_vida()
 	if vida <= 0:
 		morir()
-func curar(cantidad:int):
-	vida += cantidad
-	if vida > vida_maxima:
-		vida = vida_maxima
+
+func curar(cantidad: int):
+	vida = min(vida + cantidad, vida_maxima)
+	GameState.vida_actual = vida # Guardamos la vida curada globalmente
 	print("Vida:", vida)
+	actualizar_barra_vida()
+
 func actualizar_barra_vida():
 	var barra_nodo = get_tree().get_first_node_in_group("BarraDeVida")
 	if barra_nodo:
-		# Buscamos directamente el primer nodo de tipo TextureProgressBar que tenga dentro
 		var texture_progress = barra_nodo.find_child("TextureProgressBar", true, false)
 		if texture_progress:
+			texture_progress.max_value = vida_maxima
 			texture_progress.value = vida
 			print("¡Barra actualizada a:", vida, "!")
 		else:
 			print("❌ No se encontró el TextureProgressBar hijo.")
 	else:
 		print("❌ No se encontró el nodo en el grupo BarraDeVida.")
+
 func morir():
 	if !player_alive:
 		return
 	player_alive = false
 	print("GAME OVER")
+	# Reiniciamos los datos globales para la próxima partida
+	GameState.vida_actual = GameState.vida_maxima
+	GameState.pociones = 0
 	var pantalla = PANTALLA_MUERTE.instantiate()
 	get_tree().current_scene.add_child(pantalla)
 	queue_free()
+
 func enemy_attack():
 	pass
+
 # ATAQUE DEL JUGADOR
 func aplicar_daño():
 	for body in $"Hit box".get_overlapping_bodies():
@@ -119,6 +145,7 @@ func aplicar_daño():
 					print("¡Golpeaste al enemigo!")
 					body.recibir_daño(daño_ataque)
 					enemigos_golpeados.append(body)
+
 func attack():
 	if Input.is_action_just_pressed("attack") and !attack_ip:
 		attack_ip = true
@@ -135,15 +162,16 @@ func attack():
 			"up":
 				$AnimatedSprite2D.play("ataque arriba")
 		aplicar_daño()
+
 func _on_attack_area_body_entered(body):
 	if !attack_ip:
 		return
-
 	if body.is_in_group("Enemigo"):
 		if body not in enemigos_golpeados:
 			if body.has_method("recibir_daño"):
 				body.recibir_daño(daño_ataque)
 				enemigos_golpeados.append(body)
+
 func _on_animated_sprite_2d_animation_finished():
 	if $AnimatedSprite2D.animation.begins_with("ataque"):
 		attack_ip = false
@@ -151,39 +179,24 @@ func _on_animated_sprite_2d_animation_finished():
 			play_anim(1)
 		else:
 			play_anim(0)
+
 # INVENTARIO
 func recoger_pocion():
 	pociones += 1
+	GameState.pociones = pociones
 	print("Recogiste una poción")
 	print("Pociones:", pociones)
+
 func usar_pocion():
 	if pociones <= 0:
 		print("No tienes pociones")
 		return
 	pociones -= 1
+	GameState.pociones = pociones
 	curar(25)
 	print("Usaste una poción")
 	print("Pociones restantes:", pociones)
+
 # IDENTIFICADOR DE JUGADOR
 func player():
 	pass
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-
-
-func _on_area_2d_2_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-
-
-func _on_area_2d_5_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-
-
-func _on_area_2d_3_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-
-
-func _on_area_2d_4_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
