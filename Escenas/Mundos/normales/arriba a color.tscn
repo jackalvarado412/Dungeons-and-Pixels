@@ -346,3 +346,8 @@ shape = SubResource("CapsuleShape2D_bymfd")
 script = ExtResource("4_geohc")
 
 [node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("5_bymfd")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1861749592]
+position = Vector2(525, -243)
+shape = SubResource("CapsuleShape2D_bymfd")
+script = ExtResource("4_geohc")
