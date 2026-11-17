@@ -360,10 +360,12 @@ position = Vector2(553, 40)
 script = ExtResource("6_e603d")
 escena_al_morir = "uid://ckv1134f47bxg"
 
+[node name="barra de vida" parent="Enemigo" unique_id=974127007 instance=ExtResource("5_sf1yi")]
+
 [node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=1803485110]
 offset_left = -90.0
 offset_top = -267.0
 offset_right = 1195.0
 offset_bottom = 670.0
 
-[node name="barra de vida" parent="LimitedeCamara" unique_id=974127007 instance=ExtResource("5_sf1yi")]
+[node name="barra de vida" parent="LimitedeCamara" unique_id=2113630282 instance=ExtResource("5_sf1yi")]

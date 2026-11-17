@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="1_g7moc"]
 [ext_resource type="Texture2D" uid="uid://0vghit7jckp" path="res://Arte/decos mazmorra01.png" id="2_8rfxm"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="3_8rfxm"]
+[ext_resource type="Script" uid="uid://i22g437ba4b3" path="res://Script/Tp de nuevo abaj.gd" id="4_geohc"]
+[ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_bymfd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rk4j8"]
 texture = ExtResource("1_g7moc")
@@ -137,6 +139,7 @@ texture_region_size = Vector2i(32, 32)
 20:8/0 = 0
 20:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 21:8/0 = 0
+21:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:9/0 = 0
 1:9/0 = 0
 2:9/0 = 0
@@ -186,8 +189,11 @@ texture_region_size = Vector2i(32, 32)
 16:11/0 = 0
 16:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 18:11/0 = 0
+18:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 19:11/0 = 0
+19:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 20:11/0 = 0
+20:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 22:11/0 = 0
 24:11/0 = 0
 0:12/0 = 0
@@ -241,7 +247,9 @@ texture_region_size = Vector2i(32, 32)
 4:17/0 = 0
 8:17/0 = 0
 9:17/0 = 0
+9:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 10:17/0 = 0
+10:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 12:17/0 = 0
 1:18/0 = 0
 2:18/0 = 0
@@ -308,6 +316,10 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_rk4j8")
 sources/1 = SubResource("TileSetAtlasSource_redb3")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bymfd"]
+radius = 21.0
+height = 84.0
+
 [node name="Node2D" type="Node2D" unique_id=1375784739]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1059488992]
@@ -320,4 +332,17 @@ layer_1/tile_data = PackedInt32Array(1310740, 1245184, 11, 1310739, 1179648, 11,
 layer_2/name = "Bugs"
 
 [node name="Player" parent="." unique_id=824008184 instance=ExtResource("3_8rfxm")]
-position = Vector2(534, 653)
+position = Vector2(539, 662)
+
+[node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=1911035945]
+offset_left = 362.0
+offset_top = -222.0
+offset_right = 706.0
+offset_bottom = 671.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1268874319]
+position = Vector2(530, 699)
+shape = SubResource("CapsuleShape2D_bymfd")
+script = ExtResource("4_geohc")
+
+[node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("5_bymfd")]
