@@ -4,13 +4,17 @@ var dialogue_active = false
 const DIALOGUE = preload("res://Dialogos/Dialogos Elfi zona 1.dialogue")
 func _ready():
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
-func _process(delta):
+func _process(_delta):
 	if is_player_close and Input.is_action_just_pressed("Accion") and not dialogue_active:
 		dialogue_active = true
 		DialogueManager.show_dialogue_balloon(DIALOGUE)
 func _on_dialogue_ended(resource):
 	dialogue_active = false
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	is_player_close = true
+	if body.is_in_group("Jugador"):
+		is_player_close = true
+		print("Jugador cerca de Elfi")
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	is_player_close = false
+	if body.is_in_group("Jugador"):
+		is_player_close = false
+		print("Jugador lejos de Elfi")
