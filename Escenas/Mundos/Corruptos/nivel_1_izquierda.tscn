@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="2_ihu3t"]
 [ext_resource type="Texture2D" uid="uid://0vghit7jckp" path="res://Arte/decos mazmorra01.png" id="2_q6gfv"]
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="3_s1h43"]
+[ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_vilpg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vv1ro"]
 texture = ExtResource("1_mt1ug")
@@ -363,3 +364,5 @@ position = Vector2(707, 224)
 
 [node name="Enemigo4" parent="." unique_id=1443939652 instance=ExtResource("3_s1h43")]
 position = Vector2(717, 425)
+
+[node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("5_vilpg")]

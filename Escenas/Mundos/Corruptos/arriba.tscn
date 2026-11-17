@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="1_tebpy"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="2_k60hq"]
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="3_6555k"]
+[ext_resource type="Script" uid="uid://trwkp5gejkq7" path="res://Script/Movimientos/TpalJefe.gd" id="4_k60hq"]
+[ext_resource type="Script" uid="uid://bxex47km3dsn1" path="res://Script/Movimientos/VolverAlInicioArriba.gd" id="5_6555k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jw3ma"]
 texture = ExtResource("1_tebpy")
@@ -304,6 +306,10 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_jw3ma")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6555k"]
+radius = 21.0
+height = 106.0
+
 [node name="Node2D" type="Node2D" unique_id=353785808]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1329406033]
@@ -317,7 +323,7 @@ layer_2/name = "Bugs"
 layer_2/tile_data = PackedInt32Array(-327666, 1376256, 19, 458766, 1376256, 19, 655374, 1376256, 19, 786446, 1376256, 19, -458737, 1376256, 19, -393201, 1376256, 19, -196593, 1376256, 19, 131087, 1376256, 19, 262159, 1376256, 19, 327695, 1376256, 19, 786447, 1376256, 19, -196592, 1376256, 19, -65520, 1376256, 19, 327696, 1376256, 19, 393232, 1376256, 19, 589840, 1376256, 19, 720912, 1376256, 19, 786448, 1376256, 19, 917520, 1376256, 19, -196591, 1376256, 19, -65519, 1376256, 19, 131089, 1376256, 19, 196625, 1376256, 19, 262161, 1376256, 19, 655377, 1376256, 19, 851985, 1376256, 19, 851980, 1376256, 19, 1310732, 1376256, 19, 786445, 1376256, 19, 1310733, 1376256, 19, 983054, 1376256, 19, 1114126, 1376256, 19, 917519, 1376256, 19, 1048591, 1376256, 19, 1310735, 1376256, 19, 851984, 1376256, 19, 1114128, 1376256, 19, 1310736, 1376256, 19, 917521, 1376256, 19, 1048593, 1376256, 19, 1179665, 1376256, 19, 1245201, 1376256, 19, 1048594, 1376256, 19, 1179666, 1376256, 19, 917524, 1376256, 19, 1114132, 1376256, 19, 1310740, 1376256, 19, 786453, 1376256, 19, 983061, 1376256, 19, 1114133, 1376256, 19, -458741, 1376256, 19, -196597, 1376256, 19, -131061, 1376256, 19, 65547, 1376256, 19, 196619, 1376256, 19, 393227, 1376256, 19, 786443, 1376256, 19, 1048587, 1376256, 19, 1114123, 1376256, 19, 1179659, 1376256, 19, -393204, 1376256, 19, -196596, 1376256, 19, 131084, 1376256, 19, 327692, 1376256, 19, 393228, 1376256, 19, 524300, 1376256, 19, 983052, 1376256, 19, 1048588, 1376256, 19, 1179660, 1376256, 19, 1245196, 1376256, 19, -196595, 1376256, 19, 131085, 1376256, 19, 393229, 1376256, 19, 524301, 1376256, 19, 983053, 1376256, 19, 1114125, 1376256, 19, 1179661, 1376256, 19, 1245197, 1376256, 19, -458733, 1376256, 19, -393197, 1376256, 19, -196589, 1376256, 19, -131053, 1376256, 19, 196627, 1376256, 19, 458771, 1376256, 19, 589843, 1376256, 19, 720915, 1376256, 19, 786451, 1376256, 19, 917523, 1376256, 19, 1048595, 1376256, 19, -196588, 1376256, 19, 131092, 1376256, 19, -327659, 1376256, 19, -196587, 1376256, 19, 21, 1376256, 19, 131093, 1376256, 19, 262165, 1376256, 19, 393237, 1376256, 19, 524309, 1376256, 19, 917525, 1376256, 19, 1048597, 1376256, 19, -196594, 1376256, 19, 720910, 1376256, 19, -262129, 1376256, 19, 196623, 1376256, 19, 393231, 1376256, 19, 524303, 1376256, 19, -393200, 1376256, 19, -131056, 1376256, 19, 16, 1376256, 19, 458768, 1376256, 19, 524304, 1376256, 19, -262127, 1376256, 19, 65553, 1376256, 19, 524305, 1376256, 19, 720913, 1376256, 19, -393198, 1376256, 19, -262126, 1376256, 19, -196590, 1376256, 19, 18, 1376256, 19, 262162, 1376256, 19, 327698, 1376256, 19, 393234, 1376256, 19, 458770, 1376256, 19, -262125, 1376256, 19, 131091, 1376256, 19, 393235, 1376256, 19)
 
 [node name="Player" parent="." unique_id=824008184 instance=ExtResource("2_k60hq")]
-position = Vector2(537, 686)
+position = Vector2(542, 641)
 
 [node name="Enemigo" parent="." unique_id=1821182143 instance=ExtResource("3_6555k")]
 position = Vector2(393, 121)
@@ -327,3 +333,22 @@ position = Vector2(662, 122)
 
 [node name="Enemigo3" parent="." unique_id=355010107 instance=ExtResource("3_6555k")]
 position = Vector2(526, -40)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1237462451]
+script = ExtResource("4_k60hq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=830333964]
+position = Vector2(533, -230)
+shape = SubResource("CapsuleShape2D_6555k")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=420582922]
+script = ExtResource("5_6555k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1778017201]
+position = Vector2(526, 691)
+shape = SubResource("CapsuleShape2D_6555k")
+
+[connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Player" method="_on_area_2d_2_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="1_ymaq0"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="2_3nx07"]
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="3_k8m6v"]
+[ext_resource type="Script" uid="uid://c8lsgpuu6oa2w" path="res://Script/VolverInicioCueva.gd" id="4_3nx07"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ifl8c"]
 texture = ExtResource("1_ymaq0")
@@ -873,6 +874,10 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ifl8c")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k8m6v"]
+radius = 21.0
+height = 100.0
+
 [node name="izquierda" type="Node2D" unique_id=1642583362]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1285318310]
@@ -888,7 +893,7 @@ layer_3/name = "Pilares"
 layer_3/tile_data = PackedInt32Array(196635, 1572864, 9, 262171, 1572864, 10, 327707, 1572864, 11, 262154, 1572864, 9, 327690, 1572864, 10, 393226, 1572864, 11, 655378, 1572864, 9, 720914, 1572864, 10, 786450, 1572864, 11, 1114122, 1572864, 9, 1179658, 1572864, 10, 1245194, 1572864, 11, 1114130, 1572864, 9, 1179666, 1572864, 10, 1245202, 1572864, 11, 3342346, 1572864, 9, 3407882, 1572864, 10, 3473418, 1572864, 11, 3342354, 1572864, 9, 3407890, 1572864, 10, 3473426, 1572864, 11, 589854, 1572864, 9, 655390, 1572864, 10, 720926, 1572864, 11, 196625, 1572864, 9, 262161, 1572864, 10, 327697, 1572864, 11, 2818058, 1572864, 9, 2883594, 1572864, 10, 2949130, 1572864, 11, 2818066, 1572864, 9, 2883602, 1572864, 10, 2949138, 1572864, 11)
 
 [node name="Player" parent="." unique_id=824008184 instance=ExtResource("2_3nx07")]
-position = Vector2(1139, 303)
+position = Vector2(1104, 300)
 
 [node name="Enemigo" parent="." unique_id=1821182143 instance=ExtResource("3_k8m6v")]
 position = Vector2(171, 161)
@@ -904,3 +909,13 @@ position = Vector2(1050, 620)
 
 [node name="Enemigo5" parent="." unique_id=109057466 instance=ExtResource("3_k8m6v")]
 position = Vector2(351, 1426)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1387207076]
+script = ExtResource("4_3nx07")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1536053047]
+position = Vector2(1152, 253)
+shape = SubResource("CapsuleShape2D_k8m6v")
+
+[connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

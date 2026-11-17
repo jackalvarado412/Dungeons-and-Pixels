@@ -52,3 +52,19 @@ func _on_tiempo_ataque_timeout():
 	puede_atacar = true
 func enemy():
 	pass
+
+
+func _on_area_2d_2_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+func _on_area_2d_3_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+func _on_area_2d_4_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_area_2d_5_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

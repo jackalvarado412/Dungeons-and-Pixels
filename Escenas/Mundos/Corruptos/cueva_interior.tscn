@@ -3,7 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="1_obrjw"]
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="2_sbgkt"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="3_ausyq"]
-[ext_resource type="Script" uid="uid://4ey0hthet6ip" path="res://Script/Escenas/TP.gd" id="4_sbgkt"]
+[ext_resource type="Script" uid="uid://caht6b0mqxdjx" path="res://TpIzquierda.gd" id="5_v1evm"]
+[ext_resource type="Script" uid="uid://ciim8jo1a66os" path="res://Script/Derecha.gd" id="6_v1evm"]
+[ext_resource type="Script" uid="uid://coptqkp3ovl8u" path="res://Escenas/Mundos/Corruptos/Arriba.gd" id="7_jjcum"]
+[ext_resource type="Script" uid="uid://b5kiyu61xrh4" path="res://Script/Volve a fuera.gd" id="7_mf18m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_quvfg"]
 texture = ExtResource("1_obrjw")
@@ -147,6 +150,10 @@ sources/0 = SubResource("TileSetAtlasSource_quvfg")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ausyq"]
 radius = 21.0
+height = 100.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mf18m"]
+radius = 21.0
 height = 106.0
 
 [node name="Cueva interior" type="Node2D" unique_id=1590611480]
@@ -167,7 +174,7 @@ layer_3/tile_data = PackedInt32Array(327680, 1376256, 19, 524288, 1376256, 19, 6
 position = Vector2(1830, 477)
 
 [node name="Player" parent="." unique_id=824008184 instance=ExtResource("3_ausyq")]
-position = Vector2(580, 606)
+position = Vector2(582, 583)
 
 [node name="Enemigo" parent="." unique_id=816448024 instance=ExtResource("2_sbgkt")]
 position = Vector2(1388, 318)
@@ -181,11 +188,39 @@ position = Vector2(55, 116)
 [node name="Enemigo4" parent="." unique_id=2106602578 instance=ExtResource("2_sbgkt")]
 position = Vector2(1073, 114)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=669401997]
-script = ExtResource("4_sbgkt")
+[node name="Area2D2" type="Area2D" parent="." unique_id=626310238]
+script = ExtResource("5_v1evm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1083826200]
-position = Vector2(576, 44)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1583242627]
+position = Vector2(11, 268)
 shape = SubResource("CapsuleShape2D_ausyq")
 
+[node name="Area2D3" type="Area2D" parent="." unique_id=1092781245]
+script = ExtResource("6_v1evm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=1829000372]
+position = Vector2(1558, 294)
+shape = SubResource("CapsuleShape2D_ausyq")
+
+[node name="Area2D4" type="Area2D" parent="." unique_id=1033532726]
+script = ExtResource("7_mf18m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" unique_id=816284219]
+position = Vector2(572, 655)
+shape = SubResource("CapsuleShape2D_ausyq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1793802944]
+position = Vector2(1, 5)
+script = ExtResource("7_jjcum")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=577128104]
+position = Vector2(574, 66)
+shape = SubResource("CapsuleShape2D_mf18m")
+
+[connection signal="body_entered" from="Area2D2" to="TileMap/Enemigo" method="_on_area_2d_2_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D3" to="TileMap/Enemigo" method="_on_area_2d_3_body_entered"]
+[connection signal="body_entered" from="Area2D3" to="Area2D3" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D4" to="Area2D4" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="TileMap/Enemigo" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
