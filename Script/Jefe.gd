@@ -111,9 +111,36 @@ func morir() -> void:
 	set_physics_process(false)
 	velocity = Vector2.ZERO
 	GameState.nivel_reparado = true
-	get_tree().change_scene_to_file(
+	
+	# Ocultamos al jefe y desactivamos su colisión mientras tiembla la pantalla
+	hide()
+	if has_node("CollisionShape2D"):
+		$CollisionShape2D.set_deferred("disabled", true)
+	
+	# Sacudir cámara durante 1.5 segundos con intensidad de 12 píxeles
+	await sacudir_camara(1.5, 12.0)
+	
+	get_tree().call_deferred(
+		"change_scene_to_file",
 		"res://Escenas/Mundos/normales/Jefe Normal.tscn"
 	)
+
+func sacudir_camara(duracion: float, intensidad: float) -> void:
+	var camara = get_viewport().get_camera_2d()
+	if not camara:
+		return
+		
+	var tiempo_transcurrido := 0.0
+	while tiempo_transcurrido < duracion:
+		camara.offset = Vector2(
+			randf_range(-intensidad, intensidad),
+			randf_range(-intensidad, intensidad)
+		)
+		await get_tree().process_frame
+		tiempo_transcurrido += get_process_delta_time()
+		
+	camara.offset = Vector2.ZERO
+	
 func reproducir_animacion(nombre: String) -> void:
 	if sprite.sprite_frames and sprite.sprite_frames.has_animation(nombre):
 		if sprite.animation != nombre:
