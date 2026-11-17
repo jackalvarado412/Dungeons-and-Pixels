@@ -355,8 +355,8 @@ shape = SubResource("CapsuleShape2D_6555k")
 [node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=590320546]
 offset_left = 374.0
 offset_top = -222.0
-offset_right = 684.0
-offset_bottom = 666.0
+offset_right = 699.0
+offset_bottom = 671.0
 
 [node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("7_vjl2t")]
 
