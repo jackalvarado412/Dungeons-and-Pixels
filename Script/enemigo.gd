@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @export var timer_ataque: Timer
 # MOVIMIENTO
-var speed = 150
+var speed = 250
 var player_chase = false
 var player = null
 # VIDA
