@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="3_ausyq"]
 [ext_resource type="Script" uid="uid://caht6b0mqxdjx" path="res://TpIzquierda.gd" id="5_v1evm"]
 [ext_resource type="Script" uid="uid://ciim8jo1a66os" path="res://Script/Derecha.gd" id="6_v1evm"]
-[ext_resource type="Script" path="res://Escenas/Mundos/Corruptos/Arriba.gd" id="7_jjcum"]
+[ext_resource type="Script" uid="uid://dabm5r6oydae7" path="res://Escenas/Mundos/Corruptos/area_2d.gd" id="7_jjcum"]
 [ext_resource type="Script" uid="uid://b5kiyu61xrh4" path="res://Script/Volve a fuera.gd" id="7_mf18m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_quvfg"]
