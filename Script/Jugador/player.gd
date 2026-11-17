@@ -174,3 +174,7 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_5_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
+
+
+func _on_area_2d_3_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
