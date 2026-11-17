@@ -344,8 +344,8 @@ sources/0 = SubResource("TileSetAtlasSource_1tcwj")
 sources/1 = SubResource("TileSetAtlasSource_e603d")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l8e1q"]
-radius = 21.0
-height = 106.0
+radius = 62.0
+height = 124.0
 
 [node name="Node2D" type="Node2D" unique_id=353785808]
 script = ExtResource("1_chnrl")
@@ -364,12 +364,12 @@ layer_3/tile_data = PackedInt32Array(720908, 1441792, 11, 655372, 1441792, 10, 5
 layer_4/name = "nashei"
 
 [node name="Player" parent="." unique_id=824008184 instance=ExtResource("4_jan7e")]
-position = Vector2(551, 660)
+position = Vector2(552, 426)
 
 [node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=1803485110]
-offset_left = -89.0
+offset_left = -102.0
 offset_top = -294.0
-offset_right = 1149.0
+offset_right = 1136.0
 offset_bottom = 667.0
 
 [node name="barra de vida" parent="LimitedeCamara" unique_id=974127007 instance=ExtResource("5_hvdbn")]
@@ -379,7 +379,7 @@ position = Vector2(1, 5)
 script = ExtResource("6_8yp8x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LimitedeCamara/Area2D" unique_id=1760599032]
-position = Vector2(638, 991)
+position = Vector2(642, 951)
 shape = SubResource("CapsuleShape2D_l8e1q")
 
 [node name="Elfi" parent="." unique_id=1274919514 instance=ExtResource("6_m34nu")]

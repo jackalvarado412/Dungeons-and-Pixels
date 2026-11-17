@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://u3ndmcgqpplw"]
+
+[node name="FinDeLaBeta" type="Node" unique_id=1394374722]
+
+[node name="Fin de la beta" type="Control" parent="." unique_id=377083473]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Fin de la beta" unique_id=366160752]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 1, 0.05490196, 0.7176471)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Fin de la beta" unique_id=1317127394]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Fin de la beta/VBoxContainer" unique_id=1925908128]
+layout_mode = 2
+text = "Fin de la Beta"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Fin de la beta/VBoxContainer" unique_id=621563628]
+layout_mode = 2
+text = "Gracias por Probar Error 220"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Fin de la beta/VBoxContainer" unique_id=1788165505]
+layout_mode = 2
+text = "Volver al menu"
