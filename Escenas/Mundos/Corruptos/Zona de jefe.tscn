@@ -130,6 +130,7 @@ texture_region_size = Vector2i(32, 32)
 6:8/0 = 0
 9:8/0 = 0
 10:8/0 = 0
+10:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 11:8/0 = 0
 13:8/0 = 0
 15:8/0 = 0
@@ -153,6 +154,7 @@ texture_region_size = Vector2i(32, 32)
 20:9/0 = 0
 22:9/0 = 0
 24:9/0 = 0
+24:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:10/0 = 0
 3:10/0 = 0
 4:10/0 = 0
@@ -168,6 +170,7 @@ texture_region_size = Vector2i(32, 32)
 20:10/0 = 0
 22:10/0 = 0
 24:10/0 = 0
+24:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:11/0 = 0
 1:11/0 = 0
 2:11/0 = 0
@@ -177,8 +180,11 @@ texture_region_size = Vector2i(32, 32)
 6:11/0 = 0
 7:11/0 = 0
 9:11/0 = 0
+9:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 10:11/0 = 0
+10:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 11:11/0 = 0
+11:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 13:11/0 = 0
 15:11/0 = 0
 16:11/0 = 0
@@ -261,8 +267,11 @@ texture_region_size = Vector2i(32, 32)
 12:17/0 = 0
 13:17/0 = 0
 17:17/0 = 0
+17:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 18:17/0 = 0
+18:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 19:17/0 = 0
+19:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 21:17/0 = 0
 1:18/0 = 0
 2:18/0 = 0
@@ -334,10 +343,11 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_50bj3"]
 tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1tcwj")
 sources/1 = SubResource("TileSetAtlasSource_e603d")
 
-[node name="Node2D" type="Node2D" unique_id=353785808]
+[node name="Node2D2" type="Node2D" unique_id=353785808]
 script = ExtResource("1_jl30l")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1329406033]
@@ -358,7 +368,18 @@ position = Vector2(537, 686)
 [node name="Enemigo" parent="." unique_id=1821182143 instance=ExtResource("3_cyobx")]
 position = Vector2(553, 40)
 script = ExtResource("6_e603d")
-escena_al_morir = "uid://ckv1134f47bxg"
+vida_maxima = 300
+velocidad_persecucion = 90.0
+velocidad_embestida = 500.0
+"daño" = 20
+tiempo_carga = 1.0
+tiempo_aturdido = 2.0
+duracion_embestida = 0.5
+distancia_golpe = 35.0
+animacion_movimiento = "Movimiento"
+animacion_carga = "Carga"
+animacion_embestida = "Embestida"
+animacion_aturdido = "Aturdido"
 
 [node name="barra de vida" parent="Enemigo" unique_id=974127007 instance=ExtResource("5_sf1yi")]
 
