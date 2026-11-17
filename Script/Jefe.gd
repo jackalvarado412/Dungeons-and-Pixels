@@ -1,13 +1,9 @@
 extends CharacterBody2D
-
 @export var vida_maxima: int = 300
 var vida: int
-
 func _ready() -> void:
 	vida = vida_maxima
 	add_to_group("Jefe")
-
-# Llamá a este método desde el sistema de ataque del jugador.
 func recibir_daño(cantidad: int) -> void:
 	if vida <= 0:
 		return
@@ -15,8 +11,6 @@ func recibir_daño(cantidad: int) -> void:
 	print("Vida del jefe: ", vida, "/", vida_maxima)
 	if vida == 0:
 		_derrotado()
-
 func _derrotado() -> void:
-	# Activa la versión reparada del mapa actual y de las próximas zonas.
 	GameState.derrotar_jefe()
 	queue_free()

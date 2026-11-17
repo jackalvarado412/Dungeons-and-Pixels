@@ -1,4 +1,5 @@
 extends CharacterBody2D
+const PANTALLA_MUERTE = preload("res://Escenas/Mundos/Menusgeneral/Pantalla de muerde.tscn")
 func _ready():
 	add_to_group("Jugador")
 # MOVIMIENTO
@@ -100,8 +101,12 @@ func actualizar_barra_vida():
 	else:
 		print("❌ No se encontró el nodo en el grupo BarraDeVida.")
 func morir():
+	if !player_alive:
+		return
 	player_alive = false
 	print("GAME OVER")
+	var pantalla = PANTALLA_MUERTE.instantiate()
+	get_tree().current_scene.add_child(pantalla)
 	queue_free()
 func enemy_attack():
 	pass

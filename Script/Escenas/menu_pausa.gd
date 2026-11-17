@@ -1,5 +1,6 @@
 extends CanvasLayer
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	hide()
 	get_tree().paused = false
 func _input(event):
@@ -16,4 +17,5 @@ func _on_continuar_pressed():
 	toggle_pausa()
 func _on_salir_pressed():
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Escenas/menu_principal.tscn") 
+	hide()
+	get_tree().change_scene_to_file("res://Escenas/Mundos/Menusgeneral/menu_principal.tscn")
