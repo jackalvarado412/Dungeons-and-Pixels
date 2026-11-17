@@ -1,5 +1,5 @@
 extends CharacterBody2D
-@export var timer_ataque: Timer
+@onready var timer_ataque: Timer = $"Tiempo ataque"
 # MOVIMIENTO
 var speed = 250
 var player_chase = false
