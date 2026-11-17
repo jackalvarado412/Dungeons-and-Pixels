@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://0vghit7jckp" path="res://Arte/decos mazmorra01.png" id="1_stry8"]
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="2_70b0k"]
 [ext_resource type="Texture2D" uid="uid://yto7nixbukko" path="res://Arte/arbol (1).png" id="3_m1wv4"]
-[ext_resource type="Script" uid="uid://b6b1twmsg21k0" path="res://Mundo NormalTp.gd" id="4_m1wv4"]
+[ext_resource type="Script" uid="uid://b6b1twmsg21k0" path="res://Script/Mundo NormalTp.gd" id="4_m1wv4"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="5_em5sn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ok8la"]

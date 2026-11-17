@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://8hbqoltql8da"]
 
-[ext_resource type="Script" uid="uid://c8tt1og2l618l" path="res://LimiteCamara.gd" id="1_k8m6v"]
+[ext_resource type="Script" uid="uid://c8tt1og2l618l" path="res://Script/LimiteCamara.gd" id="1_k8m6v"]
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="1_ymaq0"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="2_3nx07"]
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="3_k8m6v"]
-[ext_resource type="Script" uid="uid://c8lsgpuu6oa2w" path="res://Script/VolverInicioCueva.gd" id="4_3nx07"]
+[ext_resource type="Script" path="res://Script/VolverInicioCueva.gd" id="4_3nx07"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="6_rudpk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ifl8c"]

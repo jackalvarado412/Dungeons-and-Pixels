@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="4_xtx4x"]
 [ext_resource type="PackedScene" uid="uid://ce5tt8dewa43d" path="res://Escenas/Personajes/elfi.tscn" id="5_bpa76"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="6_mwogr"]
-[ext_resource type="Script" uid="uid://c8tt1og2l618l" path="res://LimiteCamara.gd" id="7_xiahx"]
+[ext_resource type="Script" uid="uid://c8tt1og2l618l" path="res://Script/LimiteCamara.gd" id="7_xiahx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ly0wt"]
 texture = ExtResource("1_k0xfc")
