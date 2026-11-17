@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="1_wivxw"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="2_kneyf"]
 [ext_resource type="Script" uid="uid://b6b1twmsg21k0" path="res://Script/Mundo NormalTp.gd" id="4_40apj"]
-[ext_resource type="Script" uid="uid://dx3kweva1db5a" path="res://Escenas/Mundos/normales/Arriba.gd" id="4_kneyf"]
+[ext_resource type="Script" uid="uid://22ui08j8r73x" path="res://Escenas/Mundos/normales/TParriba.gd" id="4_sp772"]
 [ext_resource type="Script" uid="uid://1qs42x31mod3" path="res://Script/ABAJO normal.gd" id="5_40apj"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="6_sp772"]
 
@@ -152,7 +152,7 @@ position = Vector2(575, 666)
 shape = SubResource("CapsuleShape2D_sp772")
 
 [node name="Area2D4" type="Area2D" parent="." unique_id=41922271]
-script = ExtResource("4_kneyf")
+script = ExtResource("4_sp772")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" unique_id=1515318560]
 position = Vector2(576, 65)
