@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dx0qk20tm1vn8"]
 
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="1_k0xfc"]
-[ext_resource type="Script" uid="uid://4ey0hthet6ip" path="res://Script/Escenas/TP.gd" id="2_xiahx"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="3_novlb"]
+[ext_resource type="Script" uid="uid://ctla8fndjwys8" path="res://Script/Escenas/CuevainteriorTP.gd" id="3_xiahx"]
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="4_xtx4x"]
 [ext_resource type="PackedScene" uid="uid://ce5tt8dewa43d" path="res://Escenas/Personajes/elfi.tscn" id="5_bpa76"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="6_mwogr"]
@@ -113,7 +113,7 @@ layer_4/tile_data = PackedInt32Array(9, 1376257, 19, 131081, 1376257, 19, 393225
 
 [node name="Area2D" type="Area2D" parent="." unique_id=679257893]
 position = Vector2(1, 5)
-script = ExtResource("2_xiahx")
+script = ExtResource("3_xiahx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=212754596]
 position = Vector2(572, 229)

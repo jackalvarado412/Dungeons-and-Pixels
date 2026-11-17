@@ -1,5 +1,5 @@
 extends Control
-const PRIMER_MUNDO := "res://Escenas/Mundos/Corruptos/mundo.tscn"
+const PRIMER_MUNDO := "res://Escenas/Mundos/Corruptos/Tutorial.tscn"
 func _ready() -> void:
 	print("Menu principal cargado correctamente")
 func _on_jugar_pressed() -> void:
