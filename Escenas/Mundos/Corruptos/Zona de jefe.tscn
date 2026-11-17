@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://c8tt1og2l618l" path="res://Script/LimiteCamara.gd" id="1_jl30l"]
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="1_nvn0i"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="2_038cn"]
-[ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="3_cyobx"]
 [ext_resource type="Texture2D" uid="uid://0vghit7jckp" path="res://Arte/decos mazmorra01.png" id="3_rksvk"]
+[ext_resource type="PackedScene" uid="uid://d0h5bbk6rhspq" path="res://Arte/enemigo.tscn" id="4_rksvk"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_sf1yi"]
 [ext_resource type="Script" uid="uid://r4j6ychv2xn7" path="res://Script/Jefe.gd" id="6_e603d"]
 
@@ -352,31 +352,17 @@ layer_2/tile_data = PackedInt32Array(-327666, 1114112, 19, 458766, 1114112, 19, 
 layer_3/name = "Pilares"
 layer_3/tile_data = PackedInt32Array(-524278, 1572864, 9, -458742, 1572864, 10, -393206, 1572864, 11, -524262, 1572864, 9, -458726, 1572864, 10, -393190, 1572864, 11, 131099, 1572864, 9, 196635, 1572864, 10, 262171, 1572864, 11, 262170, 1572864, 9, 327706, 1572864, 10, 393242, 1572864, 11, 393241, 1572864, 9, 458777, 1572864, 10, 524313, 1572864, 11, 458776, 1572864, 9, 524312, 1572864, 10, 589848, 1572864, 11, 524298, 1572864, 9, 589834, 1572864, 10, 655370, 1572864, 11, 458760, 1572864, 9, 524296, 1572864, 10, 589832, 1572864, 11, 524297, 1572864, 9, 589833, 1572864, 10, 655369, 1572864, 11, 327687, 1572864, 9, 393223, 1572864, 10, 458759, 1572864, 11, -262137, 1572864, 9, -196601, 1572864, 10, -131065, 1572864, 11, -393208, 1572864, 9, -327672, 1572864, 10, -262136, 1572864, 11, -458743, 1572864, 9, -393207, 1572864, 10, -327671, 1572864, 11, -589800, 1572864, 9, -524264, 1572864, 10, -458728, 1572864, 11, -524263, 1572864, 9, -458727, 1572864, 10, -393191, 1572864, 11, -458725, 1572864, 9, -393189, 1572864, 10, -327653, 1572864, 11)
 
+[node name="Enemigo" parent="TileMap" unique_id=1821182143 instance=ExtResource("4_rksvk")]
+position = Vector2(544, 4)
+script = ExtResource("6_e603d")
+
 [node name="Player" parent="." unique_id=824008184 instance=ExtResource("2_038cn")]
 position = Vector2(537, 686)
 
-[node name="Enemigo" parent="." unique_id=1821182143 instance=ExtResource("3_cyobx")]
-position = Vector2(553, 40)
-script = ExtResource("6_e603d")
-vida_maxima = 300
-velocidad_persecucion = 90.0
-velocidad_embestida = 500.0
-"daño" = 20
-tiempo_carga = 1.0
-tiempo_aturdido = 2.0
-duracion_embestida = 0.5
-distancia_golpe = 35.0
-animacion_movimiento = "Movimiento"
-animacion_carga = "Carga"
-animacion_embestida = "Embestida"
-animacion_aturdido = "Aturdido"
-
-[node name="barra de vida" parent="Enemigo" unique_id=974127007 instance=ExtResource("5_sf1yi")]
-
 [node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=1803485110]
-offset_left = -90.0
-offset_top = -267.0
-offset_right = 1195.0
-offset_bottom = 670.0
+offset_left = -93.0
+offset_top = -257.0
+offset_right = 2193.0
+offset_bottom = 887.0
 
 [node name="barra de vida" parent="LimitedeCamara" unique_id=2113630282 instance=ExtResource("5_sf1yi")]
