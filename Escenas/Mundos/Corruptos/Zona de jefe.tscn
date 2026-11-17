@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="3_cyobx"]
 [ext_resource type="Texture2D" uid="uid://0vghit7jckp" path="res://Arte/decos mazmorra01.png" id="3_rksvk"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_sf1yi"]
+[ext_resource type="Script" uid="uid://r4j6ychv2xn7" path="res://Script/Jefe.gd" id="6_e603d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1tcwj"]
 texture = ExtResource("1_nvn0i")
@@ -356,6 +357,8 @@ position = Vector2(537, 686)
 
 [node name="Enemigo" parent="." unique_id=1821182143 instance=ExtResource("3_cyobx")]
 position = Vector2(553, 40)
+script = ExtResource("6_e603d")
+vida_maxima = 300
 
 [node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=1803485110]
 offset_left = -90.0
