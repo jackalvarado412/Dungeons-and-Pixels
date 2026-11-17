@@ -110,8 +110,10 @@ func morir() -> void:
 	print("¡JEFE DERROTADO!")
 	set_physics_process(false)
 	velocity = Vector2.ZERO
-	GameState.derrotar_jefe()
-	queue_free()
+	GameState.nivel_reparado = true
+	get_tree().change_scene_to_file(
+		"res://Escenas/Mundos/normales/Jefe Normal.tscn"
+	)
 func reproducir_animacion(nombre: String) -> void:
 	if sprite.sprite_frames and sprite.sprite_frames.has_animation(nombre):
 		if sprite.animation != nombre:
