@@ -3,14 +3,14 @@ const PANTALLA_MUERTE = preload("res://Escenas/Mundos/Menusgeneral/Pantalla de m
 func _ready():
 	add_to_group("Jugador")
 # MOVIMIENTO
-const SPEED := 200
+const SPEED := 500
 var current_dir := "down"
 # VIDA
 @export var vida_maxima := 100
 var vida := 100
 var player_alive := true
 # COMBATE
-@export var daño_ataque := 20
+@export var daño_ataque := 100
 var attack_ip := false
 var enemigos_golpeados = []
 # INVENTARIO SIMPLE
