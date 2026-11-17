@@ -959,3 +959,9 @@ layer_2/tile_data = PackedInt32Array(262154, 1441792, 9, 327690, 1441792, 10, 39
 
 [node name="Player" parent="." unique_id=824008184 instance=ExtResource("3_mpgyo")]
 position = Vector2(1126, 296)
+
+[node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=83418297]
+offset_left = 39.0
+offset_top = 1.0
+offset_right = 1159.0
+offset_bottom = 1908.0

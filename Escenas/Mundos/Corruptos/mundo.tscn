@@ -139,4 +139,10 @@ offset_top = -28.0
 offset_right = 991.0
 offset_bottom = 1289.0
 
+[node name="LimitedeCamara2" type="ReferenceRect" parent="." unique_id=401507111]
+offset_left = -22.0
+offset_top = -23.0
+offset_right = 1151.0
+offset_bottom = 666.0
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
