@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://b4xwmnvx3vs3v"]
 
+[ext_resource type="Script" uid="uid://bpfsrg786irdt" path="res://Script/Escenas/pantallademuerte.gd" id="1_jlmrb"]
+
 [node name="PantallaDeMuerde" type="CanvasLayer" unique_id=1618686594]
+script = ExtResource("1_jlmrb")
 
 [node name="Control" type="Control" parent="." unique_id=1738496539]
 layout_mode = 3
@@ -54,3 +57,6 @@ text = "REINICIAR"
 custom_minimum_size = Vector2(210, 35)
 layout_mode = 2
 text = "VOLVER AL MENU PRINCIPAL"
+
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/Reanudar" to="." method="_on_reanudar_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/VolverMenu" to="." method="_on_volver_menu_pressed"]

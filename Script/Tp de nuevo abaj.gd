@@ -7,4 +7,3 @@ func _on_body_entered(body: Node2D) -> void:
 		change_scene()
 func change_scene():
 	get_tree().change_scene_to_file("res://Escenas/Mundos/normales/Jefe Normal.tscn")
-	
