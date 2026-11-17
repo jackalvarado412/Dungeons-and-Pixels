@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="4_xtx4x"]
 [ext_resource type="PackedScene" uid="uid://ce5tt8dewa43d" path="res://Escenas/Personajes/elfi.tscn" id="5_bpa76"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="6_mwogr"]
+[ext_resource type="Script" uid="uid://c8tt1og2l618l" path="res://LimiteCamara.gd" id="7_xiahx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ly0wt"]
 texture = ExtResource("1_k0xfc")
@@ -93,6 +94,7 @@ radius = 21.0
 height = 106.0
 
 [node name="Mundo" type="Node2D" unique_id=492717217]
+script = ExtResource("7_xiahx")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=856805264]
 position = Vector2(-1, 1)
@@ -121,14 +123,20 @@ shape = SubResource("CapsuleShape2D_ghi11")
 position = Vector2(628, 781)
 
 [node name="Enemigo" parent="." unique_id=1821182143 instance=ExtResource("4_xtx4x")]
-position = Vector2(72, 360)
+position = Vector2(238, 313)
 
 [node name="Enemigo2" parent="." unique_id=909781914 instance=ExtResource("4_xtx4x")]
-position = Vector2(981, 296)
+position = Vector2(871, 318)
 
 [node name="Elfi" parent="." unique_id=1274919514 instance=ExtResource("5_bpa76")]
 position = Vector2(455, 233)
 
 [node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("6_mwogr")]
+
+[node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=107917885]
+offset_left = 163.0
+offset_top = -28.0
+offset_right = 991.0
+offset_bottom = 1289.0
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

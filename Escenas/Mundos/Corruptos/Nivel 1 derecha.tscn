@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://8hbqoltql8da"]
 
+[ext_resource type="Script" uid="uid://c8tt1og2l618l" path="res://LimiteCamara.gd" id="1_k8m6v"]
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="1_ymaq0"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="2_3nx07"]
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="3_k8m6v"]
 [ext_resource type="Script" uid="uid://c8lsgpuu6oa2w" path="res://Script/VolverInicioCueva.gd" id="4_3nx07"]
+[ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="6_rudpk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ifl8c"]
 texture = ExtResource("1_ymaq0")
@@ -879,6 +881,7 @@ radius = 21.0
 height = 100.0
 
 [node name="izquierda" type="Node2D" unique_id=1642583362]
+script = ExtResource("1_k8m6v")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1285318310]
 tile_set = SubResource("TileSet_2yya1")
@@ -916,6 +919,14 @@ script = ExtResource("4_3nx07")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1536053047]
 position = Vector2(1152, 253)
 shape = SubResource("CapsuleShape2D_k8m6v")
+
+[node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=429693507]
+offset_left = 32.0
+offset_top = 6.0
+offset_right = 1157.0
+offset_bottom = 1913.0
+
+[node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("6_rudpk")]
 
 [connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

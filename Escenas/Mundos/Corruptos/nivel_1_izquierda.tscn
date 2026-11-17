@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dt3ei1qeoht14"]
 
+[ext_resource type="Script" uid="uid://c8tt1og2l618l" path="res://LimiteCamara.gd" id="1_eh4ct"]
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="1_mt1ug"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="2_ihu3t"]
 [ext_resource type="Texture2D" uid="uid://0vghit7jckp" path="res://Arte/decos mazmorra01.png" id="2_q6gfv"]
@@ -336,6 +337,7 @@ sources/0 = SubResource("TileSetAtlasSource_vv1ro")
 sources/1 = SubResource("TileSetAtlasSource_iq7n2")
 
 [node name="Nivel 1 derecha" type="Node2D" unique_id=2137541198]
+script = ExtResource("1_eh4ct")
 
 [node name="Nivel 1 derecha" type="TileMap" parent="." unique_id=1656791236]
 tile_set = SubResource("TileSet_s1h43")
@@ -366,3 +368,11 @@ position = Vector2(707, 224)
 position = Vector2(717, 425)
 
 [node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("5_vilpg")]
+
+[node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=2122796448]
+offset_left = -24.0
+offset_top = 3.0
+offset_right = 1319.0
+offset_bottom = 737.0
+
+[node name="barra de vida" parent="LimitedeCamara" unique_id=1858421465 instance=ExtResource("5_vilpg")]
