@@ -7,7 +7,7 @@ var player = null
 # VIDA
 var vida := 50
 # ATAQUE
-var daño := 10
+var daño := 100
 var puede_atacar := true
 func _ready():
 	add_to_group("Enemigo")
