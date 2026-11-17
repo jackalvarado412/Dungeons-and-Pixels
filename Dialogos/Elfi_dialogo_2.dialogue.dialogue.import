@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b7pw8k1fnyqr1"
+path="res://.godot/imported/Elfi_dialogo_2.dialogue.dialogue-13467b00cec0b74d468913937c1d1c6b.tres"
+
+[deps]
+
+source_file="res://Dialogos/Elfi_dialogo_2.dialogue.dialogue"
+dest_files=["res://.godot/imported/Elfi_dialogo_2.dialogue.dialogue-13467b00cec0b74d468913937c1d1c6b.tres"]
+
+[params]
+
+defaults=true

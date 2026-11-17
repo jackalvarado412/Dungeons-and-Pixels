@@ -1,20 +1,32 @@
 extends AnimatedSprite2D
 var is_player_close = false
 var dialogue_active = false
-const DIALOGUE = preload("res://Dialogos/Dialogos Elfi zona 1.dialogue")
+var presentacion_realizada = false
+var siguiente_dialogo = 0
+const DIALOGUE_PRESENTACION = preload("res://Dialogos/Elfi_presentacion.dialogue.dialogue")
+const DIALOGUE_2 = preload("res://Dialogos/Elfi_dialogo_2.dialogue.dialogue")
+const DIALOGUE_3 = preload("res://Dialogos/Elfi_dialogo_3.dialogue.dialogue")
 func _ready():
-	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+	if not DialogueManager.dialogue_ended.is_connected(_on_dialogue_ended):
+		DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 func _process(_delta):
 	if is_player_close and Input.is_action_just_pressed("Accion") and not dialogue_active:
 		dialogue_active = true
-		DialogueManager.show_dialogue_balloon(DIALOGUE)
-func _on_dialogue_ended(resource):
+		if not presentacion_realizada:
+			presentacion_realizada = true
+			DialogueManager.show_dialogue_balloon(DIALOGUE_PRESENTACION)
+		else:
+			if siguiente_dialogo == 0:
+				DialogueManager.show_dialogue_balloon(DIALOGUE_2)
+				siguiente_dialogo = 1
+			else:
+				DialogueManager.show_dialogue_balloon(DIALOGUE_3)
+				siguiente_dialogo = 0
+func _on_dialogue_ended(_resource):
 	dialogue_active = false
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Jugador"):
 		is_player_close = true
-		print("Jugador cerca de Elfi")
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Jugador"):
 		is_player_close = false
-		print("Jugador lejos de Elfi")
