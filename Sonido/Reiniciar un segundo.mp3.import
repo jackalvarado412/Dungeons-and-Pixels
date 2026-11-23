@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bt4mvro3nwdp0"
+path="res://.godot/imported/Reiniciar un segundo.mp3-5959ef274232ee42b954512e97dea36a.mp3str"
+
+[deps]
+
+source_file="res://Sonido/Reiniciar un segundo.mp3"
+dest_files=["res://.godot/imported/Reiniciar un segundo.mp3-5959ef274232ee42b954512e97dea36a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

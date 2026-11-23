@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @onready var timer_ataque: Timer = $"Tiempo ataque"
 # MOVIMIENTO
-var speed = 250
+var speed = 120
 var player_chase = false
 var player = null
 # VIDA

@@ -1,0 +1,13 @@
+OGRESA - TEMPORARY GODOT SPRITES
+
+Files: ogresa_idle.png, ogresa_walk.png, ogresa_hurt.png, ogresa_attack.png
+Format: PNG RGBA, transparent background.
+Each sheet: 512x512 pixels, 4 columns x 4 rows, cells 128x128.
+Row order: Down, Left, Right, Up. Column order: frame 1 to frame 4.
+
+Import in Godot 4 as SpriteFrames / AnimatedSprite2D using a 4x4 grid.
+Create one animation per row and set Hframes=4, Vframes=4 if using Sprite2D.
+
+These are temporary AI-generated placeholder sprites extracted from a concept sheet.
+The frames are approximate and some animations are not perfectly consistent; replace
+them with the artist's final sprites when available.

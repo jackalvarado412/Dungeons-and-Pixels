@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://0vghit7jckp" path="res://Arte/decos mazmorra01.png" id="2_q6gfv"]
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="3_s1h43"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_vilpg"]
+[ext_resource type="Script" uid="uid://dq5s6fp0rjc58" path="res://Escenas/Personajes/oneshot.gd" id="6_xbbnm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vv1ro"]
 texture = ExtResource("1_mt1ug")
@@ -365,15 +366,19 @@ position = Vector2(587, 366)
 
 [node name="Enemigo" parent="." unique_id=1821182143 instance=ExtResource("3_s1h43")]
 position = Vector2(433, 224)
+script = ExtResource("6_xbbnm")
 
 [node name="Enemigo2" parent="." unique_id=533746351 instance=ExtResource("3_s1h43")]
 position = Vector2(423, 440)
+script = ExtResource("6_xbbnm")
 
 [node name="Enemigo3" parent="." unique_id=1186432316 instance=ExtResource("3_s1h43")]
 position = Vector2(707, 224)
+script = ExtResource("6_xbbnm")
 
 [node name="Enemigo4" parent="." unique_id=1443939652 instance=ExtResource("3_s1h43")]
 position = Vector2(717, 425)
+script = ExtResource("6_xbbnm")
 
 [node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("5_vilpg")]
 
@@ -384,3 +389,7 @@ offset_right = 1319.0
 offset_bottom = 737.0
 
 [node name="barra de vida" parent="LimitedeCamara" unique_id=1858421465 instance=ExtResource("5_vilpg")]
+
+[node name="Enemigo5" parent="." unique_id=1831892056 instance=ExtResource("3_s1h43")]
+position = Vector2(562, 192)
+script = ExtResource("6_xbbnm")

@@ -42,16 +42,16 @@ func _physics_process(_delta):
 # MOVIMIENTO
 func player_movement():
 	var input_vector := Vector2.ZERO
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("Derecha"):
 		input_vector.x = 1
 		current_dir = "right"
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("Izquierda"):
 		input_vector.x = -1
 		current_dir = "left"
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("Abajo"):
 		input_vector.y = 1
 		current_dir = "down"
-	elif Input.is_action_pressed("ui_up"):
+	elif Input.is_action_pressed("Arriba"):
 		input_vector.y = -1
 		current_dir = "up"
 	velocity = input_vector.normalized() * SPEED

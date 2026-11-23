@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://u3ndmcgqpplw"]
+[gd_scene format=3 uid="uid://d38tq073n8qxn"]
+
+[ext_resource type="Script" uid="uid://cfbpsmw6cqmef" path="res://Escenas/Mundos/Menusgeneral/fin_de_la_beta.gd" id="1_ncjkc"]
 
 [node name="FinDeLaBeta" type="Node" unique_id=1394374722]
+script = ExtResource("1_ncjkc")
 
 [node name="Fin de la beta" type="Control" parent="." unique_id=377083473]
 layout_mode = 3
@@ -21,10 +24,10 @@ color = Color(0.101960786, 1, 0.05490196, 0.7176471)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Fin de la beta" unique_id=1317127394]
 layout_mode = 0
-offset_left = 79.0
-offset_top = 64.0
-offset_right = 355.0
-offset_bottom = 167.0
+offset_left = 183.0
+offset_top = 120.0
+offset_right = 404.0
+offset_bottom = 229.0
 
 [node name="Label" type="Label" parent="Fin de la beta/VBoxContainer" unique_id=1925908128]
 layout_mode = 2
@@ -39,3 +42,5 @@ horizontal_alignment = 1
 [node name="Button" type="Button" parent="Fin de la beta/VBoxContainer" unique_id=1788165505]
 layout_mode = 2
 text = "Volver al menu"
+
+[connection signal="pressed" from="Fin de la beta/VBoxContainer/Button" to="." method="_on_button_pressed"]

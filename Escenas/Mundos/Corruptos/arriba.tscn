@@ -353,6 +353,7 @@ position = Vector2(526, 691)
 shape = SubResource("CapsuleShape2D_6555k")
 
 [node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=590320546]
+visible = false
 offset_left = 374.0
 offset_top = -222.0
 offset_right = 699.0
