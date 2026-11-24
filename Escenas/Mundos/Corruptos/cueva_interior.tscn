@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="2_sbgkt"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="3_ausyq"]
 [ext_resource type="Script" uid="uid://caht6b0mqxdjx" path="res://Script/TpIzquierda.gd" id="5_v1evm"]
-[ext_resource type="Script" uid="uid://ciim8jo1a66os" path="res://Script/Derecha.gd" id="6_v1evm"]
+[ext_resource type="Script" path="res://Script/Derecha.gd" id="6_v1evm"]
 [ext_resource type="Script" uid="uid://dabm5r6oydae7" path="res://Escenas/Mundos/Corruptos/area_2d.gd" id="7_jjcum"]
-[ext_resource type="Script" uid="uid://b5kiyu61xrh4" path="res://Script/Volve a fuera.gd" id="7_mf18m"]
+[ext_resource type="Script" path="res://Script/Volve a fuera.gd" id="7_mf18m"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="8_jjcum"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_quvfg"]
@@ -151,8 +151,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_quvfg")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ausyq"]
-radius = 21.0
-height = 100.0
+radius = 36.0
+height = 176.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mf18m"]
 radius = 21.0
@@ -210,21 +210,29 @@ position = Vector2(1073, 114)
 script = ExtResource("5_v1evm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1583242627]
-position = Vector2(11, 268)
+position = Vector2(-7, 269)
 shape = SubResource("CapsuleShape2D_ausyq")
 
 [node name="Area2D3" type="Area2D" parent="." unique_id=1092781245]
 script = ExtResource("6_v1evm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=1829000372]
-position = Vector2(1558, 294)
+position = Vector2(1595, 272)
+shape = SubResource("CapsuleShape2D_ausyq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D3" unique_id=954106695]
+position = Vector2(1763, 271)
+shape = SubResource("CapsuleShape2D_ausyq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D3" unique_id=362424826]
+position = Vector2(1193, 643)
 shape = SubResource("CapsuleShape2D_ausyq")
 
 [node name="Area2D4" type="Area2D" parent="." unique_id=1033532726]
 script = ExtResource("7_mf18m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" unique_id=816284219]
-position = Vector2(572, 655)
+position = Vector2(574, 669)
 shape = SubResource("CapsuleShape2D_ausyq")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1793802944]
