@@ -3,8 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="1_g7moc"]
 [ext_resource type="Texture2D" uid="uid://0vghit7jckp" path="res://Arte/decos mazmorra01.png" id="2_8rfxm"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="3_8rfxm"]
-[ext_resource type="Script" uid="uid://i22g437ba4b3" path="res://Script/Tp de nuevo abaj.gd" id="4_geohc"]
+[ext_resource type="Script" uid="uid://pls137iaeew6" path="res://Script/Escenas/TPArribaACueva.gd" id="5_4ikks"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_bymfd"]
+[ext_resource type="Script" uid="uid://f4is2n3ycrvk" path="res://Script/Escenas/TPArribaAJefe.gd" id="6_4ikks"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rk4j8"]
 texture = ExtResource("1_g7moc")
@@ -316,9 +317,9 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_rk4j8")
 sources/1 = SubResource("TileSetAtlasSource_redb3")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bymfd"]
-radius = 21.0
-height = 84.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wbidd"]
+radius = 29.943054
+height = 154.0
 
 [node name="Node2D" type="Node2D" unique_id=1375784739]
 
@@ -331,23 +332,34 @@ layer_1/name = "Pared"
 layer_1/tile_data = PackedInt32Array(1310740, 1245184, 11, 1310739, 1179648, 11, 917515, 1310720, 8, 851979, 1310720, 8, 786443, 1310720, 8, 1310733, 1310720, 11, 1310732, 1245184, 11, 1310731, 1179648, 11, 1245196, 1245184, 7, 1245197, 1310720, 7, 1245195, 1048576, 10, 1179659, 1310720, 8, 1114123, 1310720, 8, 1048587, 1310720, 8, 983051, 1310720, 8, 720907, 1310720, 8, 655371, 1310720, 8, 589835, 1310720, 8, 524299, 1310720, 8, 458763, 1310720, 8, 393227, 1310720, 8, 327691, 1310720, 8, 262155, 1310720, 8, 196619, 1310720, 8, 131083, 1310720, 8, 65547, 1310720, 8, 11, 1310720, 8, -65525, 1310720, 8, -131061, 1310720, 8, -196597, 1310720, 8, -262133, 1310720, 8, -327669, 1310720, 8, -393205, 1310720, 8, -458741, 1048576, 11, -458740, 1245184, 9, -458739, 1310720, 9, 1245203, 1179648, 7, 1310741, 1245184, 11, 1245205, 983040, 10, 1179669, 1179648, 8, 1114133, 1179648, 8, 1048597, 1179648, 8, 983061, 1179648, 8, 917525, 1179648, 8, 851989, 1179648, 8, 786453, 1179648, 8, 720917, 1179648, 8, 655381, 1179648, 8, 589845, 1179648, 8, 524309, 1179648, 8, 458773, 1179648, 8, 393237, 1179648, 8, 327701, 1179648, 8, 262165, 1179648, 8, 196629, 1179648, 8, 131093, 1179648, 8, 65557, 1179648, 8, 21, 1179648, 8, -65515, 1179648, 8, -131051, 1179648, 8, -196587, 1179648, 8, -262123, 1179648, 8, -327659, 1179648, 8, -393195, 1179648, 8, -458731, 983040, 11, 1245204, 1245184, 7, -458732, 1245184, 9, -458733, 1179648, 9)
 layer_2/name = "Bugs"
 
-[node name="Player" parent="." unique_id=824008184 instance=ExtResource("3_8rfxm")]
-position = Vector2(539, 662)
-
 [node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=1911035945]
-offset_left = 362.0
-offset_top = -222.0
-offset_right = 706.0
-offset_bottom = 671.0
+offset_left = 358.0
+offset_top = -223.0
+offset_right = 702.0
+offset_bottom = 670.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1268874319]
-position = Vector2(530, 699)
-shape = SubResource("CapsuleShape2D_bymfd")
-script = ExtResource("4_geohc")
+[node name="Player" parent="." unique_id=824008184 instance=ExtResource("3_8rfxm")]
+position = Vector2(544, 586)
 
 [node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("5_bymfd")]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1861749592]
-position = Vector2(525, -243)
-shape = SubResource("CapsuleShape2D_bymfd")
-script = ExtResource("4_geohc")
+[node name="Area2D" type="Area2D" parent="." unique_id=271577728]
+position = Vector2(531, 704)
+script = ExtResource("5_4ikks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1236723653]
+position = Vector2(-3, -41)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_wbidd")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=434970322]
+position = Vector2(526, -238)
+script = ExtResource("6_4ikks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=799134107]
+position = Vector2(3, 14)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_wbidd")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
