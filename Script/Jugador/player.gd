@@ -1,11 +1,13 @@
 extends CharacterBody2D
 const PANTALLA_MUERTE = preload("res://Escenas/Mundos/Menusgeneral/Pantalla de muerde.tscn")
-const SPEED := 200
+const SPEED_BASE := 1000
+var velocidad_actual := SPEED_BASE
+var temporizador_velocidad: Timer
 var current_dir := "down"
 @export var vida_maxima := 100
 var vida := 100
 var player_alive := true
-@export var daño_ataque := 20
+@export var daño_ataque := 200
 var attack_ip := false
 var enemigos_golpeados = []
 var pociones := 0
@@ -17,6 +19,10 @@ func _ready():
 	pociones = GameState.pociones
 	# Actualizamos la barra de vida visualmente en el primer fotograma de la nueva escena
 	call_deferred("actualizar_barra_vida")
+	temporizador_velocidad = Timer.new()
+	temporizador_velocidad.one_shot = true
+	add_child(temporizador_velocidad)
+	temporizador_velocidad.timeout.connect(restaurar_velocidad)
 func _process(_delta):
 	if Input.is_action_just_pressed("usar_pocion"):
 		usar_pocion()
@@ -43,7 +49,7 @@ func player_movement():
 	elif Input.is_action_pressed("Arriba"):
 		input_vector.y = -1
 		current_dir = "up"
-	velocity = input_vector.normalized() * SPEED
+	velocity = input_vector.normalized() * velocidad_actual
 	move_and_slide()
 	if !attack_ip:
 		if velocity.length() > 0:
@@ -189,3 +195,11 @@ func usar_pocion():
 # IDENTIFICADOR DE JUGADOR
 func player():
 	pass
+func activar_velocidad_doble(duracion: float = 20.0) -> void:
+	velocidad_actual = SPEED_BASE * 2
+	temporizador_velocidad.start(duracion)
+	print("¡Velocidad duplicada!")
+
+func restaurar_velocidad() -> void:
+	velocidad_actual = SPEED_BASE
+	print("Velocidad normal restaurada")

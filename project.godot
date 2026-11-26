@@ -19,7 +19,6 @@ config/icon="res://Arte/icon.svg"
 
 DialogueManager="*uid://c3rodes2l3gxb"
 Inventario="*uid://bt6h5lmvkgfrj"
-Recolecciondeobjetos="*uid://diuejb6dlnqcq"
 Menu="*uid://ccoa0ioquiu7c"
 GameState="*uid://dvd2al21vjpv7"
 

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cxmdkij3qpfnc"]
+
+[ext_resource type="Script" uid="uid://diuejb6dlnqcq" path="res://Script/Jugador/Recolecciondeobjetos.gd" id="1_0cq0n"]
+[ext_resource type="Texture2D" uid="uid://bciusnh1aqweb" path="res://Arte/item 2.png" id="1_67x3a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0cq0n"]
+size = Vector2(32, 29.5)
+
+[node name="ItemRecolectable" type="Node2D" unique_id=524872158]
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1856601304]
+script = ExtResource("1_0cq0n")
+
+[node name="Label" type="Label" parent="Area2D2" unique_id=240029681]
+offset_left = 37.0
+offset_top = 68.0
+offset_right = 57.0
+offset_bottom = 91.0
+text = "[E]"
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=657125999]
+position = Vector2(46.75, 55.75)
+scale = Vector2(0.859375, 0.859375)
+texture = ExtResource("1_67x3a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=2043835473]
+position = Vector2(47, 57)
+shape = SubResource("RectangleShape2D_0cq0n")
+
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

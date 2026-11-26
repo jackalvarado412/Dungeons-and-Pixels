@@ -1,4 +1,5 @@
 extends Node
+signal inventario_cambiado
 
 var nivel_reparado: bool = false
 var vida_maxima: int = 100
@@ -34,12 +35,17 @@ func iniciar_partida() -> void:
 	slots_inventario.fill(null)
 
 func agregar_item(nombre: String, icono: Texture2D, cantidad: int = 1, apilable: bool = true) -> bool:
+	if icono == null:
+		push_warning("El objeto no tiene un icono asignado: " + nombre)
+		return false
+
 	if apilable:
 		for i in range(MAX_SLOTS):
 			if slots_inventario[i] != null and slots_inventario[i]["nombre"] == nombre:
 				slots_inventario[i]["cantidad"] += cantidad
+				inventario_cambiado.emit()
 				return true
-				
+
 	for i in range(MAX_SLOTS):
 		if slots_inventario[i] == null:
 			slots_inventario[i] = {
@@ -47,21 +53,51 @@ func agregar_item(nombre: String, icono: Texture2D, cantidad: int = 1, apilable:
 				"icono": icono,
 				"cantidad": cantidad
 			}
+			inventario_cambiado.emit()
 			return true
-			
+
 	return false
 
 func usar_item_en_slot(indice: int) -> void:
+	if indice < 0 or indice >= MAX_SLOTS:
+		return
+
 	var item = slots_inventario[indice]
+
 	if item == null:
 		return
-		
-	if item["nombre"] == "Pocion":
-		vida_actual = min(vida_actual + 25, vida_maxima)
-		pociones = max(pociones - 1, 0)
-		item["cantidad"] -= 1
-		if item["cantidad"] <= 0:
-			slots_inventario[indice] = null
+
+	var jugador = get_tree().get_first_node_in_group("Jugador")
+
+	if jugador == null:
+		return
+
+	match item["nombre"]:
+
+		"Memoria_RAM":
+			jugador.activar_velocidad_doble(20.0)
+			jugador.curar(10)
+
+		"Disco_Duro":
+			if jugador.vida >= jugador.vida_maxima:
+				return
+			jugador.curar(25)
+
+		"Pocion":
+			if jugador.vida >= jugador.vida_maxima:
+				return
+			jugador.curar(25)
+			pociones = max(pociones - 1, 0)
+
+		_:
+			return
+
+	item["cantidad"] -= 1
+
+	if item["cantidad"] <= 0:
+		slots_inventario[indice] = null
+
+	inventario_cambiado.emit()
 
 func derrotar_jefe() -> void:
 	if nivel_reparado:
