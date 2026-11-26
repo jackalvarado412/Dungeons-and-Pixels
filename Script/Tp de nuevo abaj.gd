@@ -1,4 +1,4 @@
-extends Area2D
+extends CollisionShape2D
 @export var next_scene_path: String 
 func _process(delta: float) -> void:
 	pass

@@ -2,10 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="1_wivxw"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="2_kneyf"]
-[ext_resource type="Script" uid="uid://b6b1twmsg21k0" path="res://Script/Mundo NormalTp.gd" id="4_40apj"]
-[ext_resource type="Script" uid="uid://22ui08j8r73x" path="res://Escenas/Mundos/normales/TParriba.gd" id="4_sp772"]
-[ext_resource type="Script" uid="uid://1qs42x31mod3" path="res://Script/ABAJO normal.gd" id="5_40apj"]
-[ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="6_sp772"]
+[ext_resource type="Script" uid="uid://22ui08j8r73x" path="res://Script/Escenas/TParriba.gd" id="3_40apj"]
+[ext_resource type="Script" uid="uid://dpx5xdj280ney" path="res://Escenas/Mundos/normales/TPCuevaAMundo.gd" id="5_tkdte"]
+[ext_resource type="Script" uid="uid://dslyik50exotk" path="res://Escenas/Mundos/normales/TPCuevaAIzquierda.gd" id="6_sp772"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbccr"]
 texture = ExtResource("1_wivxw")
@@ -129,6 +128,10 @@ sources/0 = SubResource("TileSetAtlasSource_gbccr")
 radius = 21.0
 height = 98.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a7qd7"]
+radius = 29.943054
+height = 282.0
+
 [node name="Node2D" type="Node2D" unique_id=1509216060]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=601685636]
@@ -142,47 +145,41 @@ layer_2/name = "Vigas"
 layer_2/tile_data = PackedInt32Array(786481, 1441792, 10, 852017, 1441792, 11, 720951, 1441792, 9, 786487, 1441792, 10, 852023, 1441792, 11, 196663, 1441792, 9, 262199, 1441792, 10, 327735, 1441792, 11, 196657, 1441792, 9, 262193, 1441792, 10, 327729, 1441792, 11, 131107, 1441792, 10, 196643, 1441792, 11, 131072, 1441792, 10, 196608, 1441792, 11, 65571, 1441792, 10, 35, 1441792, 10, 65536, 1441792, 10, 0, 1441792, 10, -65501, 1441792, 9, -65536, 1441792, 9, 17, 1441792, 3, 65553, 1441792, 4, 131089, 1441792, 5, 18, 1507328, 3, 65554, 1507328, 4, 131090, 1507328, 5, 852004, 1310720, 7, 917540, 1048576, 10, 917541, 1310720, 7, 983079, 1310720, 7, 1048617, 1310720, 7, 1114155, 1310720, 7, 1179693, 1310720, 7, 983077, 1048576, 10, 983078, 1245184, 7, 1048615, 1048576, 10, 1048616, 1245184, 7, 1114154, 1245184, 7, 1114153, 1048576, 10, 1179692, 1245184, 7, 1179691, 1048576, 10, 1245229, 1048576, 10, 1245230, 1245184, 7, 1245231, 1245184, 7, 1245232, 1245184, 7, 1245233, 1245184, 7, 1245234, 1245184, 7, 1245235, 1245184, 7, 1245236, 1245184, 7, 1245237, 1245184, 7, 1245238, 1245184, 7, 1245239, 1245184, 7, 1245240, 1245184, 7, 1245241, 1245184, 7, 1245242, 1245184, 7, 1245243, 983040, 10, 1114174, 983040, 10, 131137, 983040, 11, 720945, 1441792, 9, 196673, 1179648, 8, 524353, 1179648, 8, 589889, 1179648, 8, 655425, 1179648, 8, 720961, 1179648, 8, 786497, 1179648, 8, 852033, 1179648, 8, 917569, 1179648, 8, 1048640, 1245184, 7, 1048641, 983040, 10, 983105, 1179648, 8, 1048639, 1245184, 7, 1048638, 1179648, 7, 1114172, 1179648, 7, 1179707, 1179648, 7, 1179708, 983040, 10, 1114173, 1245184, 7, 327745, 1179648, 8, 262209, 1179648, 8, 393281, 1179648, 8, 458817, 1179648, 8)
 
 [node name="Player" parent="." unique_id=824008184 instance=ExtResource("2_kneyf")]
-position = Vector2(577, 610)
-
-[node name="Area2D3" type="Area2D" parent="." unique_id=57064245]
-script = ExtResource("4_40apj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=72793557]
-position = Vector2(575, 666)
-shape = SubResource("CapsuleShape2D_sp772")
+position = Vector2(599, 337)
 
 [node name="Area2D4" type="Area2D" parent="." unique_id=41922271]
-script = ExtResource("4_sp772")
+script = ExtResource("3_40apj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" unique_id=1515318560]
 position = Vector2(576, 65)
 shape = SubResource("CapsuleShape2D_sp772")
 
-[node name="Area2D5" type="Area2D" parent="." unique_id=1382921597]
-script = ExtResource("5_40apj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5" unique_id=841024784]
-position = Vector2(1575, 289)
-shape = SubResource("CapsuleShape2D_sp772")
-
-[node name="barra de vida" parent="Area2D5" unique_id=974127007 instance=ExtResource("6_sp772")]
-
-[node name="Area2D6" type="Area2D" parent="." unique_id=1933449376]
-script = ExtResource("4_40apj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D6" unique_id=1778660358]
-position = Vector2(0, 293)
-shape = SubResource("CapsuleShape2D_sp772")
-
 [node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=443946938]
 offset_left = 1.0
-offset_top = -128.0
+offset_top = -129.0
 offset_right = 2111.0
-offset_bottom = 640.0
+offset_bottom = 639.0
 
-[connection signal="body_entered" from="Area2D3" to="Player" method="_on_area_2d_3_body_entered"]
-[connection signal="body_entered" from="Area2D3" to="Area2D3" method="_on_body_entered"]
+[node name="Area2D2" type="Area2D" parent="." unique_id=1050751690]
+position = Vector2(526, -238)
+script = ExtResource("5_tkdte")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1153509627]
+position = Vector2(50, 883)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_a7qd7")
+script = ExtResource("5_tkdte")
+
+[node name="Area2D3" type="Area2D" parent="." unique_id=1901479546]
+position = Vector2(526, -238)
+script = ExtResource("6_sp772")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=185651502]
+position = Vector2(-529, 508)
+rotation = -3.1415927
+shape = SubResource("CapsuleShape2D_a7qd7")
+
 [connection signal="body_entered" from="Area2D4" to="Player" method="_on_area_2d_4_body_entered"]
 [connection signal="body_entered" from="Area2D4" to="Area2D4" method="_on_body_entered"]
-[connection signal="body_entered" from="Area2D5" to="Area2D5" method="_on_body_entered"]
-[connection signal="body_entered" from="Area2D6" to="Area2D6" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D3" to="Area2D3" method="_on_body_entered"]

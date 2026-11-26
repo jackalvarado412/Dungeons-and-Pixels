@@ -330,7 +330,10 @@ position = Vector2(582, 583)
 [node name="Ogresa" parent="." unique_id=829921399 instance=ExtResource("3_nuw1u")]
 
 [node name="Ogresa enemigo" parent="." unique_id=1821182143 instance=ExtResource("4_6vdy0")]
-position = Vector2(245, 17)
+position = Vector2(248, 6)
 
 [node name="Ogresa enemigo2" parent="." unique_id=364258597 instance=ExtResource("4_6vdy0")]
-position = Vector2(736, 21)
+position = Vector2(736, 17)
+
+[node name="Ogresa enemigo3" parent="." unique_id=250508857 instance=ExtResource("4_6vdy0")]
+position = Vector2(493, 306)
