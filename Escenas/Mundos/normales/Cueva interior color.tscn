@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://22ui08j8r73x" path="res://Script/Escenas/TParriba.gd" id="3_40apj"]
 [ext_resource type="Script" uid="uid://dpx5xdj280ney" path="res://Escenas/Mundos/normales/TPCuevaAMundo.gd" id="5_tkdte"]
 [ext_resource type="Script" uid="uid://dslyik50exotk" path="res://Escenas/Mundos/normales/TPCuevaAIzquierda.gd" id="6_sp772"]
-[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="6_tkdte"]
+[ext_resource type="PackedScene" path="res://Script/Escenas/Inventario_hud.tscn" id="6_tkdte"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="7_tkdte"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbccr"]
@@ -134,7 +134,7 @@ height = 98.0
 radius = 29.943054
 height = 282.0
 
-[node name="Node2D" type="Node2D" unique_id=1509216060]
+[node name="Node2D3" type="Node2D" unique_id=1509216060]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=601685636]
 tile_set = SubResource("TileSet_fd0ws")
@@ -165,12 +165,12 @@ offset_bottom = 639.0
 [node name="Area2D2" type="Area2D" parent="." unique_id=1050751690]
 position = Vector2(526, -238)
 script = ExtResource("5_tkdte")
+next_scene_path = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1153509627]
 position = Vector2(50, 883)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_a7qd7")
-script = ExtResource("5_tkdte")
 
 [node name="Area2D3" type="Area2D" parent="." unique_id=1901479546]
 position = Vector2(526, -238)
