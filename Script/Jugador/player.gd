@@ -1,6 +1,6 @@
 extends CharacterBody2D
 const PANTALLA_MUERTE = preload("res://Escenas/Mundos/Menusgeneral/Pantalla de muerde.tscn")
-const SPEED := 600
+const SPEED := 200
 var current_dir := "down"
 @export var vida_maxima := 100
 var vida := 100
