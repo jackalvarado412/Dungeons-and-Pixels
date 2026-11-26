@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b8cd8qalj2tk5"]
+
+[sub_resource type="TileSet" id="TileSet_ssj07"]
+
+[node name="Granpasillocorrupto" type="Node" unique_id=265231938]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=550406498]
+
+[node name="TileMap" type="TileMap" parent="Node2D" unique_id=982979242]
+tile_set = SubResource("TileSet_ssj07")
+format = 2
+
+[node name="LimitedeCamara" type="ReferenceRect" parent="Node2D" unique_id=1744993283]
+offset_left = 163.0
+offset_top = -28.0
+offset_right = 991.0
+offset_bottom = 1289.0
