@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://0vghit7jckp" path="res://Arte/decos mazmorra01.png" id="2_mpgyo"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="3_mpgyo"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="3_vbx7w"]
+[ext_resource type="Script" uid="uid://pls137iaeew6" path="res://Script/Escenas/TPArribaACueva.gd" id="5_1kb4b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5xgis"]
 texture = ExtResource("1_muied")
@@ -952,8 +953,8 @@ sources/0 = SubResource("TileSetAtlasSource_5xgis")
 sources/1 = SubResource("TileSetAtlasSource_xcv2e")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vbx7w"]
-radius = 21.0
-height = 100.0
+radius = 35.0
+height = 286.0
 
 [node name="Node2D" type="Node2D" unique_id=100921536]
 
@@ -969,15 +970,20 @@ layer_2/tile_data = PackedInt32Array(262154, 1441792, 9, 327690, 1441792, 10, 39
 
 [node name="barra de vida" parent="TileMap" unique_id=974127007 instance=ExtResource("3_vbx7w")]
 
-[node name="Player" parent="." unique_id=824008184 instance=ExtResource("3_mpgyo")]
-position = Vector2(1126, 296)
+[node name="Cueva" type="Area2D" parent="." unique_id=1316081535]
+script = ExtResource("5_1kb4b")
 
-[node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=83418297]
-offset_left = 39.0
-offset_top = 1.0
-offset_right = 1159.0
-offset_bottom = 1908.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LimitedeCamara" unique_id=134122645]
-position = Vector2(1122, 259)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cueva" unique_id=134122645]
+position = Vector2(1161, 260)
 shape = SubResource("CapsuleShape2D_vbx7w")
+
+[node name="Player" parent="." unique_id=824008184 instance=ExtResource("3_mpgyo")]
+position = Vector2(1085, 301)
+
+[node name="LimitedeCamara" type="ReferenceRect" parent="Player" unique_id=83418297]
+offset_left = -1057.0
+offset_top = -301.0
+offset_right = 63.0
+offset_bottom = 1606.0
+
+[connection signal="body_entered" from="Cueva" to="Cueva" method="_on_body_entered"]

@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Script/ArribadesdeAbajo.gd" id="4_torog"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_o6v0f"]
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="6_28vo0"]
+[ext_resource type="Script" uid="uid://d3nom1r5d107b" path="res://Escenas/Mundos/normales/TPPozoAOgresa.gd" id="7_4gcck"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tri5y"]
 texture = ExtResource("1_1lfcy")
@@ -368,6 +369,10 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_tri5y")
 sources/1 = SubResource("TileSetAtlasSource_qqc61")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jwmj2"]
+radius = 30.0
+height = 86.0
+
 [node name="Node2D" type="Node2D" unique_id=125776769]
 
 [node name="Nivel 1 derecha" type="TileMap" parent="." unique_id=1886964200]
@@ -402,4 +407,12 @@ position = Vector2(1218, 312)
 [node name="Enemigo" parent="Enemigo" unique_id=685835914 instance=ExtResource("6_28vo0")]
 position = Vector2(-379, -7)
 
+[node name="Cueva" type="Area2D" parent="." unique_id=2100951124]
+script = ExtResource("7_4gcck")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cueva" unique_id=1815154397]
+position = Vector2(1319, 321)
+shape = SubResource("CapsuleShape2D_jwmj2")
+
 [connection signal="body_entered" from="Area2D5" to="Area2D5" method="_on_body_entered"]
+[connection signal="body_entered" from="Cueva" to="Cueva" method="_on_body_entered"]

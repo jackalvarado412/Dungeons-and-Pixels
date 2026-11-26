@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://22ui08j8r73x" path="res://Script/Escenas/TParriba.gd" id="3_40apj"]
 [ext_resource type="Script" uid="uid://dpx5xdj280ney" path="res://Escenas/Mundos/normales/TPCuevaAMundo.gd" id="5_tkdte"]
 [ext_resource type="Script" uid="uid://dslyik50exotk" path="res://Escenas/Mundos/normales/TPCuevaAIzquierda.gd" id="6_sp772"]
+[ext_resource type="Script" uid="uid://c7ueh68bh5c1u" path="res://Escenas/Mundos/normales/TPCuevaAPozo.gd" id="6_tkdte"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbccr"]
 texture = ExtResource("1_wivxw")
@@ -132,6 +133,9 @@ height = 98.0
 radius = 29.943054
 height = 298.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7qd7"]
+size = Vector2(227, 223)
+
 [node name="Node2D" type="Node2D" unique_id=1509216060]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=601685636]
@@ -147,10 +151,10 @@ layer_2/tile_data = PackedInt32Array(786481, 1441792, 10, 852017, 1441792, 11, 7
 [node name="Player" parent="." unique_id=824008184 instance=ExtResource("2_kneyf")]
 position = Vector2(599, 337)
 
-[node name="Area2D4" type="Area2D" parent="." unique_id=41922271]
+[node name="pasillo" type="Area2D" parent="." unique_id=41922271]
 script = ExtResource("3_40apj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" unique_id=1515318560]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pasillo" unique_id=1515318560]
 position = Vector2(576, 65)
 shape = SubResource("CapsuleShape2D_sp772")
 
@@ -160,26 +164,33 @@ offset_top = -129.0
 offset_right = 2111.0
 offset_bottom = 639.0
 
-[node name="Area2D2" type="Area2D" parent="." unique_id=1050751690]
+[node name="Salida" type="Area2D" parent="." unique_id=1050751690]
 position = Vector2(526, -238)
 script = ExtResource("5_tkdte")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1153509627]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Salida" unique_id=1153509627]
 position = Vector2(50, 883)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_a7qd7")
-script = ExtResource("5_tkdte")
 
-[node name="Area2D3" type="Area2D" parent="." unique_id=1901479546]
+[node name="Izquierda" type="Area2D" parent="." unique_id=1901479546]
 position = Vector2(526, -238)
 script = ExtResource("6_sp772")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=185651502]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Izquierda" unique_id=185651502]
 position = Vector2(-529, 508)
 rotation = -3.1415927
 shape = SubResource("CapsuleShape2D_a7qd7")
 
-[connection signal="body_entered" from="Area2D4" to="Player" method="_on_area_2d_4_body_entered"]
-[connection signal="body_entered" from="Area2D4" to="Area2D4" method="_on_body_entered"]
-[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
-[connection signal="body_entered" from="Area2D3" to="Area2D3" method="_on_body_entered"]
+[node name="Pozo" type="Area2D" parent="." unique_id=1468054079]
+script = ExtResource("6_tkdte")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pozo" unique_id=303420235]
+position = Vector2(1678.5, 303.5)
+shape = SubResource("RectangleShape2D_a7qd7")
+
+[connection signal="body_entered" from="pasillo" to="Player" method="_on_area_2d_4_body_entered"]
+[connection signal="body_entered" from="pasillo" to="pasillo" method="_on_body_entered"]
+[connection signal="body_entered" from="Salida" to="Salida" method="_on_body_entered"]
+[connection signal="body_entered" from="Izquierda" to="Izquierda" method="_on_body_entered"]
+[connection signal="body_entered" from="Pozo" to="Pozo" method="_on_body_entered"]
