@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="2_a2p42"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="3_gx01n"]
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="4_4ge0d"]
-[ext_resource type="Script" uid="uid://trwkp5gejkq7" path="res://Script/Movimientos/TpalJefe.gd" id="5_8sojr"]
+[ext_resource type="Script" uid="uid://7t4brog1auom" path="res://Escenas/Mundos/Corruptos/Area2 gran pasillo zona 3.gd" id="5_a2p42"]
 [ext_resource type="Script" uid="uid://bxex47km3dsn1" path="res://Script/Movimientos/VolverAlInicioArriba.gd" id="6_f7p2r"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="7_gn1ls"]
 [ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="8_a2p42"]
@@ -357,7 +357,7 @@ position = Vector2(608, 14)
 position = Vector2(619, 333)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1237462451]
-script = ExtResource("5_8sojr")
+script = ExtResource("5_a2p42")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=830333964]
 position = Vector2(530, -786)
