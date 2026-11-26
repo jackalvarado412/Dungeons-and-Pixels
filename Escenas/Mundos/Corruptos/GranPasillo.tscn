@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://trwkp5gejkq7" path="res://Script/Movimientos/TpalJefe.gd" id="5_8sojr"]
 [ext_resource type="Script" uid="uid://bxex47km3dsn1" path="res://Script/Movimientos/VolverAlInicioArriba.gd" id="6_f7p2r"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="7_gn1ls"]
+[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="8_a2p42"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jw3ma"]
 texture = ExtResource("2_a2p42")
@@ -370,6 +371,8 @@ position = Vector2(526, 691)
 shape = SubResource("CapsuleShape2D_6555k")
 
 [node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("7_gn1ls")]
+
+[node name="Inventario_hud" parent="barra de vida" unique_id=1849380305 instance=ExtResource("8_a2p42")]
 
 [connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

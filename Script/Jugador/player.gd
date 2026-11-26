@@ -1,24 +1,14 @@
 extends CharacterBody2D
-
 const PANTALLA_MUERTE = preload("res://Escenas/Mundos/Menusgeneral/Pantalla de muerde.tscn")
-
-# MOVIMIENTO
-const SPEED := 200
+const SPEED := 600
 var current_dir := "down"
-
-# VIDA
 @export var vida_maxima := 100
 var vida := 100
 var player_alive := true
-
-# COMBATE
 @export var daño_ataque := 20
 var attack_ip := false
 var enemigos_golpeados = []
-
-# INVENTARIO SIMPLE
 var pociones := 0
-
 func _ready():
 	add_to_group("Jugador")
 	# Cargamos la vida y pociones guardadas en el script global al cambiar de nivel
@@ -27,7 +17,6 @@ func _ready():
 	pociones = GameState.pociones
 	# Actualizamos la barra de vida visualmente en el primer fotograma de la nueva escena
 	call_deferred("actualizar_barra_vida")
-
 func _process(_delta):
 	if Input.is_action_just_pressed("usar_pocion"):
 		usar_pocion()
