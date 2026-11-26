@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="2_70b0k"]
 [ext_resource type="Texture2D" uid="uid://yto7nixbukko" path="res://Arte/arbol (1).png" id="3_m1wv4"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="4_em5sn"]
-[ext_resource type="Script" uid="uid://b6b1twmsg21k0" path="res://Script/Mundo NormalTp.gd" id="4_m1wv4"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="5_em5sn"]
+[ext_resource type="Script" uid="uid://pls137iaeew6" path="res://Script/Escenas/TPArribaACueva.gd" id="5_fbjao"]
 [ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="6_fbjao"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ok8la"]
@@ -353,8 +353,8 @@ sources/0 = SubResource("TileSetAtlasSource_ok8la")
 sources/2 = SubResource("TileSetAtlasSource_sxji4")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fbjao"]
-radius = 21.0
-height = 100.0
+radius = 19.0
+height = 86.0
 
 [node name="Mundo normal" type="Node2D" unique_id=2129614626]
 
@@ -382,23 +382,24 @@ layer_8/tile_data = PackedInt32Array(2490374, 2, 0, 2555910, 2, 1, 2490375, 6553
 
 [node name="barra de vida" parent="TileMap" unique_id=974127007 instance=ExtResource("4_em5sn")]
 
-[node name="Area2D2" type="Area2D" parent="." unique_id=370311827]
-script = ExtResource("4_m1wv4")
+[node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=1680130213]
+offset_left = 157.0
+offset_top = -25.0
+offset_right = 985.0
+offset_bottom = 1292.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=2122397999]
-position = Vector2(575, 214)
+[node name="Area2D2" type="Area2D" parent="." unique_id=370311827]
+script = ExtResource("5_fbjao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1960709566]
+position = Vector2(575, 223)
+rotation = -3.1415925
 shape = SubResource("CapsuleShape2D_fbjao")
 
 [node name="Inventario_hud" parent="Area2D2" unique_id=1849380305 instance=ExtResource("6_fbjao")]
 
 [node name="Player" parent="." unique_id=824008184 instance=ExtResource("5_em5sn")]
 position = Vector2(606, 700)
-
-[node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=1680130213]
-offset_left = 163.0
-offset_top = -28.0
-offset_right = 991.0
-offset_bottom = 1289.0
 
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Player" method="_on_area_2d_2_body_entered"]

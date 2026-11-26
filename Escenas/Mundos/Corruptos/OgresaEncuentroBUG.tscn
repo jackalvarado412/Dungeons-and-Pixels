@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dvaxdrt3b833o" path="res://Escenas/Personajes/Ogresa.tscn" id="3_nuw1u"]
 [ext_resource type="PackedScene" uid="uid://b4t2h80j2p2bu" path="res://Escenas/Personajes/ogresa_enemigo.tscn" id="4_6vdy0"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_q88mn"]
+[ext_resource type="Script" uid="uid://dkuln0ac8o1ty" path="res://Escenas/Mundos/Corruptos/TPOgresaAGranpasillo.gd" id="5_qm7rl"]
 [ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="6_gig1b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6vdy0"]
@@ -313,6 +314,10 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_6vdy0")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yyk48"]
+radius = 21.0
+height = 106.0
+
 [node name="OgresaEncuentroBug" type="Node2D" unique_id=1368174560]
 position = Vector2(-489, 18)
 
@@ -340,6 +345,15 @@ position = Vector2(736, 17)
 [node name="Ogresa enemigo3" parent="." unique_id=250508857 instance=ExtResource("4_6vdy0")]
 position = Vector2(493, 306)
 
+[node name="Area2D2" type="Area2D" parent="." unique_id=168186876]
+script = ExtResource("5_qm7rl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=2129445049]
+position = Vector2(574, -62)
+shape = SubResource("CapsuleShape2D_yyk48")
+
 [node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("5_q88mn")]
 
 [node name="Inventario_hud" parent="barra de vida" unique_id=1849380305 instance=ExtResource("6_gig1b")]
+
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

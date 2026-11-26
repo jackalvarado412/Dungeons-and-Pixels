@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="1_1lfcy"]
 [ext_resource type="Texture2D" uid="uid://0vghit7jckp" path="res://Arte/decos mazmorra01.png" id="2_moiun"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="3_moiun"]
-[ext_resource type="Script" uid="uid://b7h0b7an3p7c3" path="res://Script/ArribadesdeAbajo.gd" id="4_torog"]
+[ext_resource type="Script" uid="uid://d3nom1r5d107b" path="res://Escenas/Mundos/normales/TPPozoAOgresa.gd" id="4_4gcck"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_o6v0f"]
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="6_28vo0"]
 [ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="7_4gcck"]
@@ -369,6 +369,10 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_tri5y")
 sources/1 = SubResource("TileSetAtlasSource_qqc61")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jwmj2"]
+radius = 35.0
+height = 112.0
+
 [node name="Node2D" type="Node2D" unique_id=125776769]
 
 [node name="Nivel 1 derecha" type="TileMap" parent="." unique_id=1886964200]
@@ -393,9 +397,14 @@ offset_right = 1298.0
 offset_bottom = 741.0
 
 [node name="Area2D5" type="Area2D" parent="." unique_id=949843606]
-script = ExtResource("4_torog")
+script = ExtResource("4_4gcck")
 
 [node name="barra de vida" parent="Area2D5" unique_id=974127007 instance=ExtResource("5_o6v0f")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5" unique_id=2103532388]
+position = Vector2(1325, 321)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_jwmj2")
 
 [node name="Enemigo" parent="." unique_id=1821182143 instance=ExtResource("6_28vo0")]
 position = Vector2(1218, 312)
