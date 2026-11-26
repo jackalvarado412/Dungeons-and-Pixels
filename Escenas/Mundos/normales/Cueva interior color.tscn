@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://22ui08j8r73x" path="res://Script/Escenas/TParriba.gd" id="3_40apj"]
 [ext_resource type="Script" uid="uid://dpx5xdj280ney" path="res://Escenas/Mundos/normales/TPCuevaAMundo.gd" id="5_tkdte"]
 [ext_resource type="Script" uid="uid://dslyik50exotk" path="res://Escenas/Mundos/normales/TPCuevaAIzquierda.gd" id="6_sp772"]
+[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="6_tkdte"]
+[ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="7_tkdte"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbccr"]
 texture = ExtResource("1_wivxw")
@@ -178,6 +180,10 @@ script = ExtResource("6_sp772")
 position = Vector2(-529, 508)
 rotation = -3.1415927
 shape = SubResource("CapsuleShape2D_a7qd7")
+
+[node name="Inventario_hud" parent="." unique_id=1849380305 instance=ExtResource("6_tkdte")]
+
+[node name="barra de vida" parent="Inventario_hud" unique_id=974127007 instance=ExtResource("7_tkdte")]
 
 [connection signal="body_entered" from="Area2D4" to="Player" method="_on_area_2d_4_body_entered"]
 [connection signal="body_entered" from="Area2D4" to="Area2D4" method="_on_body_entered"]

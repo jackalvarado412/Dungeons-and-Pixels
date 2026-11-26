@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="4_em5sn"]
 [ext_resource type="Script" uid="uid://b6b1twmsg21k0" path="res://Script/Mundo NormalTp.gd" id="4_m1wv4"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="5_em5sn"]
+[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="6_fbjao"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ok8la"]
 texture = ExtResource("1_stry8")
@@ -387,6 +388,8 @@ script = ExtResource("4_m1wv4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=2122397999]
 position = Vector2(575, 214)
 shape = SubResource("CapsuleShape2D_fbjao")
+
+[node name="Inventario_hud" parent="Area2D2" unique_id=1849380305 instance=ExtResource("6_fbjao")]
 
 [node name="Player" parent="." unique_id=824008184 instance=ExtResource("5_em5sn")]
 position = Vector2(606, 700)

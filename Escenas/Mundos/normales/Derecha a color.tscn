@@ -3,9 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="1_1lfcy"]
 [ext_resource type="Texture2D" uid="uid://0vghit7jckp" path="res://Arte/decos mazmorra01.png" id="2_moiun"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="3_moiun"]
-[ext_resource type="Script" path="res://Script/ArribadesdeAbajo.gd" id="4_torog"]
+[ext_resource type="Script" uid="uid://b7h0b7an3p7c3" path="res://Script/ArribadesdeAbajo.gd" id="4_torog"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_o6v0f"]
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="6_28vo0"]
+[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="7_4gcck"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tri5y"]
 texture = ExtResource("1_1lfcy")
@@ -401,5 +402,7 @@ position = Vector2(1218, 312)
 
 [node name="Enemigo" parent="Enemigo" unique_id=685835914 instance=ExtResource("6_28vo0")]
 position = Vector2(-379, -7)
+
+[node name="Inventario_hud" parent="." unique_id=1849380305 instance=ExtResource("7_4gcck")]
 
 [connection signal="body_entered" from="Area2D5" to="Area2D5" method="_on_body_entered"]

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://0vghit7jckp" path="res://Arte/decos mazmorra01.png" id="2_mpgyo"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="3_mpgyo"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="3_vbx7w"]
+[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="4_1kb4b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5xgis"]
 texture = ExtResource("1_muied")
@@ -968,6 +969,8 @@ layer_2/name = "Pilares"
 layer_2/tile_data = PackedInt32Array(262154, 1441792, 9, 327690, 1441792, 10, 393226, 1441792, 11, 655378, 1441792, 9, 720914, 1441792, 10, 786450, 1441792, 11, 1114122, 1441792, 9, 1179658, 1441792, 10, 1245194, 1441792, 11, 1114130, 1441792, 9, 1179666, 1441792, 10, 1245202, 1441792, 11, 3342346, 1441792, 9, 3407882, 1441792, 10, 3473418, 1441792, 11, 3342354, 1441792, 9, 3407890, 1441792, 10, 3473426, 1441792, 11, 196625, 1441792, 9, 262161, 1441792, 10, 327697, 1441792, 11, 2818058, 1441792, 9, 2883594, 1441792, 10, 2949130, 1441792, 11, 2818066, 1441792, 9, 2883602, 1441792, 10, 2949138, 1441792, 11, 2162698, 1441792, 9, 2228234, 1441792, 10, 2293770, 1441792, 11, 2162706, 1441792, 9, 2228242, 1441792, 10, 2293778, 1441792, 11, 1572882, 1441792, 9, 1638418, 1441792, 10, 1703954, 1441792, 11, 1572874, 1441792, 9, 1638410, 1441792, 10, 1703946, 1441792, 11, 655370, 1441792, 9, 720906, 1441792, 10, 786442, 1441792, 11, 655385, 1441792, 9, 720921, 1441792, 10, 786457, 1441792, 11, 196633, 1441792, 9, 262169, 1441792, 10, 327705, 1441792, 11, 196641, 1441792, 9, 262177, 1441792, 10, 327713, 1441792, 11, 655393, 1441792, 9, 720929, 1441792, 10, 786465, 1441792, 11)
 
 [node name="barra de vida" parent="TileMap" unique_id=974127007 instance=ExtResource("3_vbx7w")]
+
+[node name="Inventario_hud" parent="TileMap" unique_id=1849380305 instance=ExtResource("4_1kb4b")]
 
 [node name="Player" parent="." unique_id=824008184 instance=ExtResource("3_mpgyo")]
 position = Vector2(1126, 296)
