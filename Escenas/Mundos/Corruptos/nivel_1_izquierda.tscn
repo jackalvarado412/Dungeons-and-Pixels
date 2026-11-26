@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="3_s1h43"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_vilpg"]
 [ext_resource type="Script" uid="uid://dq5s6fp0rjc58" path="res://Escenas/Personajes/oneshot.gd" id="6_xbbnm"]
+[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="8_3xkjy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vv1ro"]
 texture = ExtResource("1_mt1ug")
@@ -393,3 +394,5 @@ offset_bottom = 737.0
 [node name="Enemigo5" parent="." unique_id=1831892056 instance=ExtResource("3_s1h43")]
 position = Vector2(562, 192)
 script = ExtResource("6_xbbnm")
+
+[node name="Inventario_hud" parent="." unique_id=1849380305 instance=ExtResource("8_3xkjy")]

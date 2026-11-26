@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="3_6555k"]
 [ext_resource type="Script" uid="uid://trwkp5gejkq7" path="res://Script/Movimientos/TpalJefe.gd" id="4_k60hq"]
 [ext_resource type="Script" uid="uid://bxex47km3dsn1" path="res://Script/Movimientos/VolverAlInicioArriba.gd" id="5_6555k"]
+[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="7_c7tix"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="7_vjl2t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jw3ma"]
@@ -351,6 +352,8 @@ script = ExtResource("5_6555k")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1778017201]
 position = Vector2(526, 691)
 shape = SubResource("CapsuleShape2D_6555k")
+
+[node name="Inventario_hud" parent="Area2D2/CollisionShape2D" unique_id=1849380305 instance=ExtResource("7_c7tix")]
 
 [node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=590320546]
 visible = false

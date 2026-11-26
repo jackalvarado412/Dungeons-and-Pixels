@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="2_70b0k"]
 [ext_resource type="Texture2D" uid="uid://yto7nixbukko" path="res://Arte/arbol (1).png" id="3_m1wv4"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="4_em5sn"]
+[ext_resource type="Script" uid="uid://b6b1twmsg21k0" path="res://Script/Mundo NormalTp.gd" id="4_m1wv4"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="5_em5sn"]
-[ext_resource type="Script" uid="uid://pls137iaeew6" path="res://Script/Escenas/TPArribaACueva.gd" id="5_fbjao"]
+[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="6_fbjao"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ok8la"]
 texture = ExtResource("1_stry8")
@@ -382,11 +383,13 @@ layer_8/tile_data = PackedInt32Array(2490374, 2, 0, 2555910, 2, 1, 2490375, 6553
 [node name="barra de vida" parent="TileMap" unique_id=974127007 instance=ExtResource("4_em5sn")]
 
 [node name="Area2D2" type="Area2D" parent="." unique_id=370311827]
-script = ExtResource("5_fbjao")
+script = ExtResource("4_m1wv4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=2122397999]
 position = Vector2(575, 214)
 shape = SubResource("CapsuleShape2D_fbjao")
+
+[node name="Inventario_hud" parent="Area2D2" unique_id=1849380305 instance=ExtResource("6_fbjao")]
 
 [node name="Player" parent="." unique_id=824008184 instance=ExtResource("5_em5sn")]
 position = Vector2(606, 700)

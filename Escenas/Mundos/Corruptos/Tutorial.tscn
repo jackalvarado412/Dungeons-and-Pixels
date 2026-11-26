@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="5_dsd57"]
 [ext_resource type="Texture2D" uid="uid://sp0y0q7uqly8" path="res://Arte/Ataque (1).png" id="6_kso6c"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="7_ivltl"]
+[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="11_dsd57"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ivltl"]
 texture = ExtResource("2_sagob")
@@ -182,5 +183,9 @@ offset_left = 164.0
 offset_top = -350.0
 offset_right = 992.0
 offset_bottom = 1282.0
+
+[node name="Inventario_hud" parent="." unique_id=1849380305 instance=ExtResource("11_dsd57")]
+
+[node name="Inventario_hud" parent="Inventario_hud" unique_id=1006427546 instance=ExtResource("11_dsd57")]
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

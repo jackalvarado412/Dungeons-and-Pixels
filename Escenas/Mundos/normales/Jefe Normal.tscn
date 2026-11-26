@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_hvdbn"]
 [ext_resource type="Script" uid="uid://cfxblolm5tfen" path="res://Script/denuevo desde jefe.gd" id="6_8yp8x"]
 [ext_resource type="PackedScene" uid="uid://ce5tt8dewa43d" path="res://Escenas/Personajes/elfi.tscn" id="6_m34nu"]
+[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="8_l8e1q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1tcwj"]
 texture = ExtResource("2_8yp8x")
@@ -385,5 +386,7 @@ shape = SubResource("CapsuleShape2D_l8e1q")
 
 [node name="Elfi" parent="." unique_id=1274919514 instance=ExtResource("6_m34nu")]
 position = Vector2(499, -263)
+
+[node name="Inventario_hud" parent="." unique_id=1849380305 instance=ExtResource("8_l8e1q")]
 
 [connection signal="body_entered" from="LimitedeCamara/Area2D" to="LimitedeCamara/Area2D" method="_on_body_entered"]

@@ -3,10 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="1_obrjw"]
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="2_sbgkt"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="3_ausyq"]
+[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="3_nm20q"]
 [ext_resource type="Script" uid="uid://caht6b0mqxdjx" path="res://Script/TpIzquierda.gd" id="5_v1evm"]
-[ext_resource type="Script" path="res://Script/Derecha.gd" id="6_v1evm"]
+[ext_resource type="Script" uid="uid://ciim8jo1a66os" path="res://Script/Derecha.gd" id="6_v1evm"]
 [ext_resource type="Script" uid="uid://dabm5r6oydae7" path="res://Escenas/Mundos/Corruptos/area_2d.gd" id="7_jjcum"]
-[ext_resource type="Script" path="res://Script/Volve a fuera.gd" id="7_mf18m"]
+[ext_resource type="Script" uid="uid://b5kiyu61xrh4" path="res://Script/Volve a fuera.gd" id="7_mf18m"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="8_jjcum"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_quvfg"]
@@ -175,6 +176,8 @@ layer_3/tile_data = PackedInt32Array(327680, 1376256, 19, 524288, 1376256, 19, 6
 [node name="Enemigo" parent="TileMap" unique_id=1821182143 instance=ExtResource("2_sbgkt")]
 visible = false
 position = Vector2(2420, 491)
+
+[node name="Inventario_hud" parent="TileMap/Enemigo" unique_id=1849380305 instance=ExtResource("3_nm20q")]
 
 [node name="TileMap2" type="TileMap" parent="." unique_id=442256477]
 tile_set = SubResource("TileSet_15pb1")

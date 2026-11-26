@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d0h5bbk6rhspq" path="res://Arte/enemigo.tscn" id="4_rksvk"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_sf1yi"]
 [ext_resource type="Script" uid="uid://r4j6ychv2xn7" path="res://Script/Jefe.gd" id="6_e603d"]
+[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="8_ojdc1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1tcwj"]
 texture = ExtResource("1_nvn0i")
@@ -375,3 +376,5 @@ offset_right = 2193.0
 offset_bottom = 887.0
 
 [node name="barra de vida" parent="LimitedeCamara" unique_id=2113630282 instance=ExtResource("5_sf1yi")]
+
+[node name="Inventario_hud" parent="." unique_id=1849380305 instance=ExtResource("8_ojdc1")]

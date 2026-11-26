@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ccoa0ioquiu7c"]
 
 [ext_resource type="Script" uid="uid://bx4cv0jn5t7mo" path="res://Script/Escenas/menu_pausa.gd" id="1_svwiw"]
+[ext_resource type="PackedScene" uid="uid://ccmgijpwe854" path="res://Script/Escenas/inventario_ui.tscn" id="2_sjxsj"]
 
 [node name="Menu" type="CanvasLayer" unique_id=1415445810]
 process_mode = 3
@@ -49,5 +50,21 @@ layout_mode = 2
 text = "Continuar
 "
 
+[node name="Inventario" type="Button" parent="Control/VBoxContainer" unique_id=275438853]
+layout_mode = 2
+text = "Inventario"
+
+[node name="InventarioUI" parent="Control" unique_id=1287696660 instance=ExtResource("2_sjxsj")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [connection signal="pressed" from="Control/VBoxContainer/Salir" to="." method="_on_salir_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Inventario" to="." method="_on_inventario_pressed"]

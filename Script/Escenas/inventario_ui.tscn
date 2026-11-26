@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://ccmgijpwe854"]
+
+[ext_resource type="Script" uid="uid://dg7minw506mo4" path="res://inventario script_ui.gd" id="1_fx00p"]
+
+[node name="InventarioUI" type="Control" unique_id=1287696660]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_fx00p")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=990863755]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.5
+offset_top = -37.5
+offset_right = 59.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=160868357]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1682982631]
+layout_mode = 2
+text = "    Inventario"
+
+[node name="Cuadricula" type="GridContainer" parent="PanelContainer/VBoxContainer" unique_id=967442352]
+layout_mode = 2
+columns = 5
+
+[node name="Volver" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1236017139]
+layout_mode = 2
+text = "Volver"

@@ -5,6 +5,10 @@ var vida_maxima: int = 100
 var vida_actual: int = 100
 var pociones: int = 0
 
+# INVENTARIO (4 casillas estilo Terraria)
+const MAX_SLOTS := 4
+var slots_inventario: Array = []
+
 const MAPAS_NORMALES := {
 	"res://Escenas/Mundos/Corruptos/mundo.tscn": "res://Escenas/Mundos/normales/mundo_normal.tscn",
 	"res://Escenas/Mundos/Corruptos/cueva_interior.tscn": "res://Escenas/Mundos/normales/Cueva interior color.tscn",
@@ -15,11 +19,49 @@ const MAPAS_NORMALES := {
 
 func _ready() -> void:
 	get_tree().scene_changed.connect(_al_cambiar_escena)
+	inicializar_inventario()
+
+func inicializar_inventario() -> void:
+	if slots_inventario.size() < MAX_SLOTS:
+		slots_inventario.resize(MAX_SLOTS)
+		slots_inventario.fill(null)
 
 func iniciar_partida() -> void:
 	nivel_reparado = false
 	vida_actual = vida_maxima
 	pociones = 0
+	inicializar_inventario()
+	slots_inventario.fill(null)
+
+func agregar_item(nombre: String, icono: Texture2D, cantidad: int = 1, apilable: bool = true) -> bool:
+	if apilable:
+		for i in range(MAX_SLOTS):
+			if slots_inventario[i] != null and slots_inventario[i]["nombre"] == nombre:
+				slots_inventario[i]["cantidad"] += cantidad
+				return true
+				
+	for i in range(MAX_SLOTS):
+		if slots_inventario[i] == null:
+			slots_inventario[i] = {
+				"nombre": nombre,
+				"icono": icono,
+				"cantidad": cantidad
+			}
+			return true
+			
+	return false
+
+func usar_item_en_slot(indice: int) -> void:
+	var item = slots_inventario[indice]
+	if item == null:
+		return
+		
+	if item["nombre"] == "Pocion":
+		vida_actual = min(vida_actual + 25, vida_maxima)
+		pociones = max(pociones - 1, 0)
+		item["cantidad"] -= 1
+		if item["cantidad"] <= 0:
+			slots_inventario[indice] = null
 
 func derrotar_jefe() -> void:
 	if nivel_reparado:
