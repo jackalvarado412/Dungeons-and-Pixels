@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://vd02ffb53ogg"]
 
+[ext_resource type="Script" uid="uid://yin1ugy58oey" path="res://Script/ClaudEncuentro.gd" id="1_0wh46"]
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="1_5mljl"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="2_nuw1u"]
 [ext_resource type="PackedScene" uid="uid://dvaxdrt3b833o" path="res://Escenas/Personajes/Ogresa.tscn" id="3_nuw1u"]
@@ -321,6 +322,7 @@ height = 74.0
 
 [node name="OgresaEncuentroBug" type="Node2D" unique_id=1368174560]
 position = Vector2(-489, 18)
+script = ExtResource("1_0wh46")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=98413089]
 tile_set = SubResource("TileSet_q88mn")

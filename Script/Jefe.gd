@@ -32,6 +32,12 @@ var tiempo_estado := 0.0
 var daño_aplicado := false
 
 func _ready() -> void:
+	if GameState.enemigo_ya_derrotado(self):
+		set_process(false)
+		set_physics_process(false)
+		queue_free()
+		return
+
 	vida = vida_maxima
 	add_to_group("Enemigo")
 	add_to_group("Jefe")
@@ -139,6 +145,8 @@ func morir() -> void:
 		return
 
 	ya_murio = true
+
+	GameState.registrar_enemigo_derrotado(self)
 
 	print("¡JEFE DERROTADO!")
 

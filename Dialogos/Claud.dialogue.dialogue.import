@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dfvmsqjlasbdl"
+path="res://.godot/imported/Claud.dialogue.dialogue-acc70e3999a3c6c4becebecee96a7e4a.tres"
+
+[deps]
+
+source_file="res://Dialogos/Claud.dialogue.dialogue"
+dest_files=["res://.godot/imported/Claud.dialogue.dialogue-acc70e3999a3c6c4becebecee96a7e4a.tres"]
+
+[params]
+
+defaults=true

@@ -7,6 +7,41 @@ var vida_actual: int = 100
 var pociones: int = 0
 signal monedas_cambiaron
 var monedas: int = 0
+# Registro global de enemigos derrotados
+var enemigos_derrotados: Dictionary = {}
+
+# Progreso permanente de Claud durante la partida
+var claud_invitacion_mostrada: bool = false
+var claud_presentacion_hecha: bool = false
+var claud_conversacion: int = 1
+
+func obtener_id_enemigo(enemigo: Node) -> String:
+	var escena = get_tree().current_scene
+
+	if escena == null:
+		return ""
+
+	return escena.scene_file_path + "::" + str(enemigo.get_path())
+
+
+func enemigo_ya_derrotado(enemigo: Node) -> bool:
+	var id = obtener_id_enemigo(enemigo)
+
+	if id.is_empty():
+		return false
+
+	return enemigos_derrotados.has(id)
+
+
+func registrar_enemigo_derrotado(enemigo: Node) -> void:
+	var id = obtener_id_enemigo(enemigo)
+
+	if id.is_empty():
+		return
+
+	enemigos_derrotados[id] = true
+
+	print("Enemigo registrado como derrotado: ", id)
 func agregar_monedas(cantidad: int = 1) -> void:
 	if cantidad <= 0:
 		return
@@ -33,6 +68,10 @@ func inicializar_inventario() -> void:
 		slots_inventario.fill(null)
 
 func iniciar_partida() -> void:
+	claud_invitacion_mostrada = false
+	claud_presentacion_hecha = false
+	claud_conversacion = 1
+	enemigos_derrotados.clear()
 	monedas = 0
 	nivel_reparado = false
 	vida_actual = vida_maxima

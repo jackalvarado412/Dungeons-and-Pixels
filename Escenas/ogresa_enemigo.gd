@@ -18,6 +18,10 @@ var puede_atacar := true
 var objetivos_en_rango: Array = []
 
 func _ready():
+	if GameState.enemigo_ya_derrotado(self):
+		queue_free()
+		return
+
 	add_to_group("Enemigo")
 	call_deferred("actualizar_objetivo")
 
@@ -70,8 +74,11 @@ func recibir_daño(cantidad):
 	print("Vida enemigo:", vida)
 
 	if vida <= 0:
+		GameState.registrar_enemigo_derrotado(self)
 		GameState.agregar_monedas(1)
+
 		print("¡Enemigo derrotado! +1 moneda")
+
 		queue_free()
 
 # ATAQUE AL JUGADOR

@@ -1,0 +1,26 @@
+~ llamada
+Claud: ¡Ey! ¡Acercate, quiero hablar con vos! => END
+
+~ presentacion
+Claud: ¡DIOS! Muchas gracias por ayudarme con esas criaturas tan raras…. Soy Claud, un gusto. Trabajo acá, bueno no pero sí, hago armas y todo eso si necesitas algo por el estilo con gusto te ayudaré, tendrá un costo claro.. => END
+
+~ interaccion_1
+Claud: De verdad aprecio lo que hiciste por mí pero entendés que no puedo hacerte ningún descuento ¿verdad? => END
+
+~ interaccion_2
+Claud: Puedo garantizarte completamente que mis productos son de calidad. => END
+
+~ interaccion_3
+Claud: Aaahh… qué cansador es este trabajo, pero qué buena recompensa me espera al final del día. => END
+
+~ interaccion_4
+Claud: mmmmh pollo. => END
+
+~ interaccion_5
+Claud: Realmente me impresiona tu fuerza… tal vez alguna vez podríamos entrenar juntas. => END
+
+~ compra_1
+Claud: Probala y después contame, estoy segura de que te va a encantar. => END
+
+~ compra_2
+Claud: Esos bichos no te van a aguantar un round. => END 

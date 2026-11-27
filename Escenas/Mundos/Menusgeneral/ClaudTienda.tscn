@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dyieri72lia5c"]
+
+[node name="ClaudTienda" type="Node" unique_id=289882008]
+
+[node name="FondoTienda" type="TextureRect" parent="." unique_id=998083854]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelTienda" type="PanelContainer" parent="." unique_id=887461314]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Titulo" type="Label" parent="PanelTienda" unique_id=370741667]
+layout_mode = 2
+
+[node name="MonedasDisponibles" type="Label" parent="PanelTienda" unique_id=1967527329]
+layout_mode = 2
+
+[node name="ListaMejoras" type="VBoxContainer" parent="PanelTienda" unique_id=1004299356]
+layout_mode = 2
+
+[node name="BotonComprar" type="Button" parent="PanelTienda" unique_id=1930458575]
+layout_mode = 2
+
+[node name="BotonSalir" type="Button" parent="PanelTienda" unique_id=1531212536]
+layout_mode = 2
