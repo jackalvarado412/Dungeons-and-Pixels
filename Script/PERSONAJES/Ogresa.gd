@@ -7,7 +7,6 @@ var esta_derrotada: bool = false
 @onready var barra_vida: ProgressBar = $BarraVida
 func _ready() -> void:
 	add_to_group("Ogresa")
-	add_to_group("Jugador")
 	vida_actual = vida_maxima
 	barra_vida.max_value = vida_maxima
 	barra_vida.value = vida_actual

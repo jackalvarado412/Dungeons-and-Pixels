@@ -1,15 +1,15 @@
-[gd_scene format=3 uid="uid://bc6v8aik0j004"]
+[gd_scene format=3 uid="uid://4niku4f7pyt5"]
 
-[ext_resource type="Script" uid="uid://c8tt1og2l618l" path="res://Script/LimiteCamara.gd" id="1_rq7kw"]
-[ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="2_0tdgi"]
-[ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="3_vgt4h"]
-[ext_resource type="Script" uid="uid://c8lsgpuu6oa2w" path="res://Script/VolverInicioCueva.gd" id="4_hvy2s"]
-[ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_a1ooy"]
-[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="6_iy016"]
-[ext_resource type="PackedScene" uid="uid://cxmdkij3qpfnc" path="res://Escenas/ITEMS/MemoriaRAM.tscn" id="7_0tdgi"]
+[ext_resource type="Script" uid="uid://c8tt1og2l618l" path="res://Script/LimiteCamara.gd" id="1_jwnsp"]
+[ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="2_alqm1"]
+[ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="3_cbl4f"]
+[ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="4_yevyr"]
+[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="5_rasgp"]
+[ext_resource type="Script" uid="uid://e40mngqfswys" path="res://cuarta zona A Quinta.gd" id="6_cbl4f"]
+[ext_resource type="Script" uid="uid://vqidcc5uccjd" path="res://Cuarta zona a tercera zona.gd" id="7_yevyr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ifl8c"]
-texture = ExtResource("2_0tdgi")
+texture = ExtResource("2_alqm1")
 texture_region_size = Vector2i(32, 32)
 25:0/0 = 0
 26:0/0 = 0
@@ -878,12 +878,16 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ifl8c")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k8m6v"]
-radius = 23.0
-height = 94.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rasgp"]
+radius = 26.999998
+height = 134.0
 
-[node name="Nivel 2 quinta zona" type="Node2D" unique_id=1642583362]
-script = ExtResource("1_rq7kw")
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gmgj"]
+radius = 23.0
+height = 101.99994
+
+[node name="Nivel 2 cuarta zona" type="Node2D" unique_id=1642583362]
+script = ExtResource("1_jwnsp")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1285318310]
 tile_set = SubResource("TileSet_2yya1")
@@ -897,38 +901,34 @@ layer_2/tile_data = PackedInt32Array(851986, 1376256, 19, 1048594, 1376256, 19, 
 layer_3/name = "Pilares"
 layer_3/tile_data = PackedInt32Array(917511, 1572864, 9, 983047, 1572864, 10, 1048583, 1572864, 11, 327709, 1572864, 9, 393245, 1572864, 10, 458781, 1572864, 9, 393225, 1572864, 9, 458761, 1572864, 10, 524297, 1572864, 11, 786446, 1572864, 9, 851982, 1572864, 10, 917518, 1572864, 11, 589834, 1572864, 9, 655370, 1572864, 10, 720906, 1572864, 11, 589850, 1572864, 9, 655386, 1572864, 10, 720922, 1572864, 11, 262170, 1572864, 9, 327706, 1572864, 10, 393242, 1572864, 11, 917530, 1572864, 9, 983066, 1572864, 10, 1048602, 1572864, 11, 720918, 1572864, 9, 786454, 1572864, 10, 851990, 1572864, 11, 917527, 1572864, 9, 983063, 1572864, 10, 1048599, 1572864, 11, 262167, 1572864, 9, 327703, 1572864, 10, 393239, 1572864, 11, 131088, 1572864, 9, 196624, 1572864, 10, 262160, 1572864, 11, 393230, 1572864, 9, 458766, 1572864, 10, 524302, 1572864, 11, 65545, 1572864, 9, 131081, 1572864, 10, 196617, 1572864, 11, 262147, 1572864, 9, 327683, 1572864, 10, 393219, 1572864, 11, 720900, 1572864, 9, 786436, 1572864, 10, 851972, 1572864, 11, 458756, 1572864, 9, 524292, 1572864, 10, 589828, 1572864, 11, 458773, 1572864, 9, 524309, 1572864, 10, 589845, 1572864, 11, 524317, 1572864, 10, 589853, 1572864, 11, 851998, 1572864, 9, 917534, 1572864, 10, 983070, 1572864, 11, 524320, 1572864, 9, 589856, 1572864, 10, 655392, 1572864, 11, 32, 1572864, 9, 65568, 1572864, 10, 131104, 1572864, 11)
 
-[node name="Player" parent="." unique_id=824008184 instance=ExtResource("3_vgt4h")]
+[node name="Player" parent="." unique_id=824008184 instance=ExtResource("3_cbl4f")]
 position = Vector2(583, 459)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1387207076]
-script = ExtResource("4_hvy2s")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1536053047]
-position = Vector2(568, 538)
-shape = SubResource("CapsuleShape2D_k8m6v")
-
 [node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=429693507]
-visible = false
-offset_left = 13.0
-offset_top = -29.0
-offset_right = 1138.0
-offset_bottom = 1878.0
+offset_left = 11.0
+offset_top = -7.0
+offset_right = 1136.0
+offset_bottom = 551.0
 
-[node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("5_a1ooy")]
+[node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("4_yevyr")]
 
-[node name="Inventario_hud" parent="." unique_id=1849380305 instance=ExtResource("6_iy016")]
+[node name="Inventario_hud" parent="." unique_id=1849380305 instance=ExtResource("5_rasgp")]
 
-[node name="ItemRecolectable" parent="." unique_id=524872158 instance=ExtResource("7_0tdgi")]
-position = Vector2(369, 81)
+[node name="Area2D2" type="Area2D" parent="." unique_id=1563688483]
+script = ExtResource("6_cbl4f")
 
-[node name="ItemRecolectable" parent="ItemRecolectable" unique_id=1866652039 instance=ExtResource("7_0tdgi")]
-position = Vector2(591, 225)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=965388062]
+position = Vector2(543, -16)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_rasgp")
 
-[node name="ItemRecolectable" parent="ItemRecolectable/ItemRecolectable" unique_id=1481205643 instance=ExtResource("7_0tdgi")]
-position = Vector2(-736, -34)
+[node name="Area2D" type="Area2D" parent="." unique_id=483668627]
+script = ExtResource("7_yevyr")
 
-[node name="ItemRecolectable" parent="ItemRecolectable/ItemRecolectable/ItemRecolectable" unique_id=428896526 instance=ExtResource("7_0tdgi")]
-position = Vector2(-68, -128)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=218015679]
+position = Vector2(557, 555)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_4gmgj")
 
-[connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

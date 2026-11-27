@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bjsl5i6hkw2d0"]
+
+[ext_resource type="Script" uid="uid://diuejb6dlnqcq" path="res://Script/Jugador/Recolecciondeobjetos.gd" id="1_mmopy"]
+[ext_resource type="Texture2D" uid="uid://cmm4nq73ggkip" path="res://Arte/item.png" id="2_3a6px"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0yre"]
+size = Vector2(32, 29.5)
+
+[node name="Discoduro" type="Node2D" unique_id=553251745]
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1706050476]
+script = ExtResource("1_mmopy")
+item_id = "Disco_Duro"
+
+[node name="Label" type="Label" parent="Area2D2" unique_id=738333780]
+offset_left = 37.0
+offset_top = 68.0
+offset_right = 57.0
+offset_bottom = 91.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=58847246]
+position = Vector2(46.75, 55.75)
+scale = Vector2(0.859375, 0.859375)
+texture = ExtResource("2_3a6px")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=2047784859]
+position = Vector2(47, 57)
+shape = SubResource("RectangleShape2D_x0yre")
+
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

@@ -16,7 +16,7 @@ offset_left = 37.0
 offset_top = 68.0
 offset_right = 57.0
 offset_bottom = 91.0
-text = "[E]"
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=657125999]
 position = Vector2(46.75, 55.75)

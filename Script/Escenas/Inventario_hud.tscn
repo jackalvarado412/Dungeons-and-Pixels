@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cxxbfkp6a70rj"]
 
 [ext_resource type="Script" uid="uid://odt27o0umaam" path="res://Script/Escenas/inventario_hud.gd" id="1_mvtpj"]
+[ext_resource type="Texture2D" uid="uid://d06va2rf54b3d" path="res://Arte/monbit.png" id="2_svvav"]
 
 [node name="Inventario_hud" type="CanvasLayer" unique_id=1849380305]
 script = ExtResource("1_mvtpj")
@@ -19,3 +20,27 @@ offset_left = -9.0
 offset_top = -47.0
 offset_right = 31.0
 offset_bottom = -7.0
+
+[node name="ContadorMonedas" type="HBoxContainer" parent="." unique_id=959769776]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -35.0
+offset_bottom = 26.0
+grow_horizontal = 0
+theme_override_constants/separation = 5
+
+[node name="MonedasLabel" type="Label" parent="ContadorMonedas" unique_id=50818228]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IconoMoneda" type="TextureRect" parent="ContadorMonedas" unique_id=1918134996]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_svvav")
+expand_mode = 1
+stretch_mode = 4

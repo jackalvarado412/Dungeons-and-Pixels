@@ -5,11 +5,16 @@ var nivel_reparado: bool = false
 var vida_maxima: int = 100
 var vida_actual: int = 100
 var pociones: int = 0
-
-# INVENTARIO (4 casillas estilo Terraria)
+signal monedas_cambiaron
+var monedas: int = 0
+func agregar_monedas(cantidad: int = 1) -> void:
+	if cantidad <= 0:
+		return
+	monedas += cantidad
+	monedas_cambiaron.emit()
+	print("Monedas actuales: ", monedas)
 const MAX_SLOTS := 4
 var slots_inventario: Array = []
-
 const MAPAS_NORMALES := {
 	"res://Escenas/Mundos/Corruptos/mundo.tscn": "res://Escenas/Mundos/normales/mundo_normal.tscn",
 	"res://Escenas/Mundos/Corruptos/cueva_interior.tscn": "res://Escenas/Mundos/normales/Cueva interior color.tscn",
@@ -28,6 +33,7 @@ func inicializar_inventario() -> void:
 		slots_inventario.fill(null)
 
 func iniciar_partida() -> void:
+	monedas = 0
 	nivel_reparado = false
 	vida_actual = vida_maxima
 	pociones = 0

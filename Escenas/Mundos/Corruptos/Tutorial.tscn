@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="7_ivltl"]
 [ext_resource type="PackedScene" uid="uid://cxmdkij3qpfnc" path="res://Escenas/ITEMS/MemoriaRAM.tscn" id="11_5qop4"]
 [ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="11_dsd57"]
+[ext_resource type="PackedScene" uid="uid://bjsl5i6hkw2d0" path="res://Escenas/ITEMS/DISCODURO.tscn" id="11_ybhnc"]
+[ext_resource type="PackedScene" uid="uid://bbybir4bowubj" path="res://Escenas/ITEMS/MONEDA.tscn" id="12_38kmv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ivltl"]
 texture = ExtResource("2_sagob")
@@ -186,8 +188,14 @@ offset_top = -352.0
 offset_right = 991.0
 offset_bottom = 1280.0
 
+[node name="Discoduro" parent="." unique_id=553251745 instance=ExtResource("11_ybhnc")]
+position = Vector2(432, -233)
+
+[node name="Moneda" parent="." unique_id=734562099 instance=ExtResource("12_38kmv")]
+position = Vector2(524, -282)
+
 [node name="ItemRecolectable" parent="." unique_id=524872158 instance=ExtResource("11_5qop4")]
-position = Vector2(605, -241)
+position = Vector2(624, -232)
 
 [node name="Inventario_hud" parent="." unique_id=1849380305 instance=ExtResource("11_dsd57")]
 

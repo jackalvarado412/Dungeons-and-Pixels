@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://b8dhgwkfu7rw6"]
 
-[ext_resource type="Script" uid="uid://c8tt1og2l618l" path="res://Script/LimiteCamara.gd" id="1_88qnd"]
-[ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="2_f3vx3"]
-[ext_resource type="Texture2D" uid="uid://0vghit7jckp" path="res://Arte/decos mazmorra01.png" id="3_2m0ap"]
-[ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="4_i4pp1"]
-[ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_nnkqm"]
-[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="6_37c12"]
+[ext_resource type="Script" uid="uid://c8tt1og2l618l" path="res://Script/LimiteCamara.gd" id="1_5d177"]
+[ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="2_h0kp6"]
+[ext_resource type="Texture2D" uid="uid://0vghit7jckp" path="res://Arte/decos mazmorra01.png" id="3_8kutl"]
+[ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="4_jw15i"]
+[ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_tcfx0"]
+[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="6_jbpkl"]
+[ext_resource type="Script" uid="uid://csu0l5764161i" path="res://Escenas/Mundos/Corruptos/zona 2/betafin.gd" id="7_5d177"]
+[ext_resource type="Script" uid="uid://bu67t3w7kr7f6" path="res://Escenas/Mundos/Corruptos/zona 2/7.2.gd" id="8_h0kp6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nkapo"]
-texture = ExtResource("2_f3vx3")
+texture = ExtResource("2_h0kp6")
 texture_region_size = Vector2i(32, 32)
 25:0/0 = 0
 26:0/0 = 0
@@ -873,7 +875,7 @@ texture_region_size = Vector2i(32, 32)
 16:8/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3rc64"]
-texture = ExtResource("3_2m0ap")
+texture = ExtResource("3_8kutl")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -924,8 +926,16 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_nkapo")
 sources/1 = SubResource("TileSetAtlasSource_3rc64")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kjg1c"]
+radius = 21.0
+height = 122.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s61q0"]
+radius = 23.0
+height = 118.0
+
 [node name="Nivel 2 Septima  zona" type="Node2D" unique_id=1642583362]
-script = ExtResource("1_88qnd")
+script = ExtResource("1_5d177")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1285318310]
 tile_set = SubResource("TileSet_lq6jq")
@@ -939,17 +949,34 @@ layer_2/tile_data = PackedInt32Array(851986, 1376256, 19, 1048594, 1376256, 19, 
 layer_3/name = "Pilares"
 layer_4/name = "ObjetosL"
 
-[node name="Player" parent="." unique_id=824008184 instance=ExtResource("4_i4pp1")]
+[node name="Player" parent="." unique_id=824008184 instance=ExtResource("4_jw15i")]
 position = Vector2(583, 459)
 
 [node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=429693507]
-offset_left = 288.0
-offset_top = -8.0
-offset_right = 1454.0
-offset_bottom = 548.0
+offset_left = 456.0
+offset_top = 70.0
+offset_right = 1081.0
+offset_bottom = 566.0
 
-[node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("5_nnkqm")]
-visible = false
+[node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("5_tcfx0")]
 
-[node name="Inventario_hud" parent="." unique_id=1849380305 instance=ExtResource("6_37c12")]
-visible = false
+[node name="Inventario_hud" parent="." unique_id=1849380305 instance=ExtResource("6_jbpkl")]
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=878381446]
+script = ExtResource("7_5d177")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1367975010]
+position = Vector2(800, 94)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_kjg1c")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1359789242]
+script = ExtResource("8_h0kp6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1398040509]
+position = Vector2(803, 548)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_s61q0")
+
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

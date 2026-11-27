@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bbybir4bowubj"]
+
+[ext_resource type="Script" uid="uid://8gu5144sbkny" path="res://Escenas/ITEMS/Moneda.gd" id="1_8fyj0"]
+[ext_resource type="Texture2D" uid="uid://d06va2rf54b3d" path="res://Arte/monbit.png" id="2_f7lkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtvdv"]
+size = Vector2(32, 29.5)
+
+[node name="Moneda" type="Node2D" unique_id=734562099]
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=833647692]
+script = ExtResource("1_8fyj0")
+
+[node name="Label" type="Label" parent="Area2D2" unique_id=1110049335]
+offset_left = 37.0
+offset_top = 68.0
+offset_right = 57.0
+offset_bottom = 91.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=1977987045]
+position = Vector2(46.5, 57)
+scale = Vector2(1.9375, 1.75)
+texture = ExtResource("2_f7lkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=2034291199]
+position = Vector2(47, 57)
+shape = SubResource("RectangleShape2D_qtvdv")
+
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

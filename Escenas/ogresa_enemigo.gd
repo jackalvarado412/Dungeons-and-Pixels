@@ -63,9 +63,15 @@ func actualizar_objetivo() -> void:
 
 # RECIBIR DAÑO
 func recibir_daño(cantidad):
-	vida -= cantidad
+	if vida <= 0 or cantidad <= 0:
+		return
+
+	vida = max(vida - cantidad, 0)
 	print("Vida enemigo:", vida)
+
 	if vida <= 0:
+		GameState.agregar_monedas(1)
+		print("¡Enemigo derrotado! +1 moneda")
 		queue_free()
 
 # ATAQUE AL JUGADOR

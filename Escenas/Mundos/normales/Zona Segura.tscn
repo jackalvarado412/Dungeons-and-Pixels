@@ -1,15 +1,14 @@
 [gd_scene format=3 uid="uid://c8v0kscr0gfqa"]
 
-[ext_resource type="Script" uid="uid://c8tt1og2l618l" path="res://Script/LimiteCamara.gd" id="1_oy26k"]
-[ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="2_tk3c1"]
-[ext_resource type="Texture2D" uid="uid://0vghit7jckp" path="res://Arte/decos mazmorra01.png" id="3_p2f7i"]
-[ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="4_hwbjo"]
-[ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_bgo2b"]
-[ext_resource type="Script" uid="uid://cfxblolm5tfen" path="res://Script/denuevo desde jefe.gd" id="6_rr2wf"]
-[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="7_5w5lu"]
+[ext_resource type="Script" uid="uid://c8tt1og2l618l" path="res://Script/LimiteCamara.gd" id="1_koskg"]
+[ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="2_jq62x"]
+[ext_resource type="Texture2D" uid="uid://0vghit7jckp" path="res://Arte/decos mazmorra01.png" id="3_63ui2"]
+[ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="4_14nrf"]
+[ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_svmeu"]
+[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="6_771o8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1tcwj"]
-texture = ExtResource("2_tk3c1")
+texture = ExtResource("2_jq62x")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -291,7 +290,7 @@ texture_region_size = Vector2i(32, 32)
 21:19/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e603d"]
-texture = ExtResource("3_p2f7i")
+texture = ExtResource("3_63ui2")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -348,7 +347,7 @@ radius = 29.943054
 height = 197.96985
 
 [node name="Node2D" type="Node2D" unique_id=353785808]
-script = ExtResource("1_oy26k")
+script = ExtResource("1_koskg")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1329406033]
 tile_set = SubResource("TileSet_50bj3")
@@ -363,7 +362,7 @@ layer_3/name = "Pilares"
 layer_3/tile_data = PackedInt32Array(720908, 1441792, 11, 655372, 1441792, 10, 589836, 1441792, 9, 720909, 1441792, 11, 655373, 1441792, 10, 589837, 1441792, 9, 720916, 1441792, 11, 655380, 1441792, 10, 589844, 1441792, 9, 720917, 1441792, 11, 655381, 1441792, 10, 589845, 1441792, 9, 655383, 1441792, 11, 589847, 1441792, 10, 524311, 1441792, 9, 655384, 1441792, 11, 589848, 1441792, 10, 524312, 1441792, 9, 655385, 1441792, 11, 589849, 1441792, 10, 524313, 1441792, 9, 655370, 1441792, 11, 589834, 1441792, 10, 524298, 1441792, 9, 655369, 1441792, 11, 589833, 1441792, 10, 524297, 1441792, 9, 655368, 1441792, 11, 589832, 1441792, 10, 524296, 1441792, 9, 589831, 1441792, 11, 524295, 1441792, 10, 458759, 1441792, 9, 589830, 1441792, 11, 524294, 1441792, 10, 458758, 1441792, 9, 589829, 1441792, 11, 524293, 1441792, 10, 458757, 1441792, 9, 589850, 1441792, 11, 524314, 1441792, 10, 458778, 1441792, 9, 589851, 1441792, 11, 524315, 1441792, 10, 458779, 1441792, 9, 589852, 1441792, 11, 524316, 1441792, 10, 458780, 1441792, 9, 524292, 1441792, 11, 458756, 1441792, 10, 393220, 1441792, 11, 327684, 1441792, 10, 262148, 1441792, 11, 196612, 1441792, 10, 131076, 1441792, 11, 65540, 1441792, 10, 4, 1441792, 11, -65532, 1441792, 10, -131068, 1441792, 11, -196604, 1441792, 10, -262140, 1441792, 9, 524317, 1441792, 11, 458781, 1441792, 10, 393245, 1441792, 11, 327709, 1441792, 10, 262173, 1441792, 11, 196637, 1441792, 10, 131101, 1441792, 11, 65565, 1441792, 10, 29, 1441792, 11, -65507, 1441792, 10, -131043, 1441792, 11, -196579, 1441792, 10, -262115, 1441792, 9, -262139, 1441792, 11, -327675, 1441792, 10, -393211, 1441792, 9, -393210, 1441792, 11, -458746, 1441792, 10, -524282, 1441792, 9, -524281, 1441792, 11, -589817, 1441792, 10, -655353, 1441792, 9, -262116, 1441792, 11, -327652, 1441792, 10, -393188, 1441792, 9, -393189, 1441792, 11, -458725, 1441792, 10, -524261, 1441792, 9, -524262, 1441792, 11, -589798, 1441792, 10, -655334, 1441792, 9, -589815, 1441792, 11, -655351, 1441792, 10, -720887, 1441792, 9, -589813, 1441792, 11, -655349, 1441792, 10, -720885, 1441792, 9, -589814, 1441792, 11, -655350, 1441792, 10, -720886, 1441792, 9, -589800, 1441792, 11, -655336, 1441792, 10, -720872, 1441792, 9, -589802, 1441792, 11, -655338, 1441792, 10, -720874, 1441792, 9, -589801, 1441792, 11, -655337, 1441792, 10, -720873, 1441792, 9)
 layer_4/name = "nashei"
 
-[node name="Player" parent="." unique_id=824008184 instance=ExtResource("4_hwbjo")]
+[node name="Player" parent="." unique_id=824008184 instance=ExtResource("4_14nrf")]
 position = Vector2(552, 426)
 
 [node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=1803485110]
@@ -372,17 +371,16 @@ offset_top = -320.0
 offset_right = 1165.0
 offset_bottom = 641.0
 
-[node name="barra de vida" parent="LimitedeCamara" unique_id=974127007 instance=ExtResource("5_bgo2b")]
+[node name="barra de vida" parent="LimitedeCamara" unique_id=974127007 instance=ExtResource("5_svmeu")]
 
 [node name="Area2D" type="Area2D" parent="LimitedeCamara" unique_id=253005322]
 position = Vector2(1, 5)
-script = ExtResource("6_rr2wf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LimitedeCamara/Area2D" unique_id=1760599032]
 position = Vector2(616, 984)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_l8e1q")
 
-[node name="Inventario_hud" parent="." unique_id=1849380305 instance=ExtResource("7_5w5lu")]
+[node name="Inventario_hud" parent="." unique_id=1849380305 instance=ExtResource("6_771o8")]
 
 [connection signal="body_entered" from="LimitedeCamara/Area2D" to="LimitedeCamara/Area2D" method="_on_body_entered"]

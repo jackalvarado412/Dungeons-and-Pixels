@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_q88mn"]
 [ext_resource type="Script" uid="uid://dkuln0ac8o1ty" path="res://Escenas/Mundos/Corruptos/TPOgresaAGranpasillo.gd" id="5_qm7rl"]
 [ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="6_gig1b"]
+[ext_resource type="Script" uid="uid://byryaggy1orbc" path="res://Escenas/Mundos/Corruptos/zonapozo.gd" id="6_yyk48"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6vdy0"]
 texture = ExtResource("1_5mljl")
@@ -315,8 +316,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_6vdy0")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yyk48"]
-radius = 21.0
-height = 106.0
+radius = 30.0
+height = 74.0
 
 [node name="OgresaEncuentroBug" type="Node2D" unique_id=1368174560]
 position = Vector2(-489, 18)
@@ -331,9 +332,6 @@ layer_1/tile_data = PackedInt32Array(1179680, 1179648, 17, 1179679, 1179648, 17,
 layer_2/name = "Bugs"
 layer_2/tile_data = PackedInt32Array(1048583, 1114112, 19, 655375, 1114112, 19, 917526, 1114112, 19, 589852, 1114112, 19, 458774, 1114112, 19, 851993, 1114112, 19, 983068, 1114112, 19, 589848, 1114112, 19, 851987, 1179648, 19, 524306, 1179648, 19, 786436, 1179648, 19, 983056, 1179648, 19, 458763, 1179648, 19, 262152, 1179648, 19, 65551, 1179648, 19, 131103, 1179648, 19, 458782, 1179648, 19)
 
-[node name="Player" parent="." unique_id=824008184 instance=ExtResource("2_nuw1u")]
-position = Vector2(582, 583)
-
 [node name="Ogresa" parent="." unique_id=829921399 instance=ExtResource("3_nuw1u")]
 
 [node name="Ogresa enemigo" parent="." unique_id=1821182143 instance=ExtResource("4_6vdy0")]
@@ -343,7 +341,17 @@ position = Vector2(248, 6)
 position = Vector2(736, 17)
 
 [node name="Ogresa enemigo3" parent="." unique_id=250508857 instance=ExtResource("4_6vdy0")]
-position = Vector2(493, 306)
+position = Vector2(497, 306)
+
+[node name="Player" parent="." unique_id=824008184 instance=ExtResource("2_nuw1u")]
+position = Vector2(584, 540)
+
+[node name="Area2D3" type="Area2D" parent="." unique_id=481889446]
+script = ExtResource("6_yyk48")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=1881770815]
+position = Vector2(575, 598)
+shape = SubResource("CapsuleShape2D_yyk48")
 
 [node name="Area2D2" type="Area2D" parent="." unique_id=168186876]
 script = ExtResource("5_qm7rl")
@@ -356,4 +364,5 @@ shape = SubResource("CapsuleShape2D_yyk48")
 
 [node name="Inventario_hud" parent="barra de vida" unique_id=1849380305 instance=ExtResource("6_gig1b")]
 
+[connection signal="body_entered" from="Area2D3" to="Area2D3" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

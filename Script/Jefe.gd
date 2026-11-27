@@ -6,7 +6,7 @@ enum Estado {
 	EMBESTIDA,
 	ATURDIDO
 }
-
+var ya_murio: bool = false
 @export var vida_maxima: int = 300
 var vida: int
 @export var velocidad_persecucion: float = 90.0
@@ -135,22 +135,32 @@ func recibir_daño(cantidad: int) -> void:
 		morir()
 
 func morir() -> void:
+	if ya_murio:
+		return
+
+	ya_murio = true
+
 	print("¡JEFE DERROTADO!")
+
+	GameState.agregar_monedas(10)
+	print("¡Recompensa de jefe! +10 monedas")
+
 	set_physics_process(false)
 	velocity = Vector2.ZERO
 	GameState.nivel_reparado = true
-	
+
 	hide()
+
 	if has_node("CollisionShape2D"):
 		$CollisionShape2D.set_deferred("disabled", true)
-	
+
 	await sacudir_camara(1.5, 12.0)
-	
+
 	get_tree().call_deferred(
 		"change_scene_to_file",
 		"res://Escenas/Mundos/normales/Jefe Normal.tscn"
 	)
-
+	
 func sacudir_camara(duracion: float, intensidad: float) -> void:
 	var camara = get_viewport().get_camera_2d()
 	if not camara:

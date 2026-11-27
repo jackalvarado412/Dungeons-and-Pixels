@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b4t2h80j2p2bu"]
 
-[ext_resource type="Script" uid="uid://trwxnnalk6hv" path="res://ogresa_enemigo.gd" id="1_dbaxy"]
+[ext_resource type="Script" uid="uid://trwxnnalk6hv" path="res://Escenas/ogresa_enemigo.gd" id="1_dbaxy"]
 [ext_resource type="Texture2D" uid="uid://b2mkp8qfpqyde" path="res://Arte/enemigo bug1.png" id="2_ugxxl"]
 [ext_resource type="Texture2D" uid="uid://b8nfy80ojv26n" path="res://Arte/enemigo bug2.png" id="3_i46wj"]
 [ext_resource type="Texture2D" uid="uid://d3owjae74ej61" path="res://Arte/enemigo bug3.png" id="4_cra20"]

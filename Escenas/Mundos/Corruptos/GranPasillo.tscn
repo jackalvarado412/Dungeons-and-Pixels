@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="2_a2p42"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="3_gx01n"]
 [ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="4_4ge0d"]
-[ext_resource type="Script" uid="uid://7t4brog1auom" path="res://Escenas/Mundos/Corruptos/Area2 gran pasillo zona 3.gd" id="5_a2p42"]
-[ext_resource type="Script" uid="uid://bxex47km3dsn1" path="res://Script/Movimientos/VolverAlInicioArriba.gd" id="6_f7p2r"]
+[ext_resource type="Script" uid="uid://c5f3ed4efxs55" path="res://Escenas/Mundos/Corruptos/ZonaOgresa.gd" id="6_a2p42"]
+[ext_resource type="Script" uid="uid://vqidcc5uccjd" path="res://Cuarta zona a tercera zona.gd" id="6_gx01n"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="7_gn1ls"]
 [ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="8_a2p42"]
 
@@ -314,7 +314,7 @@ sources/0 = SubResource("TileSetAtlasSource_jw3ma")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6555k"]
 radius = 21.0
-height = 106.0
+height = 162.0
 
 [node name="Node2D" type="Node2D" unique_id=353785808]
 script = ExtResource("1_e28ce")
@@ -336,7 +336,7 @@ offset_right = 797.0
 offset_bottom = 675.0
 
 [node name="Player" parent="." unique_id=824008184 instance=ExtResource("3_gx01n")]
-position = Vector2(542, 641)
+position = Vector2(537, 618)
 
 [node name="Enemigo" parent="." unique_id=1821182143 instance=ExtResource("4_4ge0d")]
 position = Vector2(389, -173)
@@ -354,27 +354,28 @@ position = Vector2(388, 216)
 position = Vector2(608, 14)
 
 [node name="Enemigo6" parent="." unique_id=1639894426 instance=ExtResource("4_4ge0d")]
-position = Vector2(619, 333)
+position = Vector2(612, 318)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1237462451]
-script = ExtResource("5_a2p42")
+[node name="Area2D3" type="Area2D" parent="." unique_id=1332353355]
+script = ExtResource("6_a2p42")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=830333964]
-position = Vector2(530, -786)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=187787193]
+position = Vector2(526, 711)
 shape = SubResource("CapsuleShape2D_6555k")
 
 [node name="Area2D2" type="Area2D" parent="." unique_id=420582922]
-script = ExtResource("6_f7p2r")
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("6_gx01n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1778017201]
-position = Vector2(526, 691)
+position = Vector2(527, -759)
 shape = SubResource("CapsuleShape2D_6555k")
 
 [node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("7_gn1ls")]
 
 [node name="Inventario_hud" parent="barra de vida" unique_id=1849380305 instance=ExtResource("8_a2p42")]
 
-[connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D3" to="Area2D3" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Player" method="_on_area_2d_2_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

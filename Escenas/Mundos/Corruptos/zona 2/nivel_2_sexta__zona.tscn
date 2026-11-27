@@ -1,15 +1,17 @@
 [gd_scene format=3 uid="uid://cnbl4wikrw1ax"]
 
-[ext_resource type="Script" uid="uid://c8tt1og2l618l" path="res://Script/LimiteCamara.gd" id="1_fwssa"]
-[ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="2_l2dsm"]
-[ext_resource type="Texture2D" uid="uid://0vghit7jckp" path="res://Arte/decos mazmorra01.png" id="3_fphdv"]
-[ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="4_o6pv7"]
-[ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="6_r2yhr"]
-[ext_resource type="PackedScene" uid="uid://cxmdkij3qpfnc" path="res://Escenas/ITEMS/MemoriaRAM.tscn" id="7_fwssa"]
-[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="7_t08ws"]
+[ext_resource type="Script" uid="uid://c8tt1og2l618l" path="res://Script/LimiteCamara.gd" id="1_46ehk"]
+[ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="2_vk2u0"]
+[ext_resource type="Texture2D" uid="uid://0vghit7jckp" path="res://Arte/decos mazmorra01.png" id="3_tpqd5"]
+[ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="4_oitv3"]
+[ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_lh0br"]
+[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="6_egfcs"]
+[ext_resource type="PackedScene" uid="uid://cxmdkij3qpfnc" path="res://Escenas/ITEMS/MemoriaRAM.tscn" id="7_3kwpx"]
+[ext_resource type="Script" uid="uid://bu67t3w7kr7f6" path="res://Escenas/Mundos/Corruptos/zona 2/7.2.gd" id="8_sfei5"]
+[ext_resource type="Script" uid="uid://e40mngqfswys" path="res://cuarta zona A Quinta.gd" id="9_b5vso"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nkapo"]
-texture = ExtResource("2_l2dsm")
+texture = ExtResource("2_vk2u0")
 texture_region_size = Vector2i(32, 32)
 25:0/0 = 0
 26:0/0 = 0
@@ -874,7 +876,7 @@ texture_region_size = Vector2i(32, 32)
 16:8/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3rc64"]
-texture = ExtResource("3_fphdv")
+texture = ExtResource("3_tpqd5")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -925,8 +927,16 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_nkapo")
 sources/1 = SubResource("TileSetAtlasSource_3rc64")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x4ihi"]
+radius = 21.0
+height = 122.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s3674"]
+radius = 23.0
+height = 118.0
+
 [node name="Nivel 2 sexta  zona" type="Node2D" unique_id=1642583362]
-script = ExtResource("1_fwssa")
+script = ExtResource("1_46ehk")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1285318310]
 tile_set = SubResource("TileSet_lq6jq")
@@ -942,29 +952,46 @@ layer_3/tile_data = PackedInt32Array(589868, 1572864, 9, 655404, 1572864, 10, 72
 layer_4/name = "ObjetosL"
 layer_4/tile_data = PackedInt32Array(1048601, 65537, 2, 1048600, 65537, 2)
 
-[node name="Player" parent="." unique_id=824008184 instance=ExtResource("4_o6pv7")]
+[node name="Player" parent="." unique_id=824008184 instance=ExtResource("4_oitv3")]
 position = Vector2(583, 459)
 
 [node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=429693507]
-offset_left = 288.0
-offset_top = -8.0
-offset_right = 1454.0
-offset_bottom = 548.0
+offset_left = 281.0
+offset_top = -9.0
+offset_right = 1464.0
+offset_bottom = 568.0
 
-[node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("6_r2yhr")]
-visible = false
+[node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("5_lh0br")]
 
-[node name="Inventario_hud" parent="." unique_id=1849380305 instance=ExtResource("7_t08ws")]
-visible = false
+[node name="Inventario_hud" parent="." unique_id=1849380305 instance=ExtResource("6_egfcs")]
 
-[node name="ItemRecolectable" parent="." unique_id=524872158 instance=ExtResource("7_fwssa")]
+[node name="ItemRecolectable" parent="." unique_id=524872158 instance=ExtResource("7_3kwpx")]
 position = Vector2(1338, 306)
 
-[node name="ItemRecolectable" parent="ItemRecolectable" unique_id=1433683176 instance=ExtResource("7_fwssa")]
+[node name="ItemRecolectable" parent="ItemRecolectable" unique_id=1433683176 instance=ExtResource("7_3kwpx")]
 position = Vector2(-4, -151)
 
-[node name="ItemRecolectable2" parent="." unique_id=2141078901 instance=ExtResource("7_fwssa")]
+[node name="ItemRecolectable2" parent="." unique_id=2141078901 instance=ExtResource("7_3kwpx")]
 position = Vector2(461, -37)
 
-[node name="ItemRecolectable" parent="ItemRecolectable2" unique_id=137620213 instance=ExtResource("7_fwssa")]
+[node name="ItemRecolectable" parent="ItemRecolectable2" unique_id=137620213 instance=ExtResource("7_3kwpx")]
 position = Vector2(594, 8)
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1856239719]
+script = ExtResource("8_sfei5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=559918215]
+position = Vector2(802, -3)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_x4ihi")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1539546532]
+script = ExtResource("9_b5vso")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=350706978]
+position = Vector2(284, 291)
+rotation = 3.1415927
+shape = SubResource("CapsuleShape2D_s3674")
+
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

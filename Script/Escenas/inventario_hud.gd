@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+@onready var monedas_label: Label = $ContadorMonedas/MonedasLabel
+
 const ESCENA_SLOT = preload("res://Script/Escenas/slot_inventario.tscn")
 
 @onready var cuadricula: HBoxContainer = $ContenedorHud/CuadriculaHUD
@@ -7,6 +9,8 @@ const ESCENA_SLOT = preload("res://Script/Escenas/slot_inventario.tscn")
 var slots_ui: Array = []
 
 func _ready() -> void:
+	GameState.monedas_cambiaron.connect(actualizar_monedas)
+	actualizar_monedas()
 	crear_cuadricula()
 	if GameState.has_signal("inventario_cambiado") and not GameState.inventario_cambiado.is_connected(refrescar_inventario):
 		GameState.inventario_cambiado.connect(refrescar_inventario)
@@ -40,3 +44,5 @@ func _on_slot_clickeado(indice: int) -> void:
 		jugador.vida = GameState.vida_actual
 		jugador.pociones = GameState.pociones
 		jugador.actualizar_barra_vida()
+func actualizar_monedas() -> void:
+	monedas_label.text = str(GameState.monedas)

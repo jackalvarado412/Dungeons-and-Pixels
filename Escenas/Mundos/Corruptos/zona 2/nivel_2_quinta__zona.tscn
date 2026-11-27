@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://cw0nsk2im86mj"]
 
-[ext_resource type="Script" uid="uid://c8tt1og2l618l" path="res://Script/LimiteCamara.gd" id="1_k41yd"]
-[ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="2_wvnpt"]
-[ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="3_01hgd"]
-[ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_wse72"]
-[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="6_42xge"]
-[ext_resource type="PackedScene" uid="uid://cxmdkij3qpfnc" path="res://Escenas/ITEMS/MemoriaRAM.tscn" id="6_k41yd"]
+[ext_resource type="Script" uid="uid://c8tt1og2l618l" path="res://Script/LimiteCamara.gd" id="1_vplx7"]
+[ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="2_4veyr"]
+[ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="3_8hs11"]
+[ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="4_ru576"]
+[ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="5_ti2gm"]
+[ext_resource type="PackedScene" uid="uid://cxmdkij3qpfnc" path="res://Escenas/ITEMS/MemoriaRAM.tscn" id="6_yxdbv"]
+[ext_resource type="Script" uid="uid://jka61d1nniwg" path="res://Escenas/Mundos/Corruptos/zona 2/zona6.2.gd" id="7_8hs11"]
+[ext_resource type="Script" uid="uid://inbn282r7jap" path="res://Escenas/Mundos/Corruptos/zona 2/zona4.2.gd" id="8_ru576"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ifl8c"]
-texture = ExtResource("2_wvnpt")
+texture = ExtResource("2_4veyr")
 texture_region_size = Vector2i(32, 32)
 25:0/0 = 0
 26:0/0 = 0
@@ -877,8 +879,16 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ifl8c")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ti2gm"]
+radius = 21.0
+height = 86.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yxdbv"]
+radius = 23.0
+height = 101.99994
+
 [node name="Nivel 2 Quinta  zona" type="Node2D" unique_id=1642583362]
-script = ExtResource("1_k41yd")
+script = ExtResource("1_vplx7")
 metadata/_edit_horizontal_guides_ = [-142.0]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1285318310]
@@ -893,7 +903,7 @@ layer_2/tile_data = PackedInt32Array(851986, 1376256, 19, 1048594, 1376256, 19, 
 layer_3/name = "Pilares"
 layer_3/tile_data = PackedInt32Array(589868, 1572864, 9, 655404, 1572864, 10, 720940, 1572864, 11, 262188, 1572864, 9, 327724, 1572864, 10, 393260, 1572864, 11)
 
-[node name="Player" parent="." unique_id=824008184 instance=ExtResource("3_01hgd")]
+[node name="Player" parent="." unique_id=824008184 instance=ExtResource("3_8hs11")]
 position = Vector2(583, 459)
 
 [node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=429693507]
@@ -902,14 +912,31 @@ offset_top = -8.0
 offset_right = 1441.0
 offset_bottom = 548.0
 
-[node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("5_wse72")]
-visible = false
+[node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("4_ru576")]
 
-[node name="Inventario_hud" parent="." unique_id=1849380305 instance=ExtResource("6_42xge")]
-visible = false
+[node name="Inventario_hud" parent="." unique_id=1849380305 instance=ExtResource("5_ti2gm")]
 
-[node name="ItemRecolectable" parent="." unique_id=524872158 instance=ExtResource("6_k41yd")]
+[node name="ItemRecolectable" parent="." unique_id=524872158 instance=ExtResource("6_yxdbv")]
 position = Vector2(1338, 313)
 
-[node name="ItemRecolectable" parent="ItemRecolectable" unique_id=2031957683 instance=ExtResource("6_k41yd")]
+[node name="ItemRecolectable" parent="ItemRecolectable" unique_id=2031957683 instance=ExtResource("6_yxdbv")]
 position = Vector2(4, -170)
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=2103355701]
+script = ExtResource("7_8hs11")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=912830338]
+position = Vector2(1431, 263)
+rotation = 3.1415927
+shape = SubResource("CapsuleShape2D_ti2gm")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1560901639]
+script = ExtResource("8_ru576")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1153554678]
+position = Vector2(561, 549)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_yxdbv")
+
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
