@@ -45,3 +45,14 @@ offset_bottom = 35.0
 theme_override_colors/font_color = Color(0.68151265, 0.026911419, 0.16876167, 1)
 value = 100.0
 show_percentage = false
+
+[node name="Indicacion" type="Label" parent="CharacterBody2D"]
+visible = false
+offset_left = -48.0
+offset_top = -78.0
+offset_right = 48.0
+offset_bottom = -54.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "[E] Hablar"
+horizontal_alignment = 1

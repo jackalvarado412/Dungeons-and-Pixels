@@ -10,10 +10,6 @@ var vida := 50
 var daño := 10
 var puede_atacar := true
 func _ready():
-	if GameState.enemigo_ya_derrotado(self):
-		queue_free()
-		return
-
 	add_to_group("Enemigo")
 func _physics_process(delta):
 	if player_chase and is_instance_valid(player):
@@ -44,11 +40,8 @@ func recibir_daño(cantidad):
 	print("Vida enemigo:", vida)
 
 	if vida <= 0:
-		GameState.registrar_enemigo_derrotado(self)
 		GameState.agregar_monedas(1)
-
 		print("¡Enemigo derrotado! +1 moneda")
-
 		queue_free()
 # ATAQUE AL JUGADOR
 func atacar_jugador():

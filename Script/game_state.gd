@@ -6,42 +6,68 @@ var vida_maxima: int = 100
 var vida_actual: int = 100
 var pociones: int = 0
 signal monedas_cambiaron
-var monedas: int = 0
-# Registro global de enemigos derrotados
-var enemigos_derrotados: Dictionary = {}
+signal mejoras_cambiaron
 
-# Progreso permanente de Claud durante la partida
+var monedas: int = 0
+
+# Mejoras permanentes de Claud. Los precios aumentan por nivel.
+const MEJORAS_CLAUD := {
+	"vida": {"precio": 20, "incremento": 10, "max_nivel": 5},
+	"danio": {"precio": 30, "incremento": 5, "max_nivel": 5},
+	"velocidad": {"precio": 25, "incremento": 10, "max_nivel": 5}
+}
+
+var niveles_mejoras: Dictionary = {
+	"vida": 0,
+	"danio": 0,
+	"velocidad": 0
+}
+var bono_danio: int = 0
+var bono_velocidad: int = 0
+
+# Progreso del encuentro con Claud durante la partida.
 var claud_invitacion_mostrada: bool = false
 var claud_presentacion_hecha: bool = false
 var claud_conversacion: int = 1
 
-func obtener_id_enemigo(enemigo: Node) -> String:
-	var escena = get_tree().current_scene
 
-	if escena == null:
-		return ""
+func obtener_precio_mejora(tipo: String) -> int:
+	if not MEJORAS_CLAUD.has(tipo):
+		return -1
+	var configuracion: Dictionary = MEJORAS_CLAUD[tipo]
+	var nivel: int = int(niveles_mejoras.get(tipo, 0))
+	if nivel >= int(configuracion["max_nivel"]):
+		return -1
+	return int(configuracion["precio"]) * (nivel + 1)
 
-	return escena.scene_file_path + "::" + str(enemigo.get_path())
 
-
-func enemigo_ya_derrotado(enemigo: Node) -> bool:
-	var id = obtener_id_enemigo(enemigo)
-
-	if id.is_empty():
+func comprar_mejora(tipo: String) -> bool:
+	var precio := obtener_precio_mejora(tipo)
+	if precio < 0 or monedas < precio:
 		return false
 
-	return enemigos_derrotados.has(id)
+	var configuracion: Dictionary = MEJORAS_CLAUD[tipo]
+	monedas -= precio
+	niveles_mejoras[tipo] = int(niveles_mejoras.get(tipo, 0)) + 1
 
+	match tipo:
+		"vida":
+			vida_maxima += int(configuracion["incremento"])
+			vida_actual = min(vida_actual + int(configuracion["incremento"]), vida_maxima)
+		"danio":
+			bono_danio += int(configuracion["incremento"])
+		"velocidad":
+			bono_velocidad += int(configuracion["incremento"])
 
-func registrar_enemigo_derrotado(enemigo: Node) -> void:
-	var id = obtener_id_enemigo(enemigo)
+	monedas_cambiaron.emit()
+	mejoras_cambiaron.emit()
 
-	if id.is_empty():
-		return
+	var jugador = get_tree().get_first_node_in_group("Jugador")
+	if is_instance_valid(jugador) and jugador.has_method("aplicar_mejoras_game_state"):
+		jugador.aplicar_mejoras_game_state()
 
-	enemigos_derrotados[id] = true
-
-	print("Enemigo registrado como derrotado: ", id)
+	print("Mejora comprada: ", tipo, " | monedas restantes: ", monedas)
+	return true
 func agregar_monedas(cantidad: int = 1) -> void:
 	if cantidad <= 0:
 		return
@@ -68,16 +94,21 @@ func inicializar_inventario() -> void:
 		slots_inventario.fill(null)
 
 func iniciar_partida() -> void:
+	monedas = 0
+	nivel_reparado = false
+	vida_maxima = 100
+	vida_actual = vida_maxima
+	pociones = 0
+	bono_danio = 0
+	bono_velocidad = 0
+	niveles_mejoras = {"vida": 0, "danio": 0, "velocidad": 0}
 	claud_invitacion_mostrada = false
 	claud_presentacion_hecha = false
 	claud_conversacion = 1
-	enemigos_derrotados.clear()
-	monedas = 0
-	nivel_reparado = false
-	vida_actual = vida_maxima
-	pociones = 0
 	inicializar_inventario()
 	slots_inventario.fill(null)
+	monedas_cambiaron.emit()
+	mejoras_cambiaron.emit()
 
 func agregar_item(nombre: String, icono: Texture2D, cantidad: int = 1, apilable: bool = true) -> bool:
 	if icono == null:
