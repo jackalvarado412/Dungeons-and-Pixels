@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://yq28eoahfdtq"
+path="res://.godot/imported/Copia de Dicen que..ogg-4b852e5d60d466349a3106e2f4c65a94.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sonido/elfi/Copia de Dicen que..ogg"
+dest_files=["res://.godot/imported/Copia de Dicen que..ogg-4b852e5d60d466349a3106e2f4c65a94.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

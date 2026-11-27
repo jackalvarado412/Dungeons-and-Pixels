@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b08ebcx5vdm14"
+path="res://.godot/imported/Copia de Espero que ahora..ogg-bae41ea8e2b48d28a871f59b385cb3ce.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sonido/elfi/Copia de Espero que ahora..ogg"
+dest_files=["res://.godot/imported/Copia de Espero que ahora..ogg-bae41ea8e2b48d28a871f59b385cb3ce.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

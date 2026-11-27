@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://8drgud7b6mv4"
+path="res://.godot/imported/Copia de Gracias por salvarme.ogg-c24490b34aee75d144b2a3c7bf73bdc2.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sonido/elfi/Copia de Gracias por salvarme.ogg"
+dest_files=["res://.godot/imported/Copia de Gracias por salvarme.ogg-c24490b34aee75d144b2a3c7bf73bdc2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

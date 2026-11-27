@@ -8,6 +8,9 @@
 [ext_resource type="Script" uid="uid://inbn282r7jap" path="res://Escenas/Mundos/Corruptos/zona 2/zona4.2.gd" id="5_vun7f"]
 [ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="6_62qiv"]
 
+[ext_resource type="PackedScene" uid="uid://bbybir4bowubj" path="res://Escenas/ITEMS/MONEDA.tscn" id="z2_coin"]
+[ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="z2_enemy"]
+[ext_resource type="PackedScene" uid="uid://cxmdkij3qpfnc" path="res://Escenas/ITEMS/MemoriaRAM.tscn" id="z2_ram"]
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ifl8c"]
 texture = ExtResource("2_vun7f")
 texture_region_size = Vector2i(32, 32)
@@ -932,3 +935,15 @@ offset_bottom = 543.0
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+
+[node name="EnemigoZona2A" parent="." instance=ExtResource("z2_enemy")]
+position = Vector2(320, 160)
+
+[node name="EnemigoZona2B" parent="." instance=ExtResource("z2_enemy")]
+position = Vector2(896, 288)
+
+[node name="RAMZona2" parent="." instance=ExtResource("z2_ram")]
+position = Vector2(560, 150)
+
+[node name="MonedaZona2" parent="." instance=ExtResource("z2_coin")]
+position = Vector2(930, 320)

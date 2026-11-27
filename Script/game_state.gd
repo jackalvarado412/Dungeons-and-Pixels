@@ -30,6 +30,31 @@ var claud_invitacion_mostrada: bool = false
 var claud_presentacion_hecha: bool = false
 var claud_conversacion: int = 1
 
+# Registro persistente de enemigos derrotados durante la partida.
+# La clave combina la escena y la ruta del nodo para distinguir enemigos.
+var enemigos_derrotados: Dictionary = {}
+
+
+func _clave_enemigo(enemigo: Node) -> String:
+	var escena_actual: Node = enemigo.owner
+	if escena_actual == null:
+		escena_actual = get_tree().current_scene
+	if escena_actual == null or escena_actual.scene_file_path.is_empty():
+		return ""
+	return escena_actual.scene_file_path + "::" + str(escena_actual.get_path_to(enemigo))
+
+
+func enemigo_ya_derrotado(enemigo: Node) -> bool:
+	var clave := _clave_enemigo(enemigo)
+	return not clave.is_empty() and enemigos_derrotados.has(clave)
+
+
+func registrar_enemigo_derrotado(enemigo: Node) -> void:
+	var clave := _clave_enemigo(enemigo)
+	if clave.is_empty():
+		return
+	enemigos_derrotados[clave] = true
+
 
 func obtener_precio_mejora(tipo: String) -> int:
 	if not MEJORAS_CLAUD.has(tipo):
@@ -105,6 +130,7 @@ func iniciar_partida() -> void:
 	claud_invitacion_mostrada = false
 	claud_presentacion_hecha = false
 	claud_conversacion = 1
+	enemigos_derrotados.clear()
 	inicializar_inventario()
 	slots_inventario.fill(null)
 	monedas_cambiaron.emit()

@@ -8,6 +8,9 @@
 [ext_resource type="Script" uid="uid://e40mngqfswys" path="res://cuarta zona A Quinta.gd" id="6_cbl4f"]
 [ext_resource type="Script" uid="uid://vqidcc5uccjd" path="res://Cuarta zona a tercera zona.gd" id="7_yevyr"]
 
+[ext_resource type="PackedScene" uid="uid://bbybir4bowubj" path="res://Escenas/ITEMS/MONEDA.tscn" id="z2_coin"]
+[ext_resource type="PackedScene" uid="uid://bjsl5i6hkw2d0" path="res://Escenas/ITEMS/DISCODURO.tscn" id="z2_disc"]
+[ext_resource type="PackedScene" uid="uid://cx488ne5o6y4e" path="res://Escenas/Personajes/enemigo.tscn" id="z2_enemy"]
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ifl8c"]
 texture = ExtResource("2_alqm1")
 texture_region_size = Vector2i(32, 32)
@@ -932,3 +935,15 @@ shape = SubResource("CapsuleShape2D_4gmgj")
 
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+
+[node name="EnemigoZona2A" parent="." instance=ExtResource("z2_enemy")]
+position = Vector2(320, 192)
+
+[node name="EnemigoZona2B" parent="." instance=ExtResource("z2_enemy")]
+position = Vector2(864, 320)
+
+[node name="DiscoZona2" parent="." instance=ExtResource("z2_disc")]
+position = Vector2(480, 160)
+
+[node name="MonedaZona2" parent="." instance=ExtResource("z2_coin")]
+position = Vector2(880, 320)
