@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://c8tt1og2l618l" path="res://Script/LimiteCamara.gd" id="1_8x6ky"]
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="2_y01si"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="3_ompvj"]
-[ext_resource type="Script" path="res://Script/VolverInicioCueva.gd" id="4_83r6d"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_chfwv"]
 [ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="6_wqsex"]
 
@@ -877,10 +876,6 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ifl8c")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k8m6v"]
-radius = 23.0
-height = 94.0
-
 [node name="Nivel 2 cuarta zona" type="Node2D" unique_id=1642583362]
 script = ExtResource("1_8x6ky")
 
@@ -899,13 +894,6 @@ layer_3/tile_data = PackedInt32Array(917511, 1572864, 9, 983047, 1572864, 10, 10
 [node name="Player" parent="." unique_id=824008184 instance=ExtResource("3_ompvj")]
 position = Vector2(583, 459)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1387207076]
-script = ExtResource("4_83r6d")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1536053047]
-position = Vector2(568, 538)
-shape = SubResource("CapsuleShape2D_k8m6v")
-
 [node name="LimitedeCamara" type="ReferenceRect" parent="." unique_id=429693507]
 visible = false
 offset_left = 13.0
@@ -916,6 +904,3 @@ offset_bottom = 1878.0
 [node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("5_chfwv")]
 
 [node name="Inventario_hud" parent="." unique_id=1849380305 instance=ExtResource("6_wqsex")]
-
-[connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

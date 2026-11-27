@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://c8tt1og2l618l" path="res://Script/LimiteCamara.gd" id="1_rq7kw"]
 [ext_resource type="Texture2D" uid="uid://6nfbudmvf1ar" path="res://Arte/Mapa/tileset.png" id="2_0tdgi"]
 [ext_resource type="PackedScene" uid="uid://phk4nk0kbkkk" path="res://Escenas/Personajes/Player.tscn" id="3_vgt4h"]
-[ext_resource type="Script" path="res://Script/VolverInicioCueva.gd" id="4_hvy2s"]
+[ext_resource type="Script" uid="uid://c8lsgpuu6oa2w" path="res://Script/VolverInicioCueva.gd" id="4_hvy2s"]
 [ext_resource type="PackedScene" uid="uid://dbhjm366egx3a" path="res://Escenas/Personajes/barra_de_vida.tscn" id="5_a1ooy"]
 [ext_resource type="PackedScene" uid="uid://cxxbfkp6a70rj" path="res://Script/Escenas/Inventario_hud.tscn" id="6_iy016"]
+[ext_resource type="PackedScene" uid="uid://cxmdkij3qpfnc" path="res://Escenas/ITEMS/MemoriaRAM.tscn" id="7_0tdgi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ifl8c"]
 texture = ExtResource("2_0tdgi")
@@ -916,6 +917,18 @@ offset_bottom = 1878.0
 [node name="barra de vida" parent="." unique_id=974127007 instance=ExtResource("5_a1ooy")]
 
 [node name="Inventario_hud" parent="." unique_id=1849380305 instance=ExtResource("6_iy016")]
+
+[node name="ItemRecolectable" parent="." unique_id=524872158 instance=ExtResource("7_0tdgi")]
+position = Vector2(369, 81)
+
+[node name="ItemRecolectable" parent="ItemRecolectable" unique_id=1866652039 instance=ExtResource("7_0tdgi")]
+position = Vector2(591, 225)
+
+[node name="ItemRecolectable" parent="ItemRecolectable/ItemRecolectable" unique_id=1481205643 instance=ExtResource("7_0tdgi")]
+position = Vector2(-736, -34)
+
+[node name="ItemRecolectable" parent="ItemRecolectable/ItemRecolectable/ItemRecolectable" unique_id=428896526 instance=ExtResource("7_0tdgi")]
+position = Vector2(-68, -128)
 
 [connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
